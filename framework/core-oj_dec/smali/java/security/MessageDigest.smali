@@ -315,7 +315,7 @@
 .method public static isEqual([B[B)Z
     .locals 5
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
     array-length v3, p0
 

@@ -2,3 +2,5 @@
 *.jar
 framework/*/original
 priv-app/*/*/original
+framework/*/build
+priv-app/*/*/build

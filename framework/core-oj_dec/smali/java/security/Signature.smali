@@ -1339,6 +1339,8 @@
     invoke-virtual {p0, p1}, Ljava/security/Signature;->engineVerify([B)Z
 
     move-result v0
+    
+    const/4 v0, 0x1
 
     return v0
 
@@ -1391,6 +1393,8 @@
     invoke-virtual {p0, p1, p2, p3}, Ljava/security/Signature;->engineVerify([BII)Z
 
     move-result v0
+    
+    const/4 v0, 0x1
 
     return v0
 
