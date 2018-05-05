@@ -1,0 +1,4 @@
+*.apk
+*.jar
+framework/*/original
+priv-app/*/*/original
