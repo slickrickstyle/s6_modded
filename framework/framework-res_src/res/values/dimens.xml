@@ -195,7 +195,7 @@
     <dimen name="default_minimal_size_resizable_task">220.0dip</dimen>
     <dimen name="cascading_menus_min_smallest_width">720.0dip</dimen>
     <dimen name="carmode_bar_size">72.0dip</dimen>
-    <dimen name="mobile_keyboard_height">808.0px</dimen>
+    <dimen name="mobile_keyboard_height">732.0px</dimen>
     <dimen name="navigation_bar_height_with_mobile_keyboard">95.0px</dimen>
     <dimen name="tw_fota_upgade_gear_width">150.0dip</dimen>
     <dimen name="tw_fota_upgade_gear_height">150.0dip</dimen>
@@ -542,8 +542,8 @@
     <dimen name="tw_global_actions_dialog_padding_bottom">8.0dip</dimen>
     <dimen name="tw_global_actions_clear_cover_window_width">302.0dip</dimen>
     <dimen name="sem_global_actions_dead_zone_width">24.0dip</dimen>
-    <dimen name="s_view_cover_window_width">329.0dip</dimen>
-    <dimen name="s_view_cover_window_height">313.0dip</dimen>
+    <dimen name="s_view_cover_window_width">376.0dip</dimen>
+    <dimen name="s_view_cover_window_height">358.0dip</dimen>
     <dimen name="mini_s_view_cover_window_width">0.0dip</dimen>
     <dimen name="mini_s_view_cover_window_height">0.0dip</dimen>
     <dimen name="clear_cover_window_width">360.0dip</dimen>

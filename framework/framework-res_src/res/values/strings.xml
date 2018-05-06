@@ -2787,4 +2787,9 @@ USB functions may be restricted while Maximum power saving mode enabled."</strin
     <item type="string" name="APKTOOL_DUMMY_91c">false</item>
     <item type="string" name="APKTOOL_DUMMY_91d">false</item>
     <item type="string" name="APKTOOL_DUMMY_91e">false</item>
+    <string name="tw_ic_lock_recovery">Recovery</string>
+    <string name="tw_ic_lock_download">Download</string>
+    <string name="tw_ic_lock_flashlight">Torchlight</string>
+    <string name="tw_ic_lock_screenshot">Screenshot</string>
+    <string name="tw_ic_lock_screen_recorder">Screen recorder</string>
 </resources>
