@@ -7179,7 +7179,7 @@
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    const-string/jumbo v9, "SEC_PRODUCT_FEATURE_COMMON_SUPPORT_COCKTAIL_FW: false"
+    const-string/jumbo v9, "SEC_PRODUCT_FEATURE_COMMON_SUPPORT_COCKTAIL_FW: true"
 
     invoke-virtual {p1, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 

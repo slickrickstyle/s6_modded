@@ -5429,6 +5429,14 @@
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
+    
+    const-string/jumbo v7, "com.android.server.cocktailbar.CocktailBarManagerService"
+    
+    invoke-virtual {v6, v7}, Lcom/android/server/SystemServiceManager;->startService(Ljava/lang/String;)Lcom/android/server/SystemService;
+    
+    move-object/from16 v0, p0
+    
+    iget-object v6, v0, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
 
     const-string/jumbo v7, "com.android.server.aod.AODManagerService"
 

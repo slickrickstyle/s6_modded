@@ -1583,7 +1583,31 @@
 .end method
 
 .method public enqueueEdgeNotification(Ljava/lang/String;Ljava/lang/String;ILandroid/os/Bundle;I)V
-    .locals 0
+    .locals 8
+
+    invoke-static {p1}, Lcom/android/server/notification/NotificationManagerService;->-wrap16(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$5;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v4
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move v5, p3
+
+    move-object v6, p4
+
+    move v7, p5
+
+    invoke-virtual/range {v0 .. v7}, Lcom/android/server/notification/NotificationManagerService;->enqueueEdgeNotificationInternal(Ljava/lang/String;Ljava/lang/String;IIILandroid/os/Bundle;I)V
 
     return-void
 .end method
@@ -3397,7 +3421,51 @@
 .end method
 
 .method public removeEdgeNotification(Ljava/lang/String;ILandroid/os/Bundle;I)V
-    .locals 0
+    .locals 7
+
+    invoke-static {p1}, Lcom/android/server/notification/NotificationManagerService;->-wrap16(Ljava/lang/String;)V
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v0
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    const-string/jumbo v5, "cancelNotificationWithTag"
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    move v2, p4
+
+    move-object v6, p1
+
+    invoke-static/range {v0 .. v6}, Landroid/app/ActivityManager;->handleIncomingUser(IIIZZLjava/lang/String;Ljava/lang/String;)I
+
+    move-result p4
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$5;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v2
+
+    move-object v3, p1
+
+    move v4, p2
+
+    move-object v5, p3
+
+    move v6, p4
+
+    invoke-virtual/range {v0 .. v6}, Lcom/android/server/notification/NotificationManagerService;->removeEdgeNotificationInternal(IILjava/lang/String;ILandroid/os/Bundle;I)V
 
     return-void
 .end method

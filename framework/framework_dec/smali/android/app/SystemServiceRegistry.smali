@@ -8,6 +8,7 @@
     value = {
         Landroid/app/SystemServiceRegistry$100;,
         Landroid/app/SystemServiceRegistry$101;,
+        Landroid/app/SystemServiceRegistry$102;,
         Landroid/app/SystemServiceRegistry$10;,
         Landroid/app/SystemServiceRegistry$11;,
         Landroid/app/SystemServiceRegistry$12;,
@@ -1237,6 +1238,16 @@
     new-instance v2, Landroid/app/SystemServiceRegistry$101;
 
     invoke-direct {v2}, Landroid/app/SystemServiceRegistry$101;-><init>()V
+    
+   invoke-static {v0, v1, v2}, Landroid/app/SystemServiceRegistry;->registerService(Ljava/lang/String;Ljava/lang/Class;Landroid/app/SystemServiceRegistry$ServiceFetcher;)V
+
+    const-string/jumbo v0, "CocktailBarService"
+
+    const-class v1, Lcom/samsung/android/cocktailbar/CocktailBarManager;
+
+    new-instance v2, Landroid/app/SystemServiceRegistry$102;
+
+    invoke-direct {v2}, Landroid/app/SystemServiceRegistry$102;-><init>()V
 
     invoke-static {v0, v1, v2}, Landroid/app/SystemServiceRegistry;->registerService(Ljava/lang/String;Ljava/lang/Class;Landroid/app/SystemServiceRegistry$ServiceFetcher;)V
 
