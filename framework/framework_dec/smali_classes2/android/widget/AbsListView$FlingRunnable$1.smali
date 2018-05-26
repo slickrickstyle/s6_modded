@@ -128,8 +128,10 @@
 
     :cond_2
     iget-object v4, p0, Landroid/widget/AbsListView$FlingRunnable$1;->this$1:Landroid/widget/AbsListView$FlingRunnable;
+    
+    const/4 v5, 0x0
 
-    invoke-virtual {v4}, Landroid/widget/AbsListView$FlingRunnable;->endFling()V
+     invoke-virtual {v4, v5}, Landroid/widget/AbsListView$FlingRunnable;->endFling(Z)V
 
     iget-object v4, p0, Landroid/widget/AbsListView$FlingRunnable$1;->this$1:Landroid/widget/AbsListView$FlingRunnable;
 

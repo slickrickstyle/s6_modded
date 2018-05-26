@@ -184,6 +184,16 @@
 .end method
 
 .method endFling()V
+     .locals 1 
+
+      const/4 v0, 0x1
+
+      invoke-virtual {p0, v0}, Landroid/widget/AbsListView$FlingRunnable;->endFling(Z)V
+
+    return-void 
+.end method
+
+.method endFling(Z)V
     .locals 3
 
     const/4 v2, 0x0
@@ -209,11 +219,14 @@
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->reportScrollStateChange(I)V
+    
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v0}, Landroid/widget/AbsListView;->-wrap8(Landroid/widget/AbsListView;)V
-
+    
+:cond_0
     iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->mScroller:Landroid/widget/OverScroller;
 
     invoke-virtual {v0}, Landroid/widget/OverScroller;->abortAnimation()V
@@ -224,7 +237,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
 
@@ -238,7 +251,7 @@
 
     invoke-static {v0, v2}, Landroid/widget/AbsListView;->-set1(Landroid/widget/AbsListView;Landroid/os/StrictMode$Span;)Landroid/os/StrictMode$Span;
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -870,7 +883,7 @@
 .end method
 
 .method start(I)V
-    .locals 9
+    .locals 10
 
     const/4 v3, 0x0
 
@@ -878,7 +891,26 @@
 
     const/4 v1, 0x0
 
-    if-gez p1, :cond_1
+    invoke-static {p1}, Ljava/lang/Math;->abs(I)I
+
+    move-result v0
+
+    iget-object v9, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
+
+    invoke-static {v9}, Landroid/widget/AbsListView;->-get45(Landroid/widget/AbsListView;)I
+
+    move-result v9
+
+    if-le v0, v9, :cond_0
+
+    iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
+
+    invoke-static {v0}, Landroid/widget/AbsListView;->-wrap8(Landroid/widget/AbsListView;)V
+
+    :cond_0
+    if-gez p1, :cond_2
+
+    if-gez p1, :cond_2
 
     move v2, v6
 
@@ -923,7 +955,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
 
@@ -935,10 +967,10 @@
 
     invoke-static {v0, v1}, Landroid/widget/AbsListView;->-set1(Landroid/widget/AbsListView;Landroid/os/StrictMode$Span;)Landroid/os/StrictMode$Span;
 
-    :cond_0
+    :cond_1
     return-void
 
-    :cond_1
+    :cond_2
     move v2, v1
 
     goto :goto_0
