@@ -23,9 +23,15 @@
 # instance fields
 .field private mAnimOffset:I
 
+.field private mBatteryBoltColor:I
+
 .field private mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
 .field private mBatteryHealth:I
+
+.field private mBatteryIconChargingColor:I
+
+.field private mBatteryIconColor:I
 
 .field private mBatteryOnline:I
 
@@ -197,6 +203,18 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/BatteryMeterDrawable;->updateShowPercent()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Lcom/android/systemui/BatteryMeterDrawable;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->setBatteryBoltColor()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->setBatteryIconColor()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->setBatteryIconChargingColor()V
 
     return-void
 .end method
@@ -374,7 +392,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
     invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->updateKnoxCustomStatusBarBatteryColours()V
 
@@ -588,7 +606,18 @@
     invoke-virtual {p1, v7}, Landroid/content/Context;->getColor(I)I
 
     move-result v7
+    
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mUseStockSBColors:Z
 
+    if-eqz v0, :cond_1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterDrawable;->setBatteryBoltColor()V
+
+    iget v7, v0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryBoltColor:I
+
+    :cond_1
     invoke-virtual {v6, v7}, Landroid/graphics/Paint;->setColor(I)V
 
     invoke-static {v5}, Lcom/android/systemui/BatteryMeterDrawable;->loadBoltPoints(Landroid/content/res/Resources;)[F
@@ -739,7 +768,7 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->length()I
 
     move-result v0
@@ -1852,12 +1881,23 @@
 
     move/from16 v31, v0
 
-    if-eqz v31, :cond_8
+    if-eqz v31, :cond_9
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mChargeColor:I
+    
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mUseStockSBColors:Z
 
+    if-eqz v0, :cond_7
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterDrawable;->setBatteryIconChargingColor()V
+
+    iget v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconChargingColor:I
+
+    :cond_7
     move/from16 v31, v0
 
     :goto_1
@@ -1871,17 +1911,17 @@
 
     move/from16 v0, v31
 
-    if-lt v15, v0, :cond_9
+    if-lt v15, v0, :cond_b
 
     const/high16 v12, 0x3f800000    # 1.0f
 
-    :cond_7
+    :cond_8
     :goto_2
     const/high16 v31, 0x3f800000    # 1.0f
 
     cmpl-float v31, v12, v31
 
-    if-nez v31, :cond_a
+    if-nez v31, :cond_c
 
     move-object/from16 v0, p0
 
@@ -2214,7 +2254,7 @@
 
     sget-boolean v31, Lcom/android/systemui/SystemUIRune;->SUPPORT_INCOMPATIBLE_CHARGER_CHECK:Z
 
-    if-eqz v31, :cond_b
+    if-eqz v31, :cond_d
 
     move-object/from16 v0, p0
 
@@ -2222,7 +2262,7 @@
 
     move/from16 v31, v0
 
-    if-nez v31, :cond_b
+    if-nez v31, :cond_d
 
     move-object/from16 v0, p0
 
@@ -2290,16 +2330,29 @@
 
     return-void
 
-    :cond_8
+    :cond_9
     move-object/from16 v0, p0
 
     invoke-direct {v0, v15}, Lcom/android/systemui/BatteryMeterDrawable;->getColorForLevel(I)I
 
     move-result v31
+    
+        sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mUseStockSBColors:Z
 
+    if-eqz v0, :cond_a
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterDrawable;->setBatteryIconColor()V
+
+    iget v4, v0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconColor:I
+
+    move/from16 v31, v4
+
+    :cond_a
     goto/16 :goto_1
 
-    :cond_9
+    :cond_b
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mCriticalLevel:I
@@ -2308,13 +2361,13 @@
 
     move/from16 v0, v31
 
-    if-gt v15, v0, :cond_7
+    if-gt v15, v0, :cond_8
 
     const/4 v12, 0x0
 
     goto/16 :goto_2
 
-    :cond_a
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mFrame:Landroid/graphics/RectF;
@@ -2347,7 +2400,7 @@
 
     goto/16 :goto_3
 
-    :cond_b
+    :cond_d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mFrame:Landroid/graphics/RectF;
@@ -2384,7 +2437,7 @@
 
     sget-boolean v31, Lcom/android/systemui/SystemUIRune;->SUPPORT_USB_TYPE_C:Z
 
-    if-eqz v31, :cond_c
+    if-eqz v31, :cond_e
 
     move-object/from16 v0, p0
 
@@ -2420,7 +2473,7 @@
 
     iput v0, v1, Lcom/android/systemui/BatteryMeterDrawable;->mPowerSupplyFrameHeight:F
 
-    :cond_c
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mFrame:Landroid/graphics/RectF;
@@ -2495,7 +2548,7 @@
 
     sget-boolean v31, Lcom/android/systemui/SystemUIRune;->SUPPORT_USB_TYPE_C:Z
 
-    if-eqz v31, :cond_14
+    if-eqz v31, :cond_16
 
     move-object/from16 v0, p0
 
@@ -2503,7 +2556,7 @@
 
     move/from16 v31, v0
 
-    if-eqz v31, :cond_14
+    if-eqz v31, :cond_16
 
     move-object/from16 v0, p0
 
@@ -2617,7 +2670,7 @@
 
     cmpl-float v31, v31, v23
 
-    if-nez v31, :cond_d
+    if-nez v31, :cond_f
 
     move-object/from16 v0, p0
 
@@ -2633,9 +2686,9 @@
 
     cmpl-float v31, v31, v25
 
-    if-eqz v31, :cond_e
+    if-eqz v31, :cond_10
 
-    :cond_d
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mPowerSupplyingFrame:Landroid/graphics/RectF;
@@ -2759,7 +2812,7 @@
 
     move/from16 v0, v31
 
-    if-ge v14, v0, :cond_12
+    if-ge v14, v0, :cond_14
 
     move-object/from16 v0, p0
 
@@ -2843,7 +2896,7 @@
 
     goto :goto_4
 
-    :cond_e
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mPowerSupplyingFrame:Landroid/graphics/RectF;
@@ -2858,7 +2911,7 @@
 
     cmpl-float v31, v31, v24
 
-    if-nez v31, :cond_d
+    if-nez v31, :cond_f
 
     move-object/from16 v0, p0
 
@@ -2874,7 +2927,7 @@
 
     cmpl-float v31, v31, v22
 
-    if-nez v31, :cond_d
+    if-nez v31, :cond_f
 
     :goto_5
     move-object/from16 v0, p0
@@ -2939,7 +2992,7 @@
 
     cmpg-float v31, v21, v31
 
-    if-gtz v31, :cond_13
+    if-gtz v31, :cond_15
 
     move-object/from16 v0, p0
 
@@ -2961,7 +3014,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    :cond_f
+    :cond_11
     :goto_6
     const/16 v17, 0x0
 
@@ -2977,7 +3030,7 @@
 
     move/from16 v31, v0
 
-    if-nez v31, :cond_11
+    if-nez v31, :cond_13
 
     move-object/from16 v0, p0
 
@@ -2985,9 +3038,9 @@
 
     move/from16 v31, v0
 
-    if-eqz v31, :cond_10
+    if-eqz v31, :cond_12
 
-    :cond_10
+    :cond_12
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mCriticalLevel:I
@@ -2996,7 +3049,7 @@
 
     move/from16 v0, v31
 
-    if-gt v15, v0, :cond_1b
+    if-gt v15, v0, :cond_1d
 
     move-object/from16 v0, p0
 
@@ -3062,11 +3115,11 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    :cond_11
+    :cond_13
     :goto_7
     return-void
 
-    :cond_12
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mPowerSupplyingPath:Landroid/graphics/Path;
@@ -3149,7 +3202,7 @@
 
     goto/16 :goto_5
 
-    :cond_13
+    :cond_15
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mShapePath:Landroid/graphics/Path;
@@ -3168,14 +3221,14 @@
 
     goto/16 :goto_6
 
-    :cond_14
+    :cond_16
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mPluggedIn:Z
 
     move/from16 v31, v0
 
-    if-eqz v31, :cond_1a
+    if-eqz v31, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -3183,11 +3236,11 @@
 
     move/from16 v31, v0
 
-    if-nez v31, :cond_15
+    if-nez v31, :cond_17
 
     sget-boolean v31, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
 
-    if-eqz v31, :cond_1a
+    if-eqz v31, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -3201,9 +3254,9 @@
 
     move/from16 v1, v32
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_1c
 
-    :cond_15
+    :cond_17
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mFrame:Landroid/graphics/RectF;
@@ -3316,7 +3369,7 @@
 
     cmpl-float v31, v31, v7
 
-    if-nez v31, :cond_16
+    if-nez v31, :cond_18
 
     move-object/from16 v0, p0
 
@@ -3332,9 +3385,9 @@
 
     cmpl-float v31, v31, v10
 
-    if-eqz v31, :cond_17
+    if-eqz v31, :cond_19
 
-    :cond_16
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mBoltFrame:Landroid/graphics/RectF;
@@ -3450,7 +3503,7 @@
 
     move/from16 v0, v31
 
-    if-ge v14, v0, :cond_18
+    if-ge v14, v0, :cond_1a
 
     move-object/from16 v0, p0
 
@@ -3534,7 +3587,7 @@
 
     goto :goto_8
 
-    :cond_17
+    :cond_19
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mBoltFrame:Landroid/graphics/RectF;
@@ -3549,7 +3602,7 @@
 
     cmpl-float v31, v31, v9
 
-    if-nez v31, :cond_16
+    if-nez v31, :cond_18
 
     move-object/from16 v0, p0
 
@@ -3565,7 +3618,7 @@
 
     cmpl-float v31, v31, v6
 
-    if-nez v31, :cond_16
+    if-nez v31, :cond_18
 
     :goto_9
     move-object/from16 v0, p0
@@ -3628,7 +3681,7 @@
 
     cmpg-float v31, v8, v31
 
-    if-gtz v31, :cond_19
+    if-gtz v31, :cond_1b
 
     move-object/from16 v0, p0
 
@@ -3653,11 +3706,11 @@
     :goto_a
     sget-boolean v31, Lcom/android/systemui/SystemUIRune;->SUPPORT_INCOMPATIBLE_CHARGER_CHECK:Z
 
-    if-nez v31, :cond_f
+    if-nez v31, :cond_11
 
     sget-boolean v31, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
 
-    if-eqz v31, :cond_f
+    if-eqz v31, :cond_11
 
     move-object/from16 v0, p0
 
@@ -3671,7 +3724,7 @@
 
     move/from16 v1, v32
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_11
 
     move-object/from16 v0, p0
 
@@ -3739,7 +3792,7 @@
 
     goto/16 :goto_6
 
-    :cond_18
+    :cond_1a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mBoltPath:Landroid/graphics/Path;
@@ -3822,7 +3875,7 @@
 
     goto/16 :goto_9
 
-    :cond_19
+    :cond_1b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mShapePath:Landroid/graphics/Path;
@@ -3841,19 +3894,19 @@
 
     goto/16 :goto_a
 
-    :cond_1a
+    :cond_1c
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mPowerSaveEnabled:Z
 
     move/from16 v31, v0
 
-    if-eqz v31, :cond_f
+    if-eqz v31, :cond_11
 
     goto/16 :goto_6
 
-    :cond_1b
-    if-eqz v17, :cond_11
+    :cond_1d
+    if-eqz v17, :cond_13
 
     move-object/from16 v0, p0
 
@@ -4071,6 +4124,28 @@
     return-void
 .end method
 
+.method setBatteryBoltColor()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "battery_bolt_color"
+
+    const v2, -0xebebec    # -1.9683E38f
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryBoltColor:I
+
+    return-void
+.end method
+
 .method public setBatteryController(Lcom/android/systemui/statusbar/policy/BatteryController;)V
     .locals 1
 
@@ -4084,6 +4159,92 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mPowerSaveEnabled:Z
 
+    return-void
+.end method
+
+.method setBatteryIconChargingColor()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "battery_icon_charging_color"
+
+    const v2, -0xfd0100
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconChargingColor:I
+
+    const-string v1, "sb_global_toggle"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string v1, "sb_global_color"
+
+    const v2, -0x1
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconChargingColor:I
+
+    :cond_0
+    return-void
+.end method
+
+.method setBatteryIconColor()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "battery_icon_color"
+
+    const/4 v2, -0x1
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconColor:I
+
+    const-string v1, "sb_global_toggle"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string v1, "sb_global_color"
+
+    const v2, -0x1
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryIconColor:I
+
+    :cond_0
     return-void
 .end method
 
@@ -4231,6 +4392,66 @@
     move-result-object v0
 
     const-string/jumbo v1, "status_bar_show_battery_percent"
+  
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    
+        move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mSettingObserver:Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string/jumbo v1, "battery_bolt_color"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mSettingObserver:Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string/jumbo v1, "battery_icon_color"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mSettingObserver:Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string/jumbo v1, "battery_icon_charging_color"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mSettingObserver:Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string/jumbo v1, "sb_global_toggle"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mSettingObserver:Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string/jumbo v1, "sb_global_color"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

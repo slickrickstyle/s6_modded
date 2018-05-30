@@ -41,6 +41,10 @@
     invoke-super {p0, p1, p2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
 
     iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;->this$0:Lcom/android/systemui/BatteryMeterDrawable;
+    
+    invoke-static {v0}, Lcom/android/systemui/BatteryMeterDrawable;->-wrap2(Lcom/android/systemui/BatteryMeterDrawable;)V
+    
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;->this$0:Lcom/android/systemui/BatteryMeterDrawable;
 
     invoke-static {v0}, Lcom/android/systemui/BatteryMeterDrawable;->-wrap1(Lcom/android/systemui/BatteryMeterDrawable;)V
 
