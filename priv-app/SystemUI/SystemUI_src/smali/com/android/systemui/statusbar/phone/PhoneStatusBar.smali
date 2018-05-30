@@ -8,6 +8,7 @@
 .implements Lcom/android/systemui/statusbar/phone/ActivityStarter;
 .implements Lcom/android/systemui/statusbar/phone/UnlockMethodCache$OnUnlockMethodChangedListener;
 .implements Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -201,6 +202,8 @@
 .field mFlashlightController:Lcom/android/systemui/statusbar/policy/FlashlightController;
 
 .field mForceKeyguardStatusBarVisible:Z
+
+.field private mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
 
 .field private final mGestureRec:Lcom/android/systemui/statusbar/GestureRecorder;
 
@@ -4659,6 +4662,66 @@
     :cond_0
     invoke-virtual {p1}, Landroid/util/ArraySet;->clear()V
 
+    return-void
+.end method
+
+.method private registerGearObserver()V
+    .locals 7
+
+    new-instance v3, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v3, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    iput-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    iget-object v3, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    
+    const-string v3, "battery_icon_type"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    invoke-virtual {v1, v4, v5, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
@@ -15720,6 +15783,10 @@
     invoke-virtual {v3, v4, v0}, Lcom/android/systemui/statusbar/phone/NaviBarForceTouchHandler;->init(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
 
     :cond_14
+    move-object/from16 v0, p0
+
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->registerGearObserver()V
+    
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateStatusBarIcons()V
 
     move-object/from16 v0, p0
@@ -16426,6 +16493,25 @@
         :pswitch_0
         :pswitch_0
     .end packed-switch
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+    
+    const-string v0, "battery_icon_type"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setBatteryTypeView()V
+
+    :cond_1
+    return-void
 .end method
 
 .method public onCoverAppCovered(Z)I
@@ -19023,6 +19109,125 @@
     invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
+.end method
+
+.method setBatteryTypeView()V
+    .locals 9
+
+    const-string v0, "stock_battery_container"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v4}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    const-string v0, "minit_battery_container"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v4}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    const-string v0, "stock_battery_container"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mKeyguardStatusBar:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
+
+    invoke-virtual {v1, v4}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    const-string v0, "minit_battery_container"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mKeyguardStatusBar:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
+
+    invoke-virtual {v1, v4}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v8
+
+    const v0, 0x1
+
+    const v1, 0x8
+
+    iget-object v4, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "battery_icon_type"
+
+    const/4 v6, 0x0
+
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    const/4 v5, 0x1
+
+    if-eq v4, v5, :cond_0
+
+    const/4 v5, 0x2
+
+    if-eq v4, v5, :cond_1
+
+    invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-virtual {v3, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-virtual {v7, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-virtual {v8, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v2, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-virtual {v3, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-virtual {v7, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-virtual {v8, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v2, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-virtual {v3, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-virtual {v7, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-virtual {v8, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :goto_0
+    return-void
 .end method
 
 .method public setBouncerShowing(Z)V
