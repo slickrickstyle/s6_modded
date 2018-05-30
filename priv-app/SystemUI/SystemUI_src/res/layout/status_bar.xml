@@ -2,6 +2,11 @@
 <com.android.systemui.statusbar.phone.PhoneStatusBarView android:orientation="vertical" android:id="@id/status_bar" android:background="@drawable/system_bar_background" android:focusable="false" android:descendantFocusability="afterDescendants"
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui">
+      <com.fmd.statusbarcolor.color android:id="@+id/dynamic_status_bar" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <View android:id="@+id/dynamic_status_bar_color" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <View android:id="@+id/dynamic_status_bar_filter" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <View android:id="@+id/dynamic_status_bar_gradient" android:background="@drawable/dynamic_status_bar_drawable_gradient" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </com.fmd.statusbarcolor.color>
     <FrameLayout android:id="@id/background" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <ImageView android:id="@id/notification_lights_out" android:paddingBottom="2.0dip" android:visibility="gone" android:layout_width="@dimen/status_bar_icon_size" android:layout_height="fill_parent" android:src="@drawable/ic_sysbar_lights_out_dot_small" android:scaleType="center" android:paddingStart="6.0dip" />
     <LinearLayout android:orientation="horizontal" android:id="@id/status_bar_contents" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/status_bar_padding_start" android:paddingEnd="@dimen/status_bar_padding_end">
