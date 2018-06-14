@@ -1407,37 +1407,23 @@
 .end method
 
 .method private shouldEnableKeyguardScreenRotation()Z
-    .locals 3
+    .locals 5
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    const-string/jumbo v1, "lockscreen.rot_override"
+    move-result-object v3
 
-    const/4 v2, 0x0
+    const-string v4, "lockscreen_rotate"
 
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const v1, 0x7f120025
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-static {v3, v4, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    :goto_0
     return v1
-
-    :cond_0
-    const/4 v1, 0x1
-
-    goto :goto_0
 .end method
 
 
@@ -1674,7 +1660,7 @@
 .end method
 
 .method public getUserActivityTimeout()J
-    .locals 6
+    .locals 9
 
     const-wide/16 v4, 0xbb8
 
@@ -1725,7 +1711,21 @@
 
     if-eqz v2, :cond_1
 
-    const-wide/16 v2, 0xfa0
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "display_timeout_delay"
+
+    const/16 v8, 0x2710
+
+    invoke-static {v6, v7, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    int-to-long v2, v6
 
     invoke-static {v2, v3, v0, v1}, Ljava/lang/Math;->min(JJ)J
 

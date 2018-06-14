@@ -20,6 +20,8 @@
 
 .field protected mNotificationIconArea:Landroid/view/View;
 
+.field private mNotificationIconColor:I
+
 .field protected mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
 
 .field private mOperatorLogoIcon:Landroid/widget/ImageView;
@@ -39,9 +41,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->setNotificationIconsColor()V
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -75,6 +75,84 @@
 
 # virtual methods
 .method protected applyNotificationIconsTint()V
+    .locals 5
+
+    const/4 v1, 0x0
+
+    :goto_0
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildCount()I
+
+    move-result v3
+
+    if-ge v1, v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+
+    invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/StatusBarIconView;
+
+    const/4 v0, 0x0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationColorUtil:Lcom/android/internal/util/NotificationColorUtil;
+
+    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/notification/NotificationUtils;->isGrayscale(Landroid/widget/ImageView;Lcom/android/internal/util/NotificationColorUtil;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mTintArea:Landroid/graphics/Rect;
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconColor:I
+
+    invoke-static {v3, v2, v4}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+
+    move-result v3
+
+    invoke-static {v3}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/StatusBarIconView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    sget-object v3, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/StatusBarIconView;->setImageTintMode(Landroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_INDICATOR_PLMN:Z
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mStatusBarCarrierLabel:Landroid/widget/TextView;
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mStatusBarCarrierLabel:Landroid/widget/TextView;
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconColor:I
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_2
+    return-void
+.end method
+
+.method protected applyNotificationIconsTint2()V
     .locals 5
 
     const/4 v1, 0x0
@@ -390,6 +468,8 @@
 
     iget v2, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
 
+    iget v2, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconColor:I
+
     invoke-static {v2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -555,8 +635,49 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->applyNotificationIconsTint()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->applyNotificationIconsTint2()V
 
+    return-void
+.end method
+
+.method setNotificationIconsColor()V
+    .locals 2
+
+    const-string v0, "notification_icon_color"
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
+
+    const-string v0, "sb_global_toggle"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "sb_global_color"
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
+
+    :cond_0
     return-void
 .end method
 

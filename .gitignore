@@ -4,3 +4,6 @@ framework/*/original
 priv-app/*/*/original
 framework/*/build
 priv-app/*/*/build
+priv-app/SystemUI/SystemUI_src/res/values-*
+ZIP
+priv-app/SystemUI/META-INF/

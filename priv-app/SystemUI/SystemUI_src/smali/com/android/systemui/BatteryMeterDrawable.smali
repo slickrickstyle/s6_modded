@@ -606,7 +606,7 @@
     invoke-virtual {p1, v7}, Landroid/content/Context;->getColor(I)I
 
     move-result v7
-    
+
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mUseStockSBColors:Z
 
     if-eqz v0, :cond_1
@@ -1886,7 +1886,7 @@
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/BatteryMeterDrawable;->mChargeColor:I
-    
+
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mUseStockSBColors:Z
 
     if-eqz v0, :cond_7
@@ -2336,8 +2336,8 @@
     invoke-direct {v0, v15}, Lcom/android/systemui/BatteryMeterDrawable;->getColorForLevel(I)I
 
     move-result v31
-    
-        sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mUseStockSBColors:Z
+
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mUseStockSBColors:Z
 
     if-eqz v0, :cond_a
 
@@ -4392,10 +4392,10 @@
     move-result-object v0
 
     const-string/jumbo v1, "status_bar_show_battery_percent"
-  
+
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-    
-        move-result-object v1
+
+    move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mSettingObserver:Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;
 

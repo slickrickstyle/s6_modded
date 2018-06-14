@@ -1857,6 +1857,26 @@
 
 
 # virtual methods
+.method activeToggles()I
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "toggle_number"
+
+    const/16 v2, 0x6
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public hide(II)V
     .locals 3
 
@@ -2188,6 +2208,8 @@
     const v5, 0x7f0c0030
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->activeToggles()I
 
     move-result v4
 

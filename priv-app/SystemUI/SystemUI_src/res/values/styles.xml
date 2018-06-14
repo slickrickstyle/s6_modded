@@ -2679,4 +2679,9 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">sec-roboto-regular</item>
     </style>
+    <style name="TextAppearance.StatusBar.Traffic" parent="@android:style/TextAppearance.StatusBar.Icon">
+        <item name="android:textSize">11.0dip</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
 </resources>

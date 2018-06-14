@@ -19,16 +19,24 @@
 
 .field private static final MAX_LINES:I = 0xd
 
+.field public static mUseStockNPColors:Z
+
 
 # instance fields
 .field private mBigText:Ljava/lang/CharSequence;
 
+.field private mTextColor:I
+
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .locals 2
 
     invoke-direct {p0}, Landroid/app/Notification$Style;-><init>()V
+
+    const/4 v1, 0x1
+
+    sput-boolean v1, Landroid/app/Notification$BigTextStyle;->mUseStockNPColors:Z
 
     return-void
 .end method
@@ -46,17 +54,46 @@
 .end method
 
 .method static applyBigTextContentView(Landroid/app/Notification$Builder;Landroid/widget/RemoteViews;Ljava/lang/CharSequence;)V
-    .locals 3
+    .locals 6
 
     const v2, 0x1020443
 
-    invoke-virtual {p1, v2, p2}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
+    move-object v0, p1
 
+    move-object v1, p2
+
+    invoke-static {p0}, Landroid/app/Notification$Builder;->-get1(Landroid/app/Notification$Builder;)Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "pulldown_text"
+
+    const v5, -0xdedede
+
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
+
+    invoke-static {p0}, Landroid/app/Notification$Builder;->-get3(Landroid/app/Notification$Builder;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v0, v2, v5}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const/16 v0, 0x8
 
@@ -85,7 +122,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -202,6 +239,10 @@
 
     move-result-object v0
 
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
@@ -211,6 +252,10 @@
     iget-object v3, p0, Landroid/app/Notification$BigTextStyle;->mBuilder:Landroid/app/Notification$Builder;
 
     invoke-static {v3, v2}, Landroid/app/Notification$Builder;->-wrap12(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
 

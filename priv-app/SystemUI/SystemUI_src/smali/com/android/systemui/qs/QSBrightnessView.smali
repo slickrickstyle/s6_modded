@@ -14,6 +14,10 @@
 .end annotation
 
 
+# static fields
+.field public static mQsBrightnessIconColor:I
+
+
 # instance fields
 .field protected final TAG:Ljava/lang/String;
 
@@ -26,6 +30,8 @@
 .field private mContext:Landroid/content/Context;
 
 .field private mIcon:Landroid/widget/ImageView;
+
+.field private mIcon2:Landroid/widget/ImageView;
 
 .field private mIsAutoBrightness:Z
 
@@ -62,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILcom/android/systemui/qs/QSPanel;)V
-    .locals 5
+    .locals 8
 
     const/4 v4, 0x1
 
@@ -623,4 +629,65 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setDescendantFocusability(I)V
 
     goto :goto_0
+.end method
+
+.method setQsBrightnessIconColor()V
+    .locals 8
+
+    const-string v0, "qs_icons_color"
+
+    const v1, -0xdadadb
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/systemui/qs/QSBrightnessView;->mQsBrightnessIconColor:I
+
+    const-string v6, "qs_icons_color"
+
+    const v7, -0xafafb0
+
+    invoke-static {v6, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v7
+
+    const-string v2, "brightness_icon"
+
+    const-string v3, "id"
+
+    invoke-static {v2, v3}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/ImageView;
+
+    if-eqz v4, :cond_0
+
+    const-string v2, "detail_expand"
+
+    const-string v3, "id"
+
+    invoke-static {v2, v3}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    invoke-virtual {p0, v5}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageView;
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v4, v7}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    invoke-virtual {v5, v7}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    :cond_0
+    return-void
 .end method

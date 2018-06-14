@@ -1401,15 +1401,11 @@
     invoke-virtual {p0, v0}, Landroid/widget/TextClock;->setText(Ljava/lang/CharSequence;)V
 
     :goto_0
-    invoke-virtual {p0}, Landroid/widget/TextClock;->getContext()Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/TextClock;->mDescFormat:Ljava/lang/CharSequence;
 
-    move-result-object v0
+    iget-object v1, p0, Landroid/widget/TextClock;->mTime:Ljava/util/Calendar;
 
-    iget-object v1, p0, Landroid/widget/TextClock;->mDescFormat:Ljava/lang/CharSequence;
-
-    iget-object v2, p0, Landroid/widget/TextClock;->mTime:Ljava/util/Calendar;
-
-    invoke-static {v0, v1, v2}, Landroid/text/format/DateFormat;->formatForTextClock(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/util/Calendar;)Ljava/lang/CharSequence;
+    invoke-static {v0, v1}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Calendar;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -1418,15 +1414,11 @@
     return-void
 
     :cond_0
-    invoke-virtual {p0}, Landroid/widget/TextClock;->getContext()Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/TextClock;->mFormat:Ljava/lang/CharSequence;
 
-    move-result-object v0
+    iget-object v1, p0, Landroid/widget/TextClock;->mTime:Ljava/util/Calendar;
 
-    iget-object v1, p0, Landroid/widget/TextClock;->mFormat:Ljava/lang/CharSequence;
-
-    iget-object v2, p0, Landroid/widget/TextClock;->mTime:Ljava/util/Calendar;
-
-    invoke-static {v0, v1, v2}, Landroid/text/format/DateFormat;->formatForTextClock(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/util/Calendar;)Ljava/lang/CharSequence;
+    invoke-static {v0, v1}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Calendar;)Ljava/lang/CharSequence;
 
     move-result-object v0
 

@@ -635,4 +635,5 @@
         <enum name="expand" value="1" />
     </attr>
     <attr name="maxEventCnt" format="integer" />
+    <attr name="viewLocation" format="integer" />
 </resources>

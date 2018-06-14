@@ -266,7 +266,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 7
+    .locals 10
 
     const v6, 0x7f1302d6
 
@@ -284,6 +284,29 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mNormalModeView:Landroid/view/View;
 
+    sget-boolean v7, Lcom/android/systemui/SystemUIRune;->mUseStockNPColors:Z
+
+    if-eqz v7, :cond_0
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v7
+
+    const-string v8, "clearnotif_bg_color"
+
+    const v9, -0x50506
+
+    invoke-static {v7, v8, v9}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v7
+
+    check-cast v0, Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0, v7}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_0
     const v0, 0x7f1302d3
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->findViewById(I)Landroid/view/View;
@@ -336,7 +359,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mClearAllButton:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mClearAllButton:Landroid/widget/TextView;
 
@@ -352,7 +375,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->updateShowButtonBackground()V
 
     new-instance v0, Lcom/android/systemui/statusbar/NotificationBottomBarView$1;
@@ -404,6 +427,14 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mDoneButton:Landroid/widget/TextView;
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setNextFocusUpId(I)V
+
+    return-void
+.end method
+
+.method public onWindowFocusChanged(Z)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/NotificationBottomBarView;->onFinishInflate()V
 
     return-void
 .end method

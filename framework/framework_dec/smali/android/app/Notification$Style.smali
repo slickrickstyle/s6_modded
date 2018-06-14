@@ -14,6 +14,10 @@
 .end annotation
 
 
+# static fields
+.field public static mUseStockNPColors:Z
+
+
 # instance fields
 .field private mBigContentTitle:Ljava/lang/CharSequence;
 
@@ -34,7 +38,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,7 +50,35 @@
 
     iput-boolean v0, p0, Landroid/app/Notification$Style;->mSummaryTextSet:Z
 
+    const/4 v1, 0x1
+
+    sput-boolean v1, Landroid/app/Notification$Style;->mUseStockNPColors:Z
+
     return-void
+.end method
+
+.method private setPulldownText()I
+    .locals 3
+
+    iget-object v0, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v0}, Landroid/app/Notification$Builder;->-get1(Landroid/app/Notification$Builder;)Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "pulldown_text"
+
+    const v2, -0xdedede
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
 .end method
 
 

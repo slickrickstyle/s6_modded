@@ -967,7 +967,7 @@
     <dimen name="battery_text_size">15.0dip</dimen>
     <dimen name="qs_header_collapsed_setting_size">34.0dip</dimen>
     <dimen name="qs_header_setting_size">34.0dip</dimen>
-    <dimen name="status_bar_carrier_text_size">14.0dip</dimen>
+    <dimen name="status_bar_carrier_text_size">0.0dip</dimen>
     <item type="dimen" name="status_bar_nwbooster_icon_disabled_state_alpha">0.4</item>
     <dimen name="clear_cover_statusbar_margin">36.0dip</dimen>
     <dimen name="sview_cover_statusbar_margin">20.0dip</dimen>
@@ -1021,7 +1021,7 @@
     <dimen name="bottom_bar_button_horizontal_padding">4.0dip</dimen>
     <dimen name="go_to_full_shade_appearing_translation_for_bottom_bar">80.0dip</dimen>
     <dimen name="noti_setting_and_clear_show_button_bg_inset">2.0dip</dimen>
-    <dimen name="carrier_and_clear_side_padding">4.0dip</dimen>
+    <dimen name="carrier_and_clear_side_padding">0.0dip</dimen>
     <dimen name="block_mode_bottom_bar_height">90.0dip</dimen>
     <dimen name="block_button_info_text_padding_side">16.0dip</dimen>
     <dimen name="block_button_info_text_padding_top">10.0dip</dimen>
@@ -1058,7 +1058,7 @@
     <dimen name="keyguard_status_bar_padding_end">8.0dip</dimen>
     <dimen name="status_bar_padding_start">4.0dip</dimen>
     <dimen name="status_bar_padding_end">8.0dip</dimen>
-    <dimen name="status_bar_carrier_label_text_size">14.0dip</dimen>
+    <dimen name="status_bar_carrier_label_text_size">0.0dip</dimen>
     <dimen name="data_usage_view_height">20.0dip</dimen>
     <dimen name="data_usage_view_padding_end">13.0dip</dimen>
     <dimen name="data_usage_view_padding_bottom">5.0dip</dimen>
@@ -1342,4 +1342,9 @@
     <dimen name="notification_preview_icon_slot_height">48.0dip</dimen>
     <dimen name="notification_preview_icon_padding">7.5dip</dimen>
     <dimen name="notification_preview_icon_divider_width">20.0dip</dimen>
+    <dimen name="traffic_stats_text_size">9.0dip</dimen>
+    <dimen name="traffic_single_text_size">11.0dip</dimen>
+    <dimen name="traffic_multi_text_size">8.0dip</dimen>
+    <dimen name="net_traffic_single_text_size">12.0dip</dimen>
+    <dimen name="net_traffic_multi_text_size">9.0dip</dimen>
 </resources>

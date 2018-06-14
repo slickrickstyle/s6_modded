@@ -152,7 +152,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 5
+    .locals 7
 
     const/4 v4, 0x2
 
@@ -166,6 +166,23 @@
 
     check-cast v0, Landroid/widget/TextView;
 
+    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->mUseStockNPColors:Z
+
+    if-eqz v5, :cond_0
+
+    if-eqz v0, :cond_0
+
+    const-string v5, "pulldown_text"
+
+    const v6, -0xdedede
+
+    invoke-static {v5, v6}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v5
+
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_0
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTitleView:Landroid/widget/TextView;
 
     const v0, 0x7f130146
@@ -176,6 +193,21 @@
 
     check-cast v0, Landroid/widget/TextView;
 
+    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->mUseStockNPColors:Z
+
+    if-eqz v5, :cond_1
+
+    const-string v5, "pulldown_text"
+
+    const v6, -0xdedede
+
+    invoke-static {v5, v6}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v5
+
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_1
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTextView:Landroid/widget/TextView;
 
     new-instance v0, Lcom/android/systemui/ViewInvertHelper;

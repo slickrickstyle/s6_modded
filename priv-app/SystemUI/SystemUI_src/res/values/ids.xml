@@ -1091,4 +1091,19 @@
     <item type="id" name="screen_grid">false</item>
     <item type="id" name="brightness_control_on_top">false</item>
     <item type="id" name="contact_us">false</item>
+    <item type="id" name="attrName">false</item>
+    <item type="id" name="attrValue">false</item>
+    <item type="id" name="dynamic_status_bar">false</item>
+    <item type="id" name="dynamic_status_bar_color">false</item>
+    <item type="id" name="dynamic_status_bar_filter">false</item>
+    <item type="id" name="dynamic_status_bar_gradient">false</item>
+    <item type="id" name="left_clock">false</item>
+    <item type="id" name="center_clock">false</item>
+    <item type="id" name="backgroundImageView">false</item>
+    <item type="id" name="gear_bottom_layout">false</item>
+    <item type="id" name="stock_battery_container">false</item>
+    <item type="id" name="minit_battery_container">false</item>
+    <item type="id" name="gear_panel_bg_view">false</item>
+    <item type="id" name="handler_view">false</item>
+    <item type="id" name="qs_brightness_container">false</item>
 </resources>

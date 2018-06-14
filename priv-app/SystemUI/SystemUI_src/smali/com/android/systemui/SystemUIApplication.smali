@@ -473,7 +473,7 @@
     invoke-virtual {p0, v1}, Lcom/android/systemui/SystemUIApplication;->setTheme(I)V
 
     invoke-static {p0}, Lcom/android/systemui/SystemUIFactory;->createFromConfig(Landroid/content/Context;)V
-    
+
     sput-object p0, Lcom/android/systemui/SystemUIApplication;->mGearContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;

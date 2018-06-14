@@ -797,7 +797,7 @@
 .end method
 
 .method private updateAlarm()V
-    .locals 7
+    .locals 13
 
     const/4 v6, 0x0
 
@@ -809,7 +809,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/app/AlarmManager$AlarmClockInfo;->getTriggerTime()J
 
@@ -819,7 +819,7 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_1
 
     const/4 v1, 0x1
 
@@ -838,26 +838,45 @@
 
     iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mCurrentUserSetup:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     :goto_1
+    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "alarm_icon"
+
+    const/4 v12, 0x1
+
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    if-nez v10, :cond_0
+
+    const/4 v1, 0x0
+
+    :cond_0
     invoke-virtual {v2, v3, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
 
     return-void
 
-    :cond_0
+    :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const/4 v1, 0x0
 
     goto :goto_1
 .end method
 
 .method private final updateBluetooth()V
-    .locals 5
+    .locals 9
 
     const v2, 0x7f020580
 
@@ -910,6 +929,25 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mSlotBluetooth:Ljava/lang/String;
 
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "bluetooth_icon"
+
+    const/4 v8, 0x1
+
+    invoke-static {v6, v7, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    const/4 v0, 0x0
+
+    :cond_1
     invoke-virtual {v3, v4, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
 
     return-void

@@ -114,7 +114,11 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
 
     invoke-direct {p0, p1, p2}, Landroid/support/v4/view/ViewPager;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -154,9 +158,43 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
 
-    const/4 v0, 0x0
+    invoke-virtual {p0, v3}, Lcom/android/systemui/qs/PagedTileLayout;->setCurrentItem(I)V
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout;->setCurrentItem(I)V
+    invoke-static {p1}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+
+    move-result-object v0
+
+    new-array v1, v4, [Ljava/lang/String;
+
+    const-string/jumbo v2, "qs_tile_row"
+
+    aput-object v2, v1, v3
+
+    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
+
+    invoke-static {p1}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+
+    move-result-object v0
+
+    new-array v1, v4, [Ljava/lang/String;
+
+    const-string/jumbo v2, "qs_tile_column"
+
+    aput-object v2, v1, v3
+
+    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
+
+    invoke-static {p1}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+
+    move-result-object v0
+
+    new-array v1, v4, [Ljava/lang/String;
+
+    const-string/jumbo v2, "qs_tile_column_landscape"
+
+    aput-object v2, v1, v3
+
+    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
 
     return-void
 .end method
@@ -519,60 +557,6 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method protected onAttachedToWindow()V
-    .locals 5
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
-
-    invoke-super {p0}, Landroid/support/v4/view/ViewPager;->onAttachedToWindow()V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
-
-    move-result-object v0
-
-    new-array v1, v4, [Ljava/lang/String;
-
-    const-string/jumbo v2, "qs_tile_row"
-
-    aput-object v2, v1, v3
-
-    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
-
-    move-result-object v0
-
-    new-array v1, v4, [Ljava/lang/String;
-
-    const-string/jumbo v2, "qs_tile_column"
-
-    aput-object v2, v1, v3
-
-    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
-
-    move-result-object v0
-
-    new-array v1, v4, [Ljava/lang/String;
-
-    const-string/jumbo v2, "qs_tile_column_landscape"
-
-    aput-object v2, v1, v3
-
-    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
-
-    return-void
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V

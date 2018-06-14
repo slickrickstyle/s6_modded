@@ -19,6 +19,8 @@
 # static fields
 .field public static final NO_COLOR:I = -0x1
 
+.field public static mUseStockNPColors:Z
+
 
 # instance fields
 .field private mAppName:Landroid/view/View;
@@ -144,6 +146,10 @@
 
     invoke-direct {p0, p1, p2, p3, v0}, Landroid/view/NotificationHeaderView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
+    invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->setStockColor()V
+
+    invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->setIconColor()V
+
     return-void
 .end method
 
@@ -245,7 +251,7 @@
 .end method
 
 .method private updateExpandButton()V
-    .locals 4
+    .locals 5
 
     iget-boolean v1, p0, Landroid/view/NotificationHeaderView;->mExpanded:Z
 
@@ -375,15 +381,22 @@
 .end method
 
 .method public getOriginalIconColor()I
-    .locals 1
+    .locals 2
 
+    sget-boolean v1, Landroid/app/Notification$Builder;->mUseStockNPColors:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->setIconColor()V
+
+    :cond_0
     iget v0, p0, Landroid/view/NotificationHeaderView;->mIconColor:I
 
     return v0
 .end method
 
 .method public getOriginalNotificationColor()I
-    .locals 1
+    .locals 2
 
     iget v0, p0, Landroid/view/NotificationHeaderView;->mOriginalNotificationColor:I
 
@@ -455,7 +468,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .locals 5
 
     invoke-super {p0}, Landroid/view/ViewGroup;->onFinishInflate()V
 
@@ -986,6 +999,30 @@
     goto :goto_0
 .end method
 
+.method setIconColor()V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "notif_icon_bg_color"
+
+    const v2, -0x886d57
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/NotificationHeaderView;->mIconColor:I
+
+    return-void
+.end method
+
 .method public setOnClickListener(Landroid/view/View$OnClickListener;)V
     .locals 2
 
@@ -1014,17 +1051,24 @@
 .end method
 
 .method public setOriginalIconColor(I)V
-    .locals 0
+    .locals 1
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
     iput p1, p0, Landroid/view/NotificationHeaderView;->mIconColor:I
 
+    sget-boolean v0, Landroid/app/Notification$Builder;->mUseStockNPColors:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->setIconColor()V
+
+    :cond_0
     return-void
 .end method
 
 .method public setOriginalNotificationColor(I)V
-    .locals 0
+    .locals 1
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -1056,6 +1100,63 @@
     const/4 v0, 0x1
 
     goto :goto_0
+.end method
+
+.method setStockColor()V
+    .locals 3
+
+    const/4 v1, 0x1
+
+    sput-boolean v1, Landroid/view/NotificationHeaderView;->mUseStockNPColors:Z
+
+    invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "modcfg_npanel_colors"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    sput-boolean v0, Landroid/view/NotificationHeaderView;->mUseStockNPColors:Z
+
+    :cond_0
+    return-void
+.end method
+
+.method setTextColor()V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "pulldown_text"
+
+    const v2, -0xdedede
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/NotificationHeaderView;->mOriginalNotificationColor:I
+
+    return-void
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z

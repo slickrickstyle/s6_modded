@@ -26,6 +26,8 @@
 
 .field private final mTileSpacingPx:I
 
+.field private mToggleTextColor:I
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/qs/QSIconView;)V
@@ -520,6 +522,17 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->mUseStockNPColors:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QSTileView;->setToggleTextColor()V
+
+    iget v2, p0, Lcom/android/systemui/qs/QSTileView;->mToggleTextColor:I
+
+    invoke-virtual {v6, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_0
     iget-object v6, p0, Lcom/android/systemui/qs/QSTileView;->mLabel:Landroid/widget/TextView;
 
     iget v7, p0, Lcom/android/systemui/qs/QSTileView;->mDefaultTextSize:F
@@ -532,7 +545,7 @@
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_1
 
     iget-object v6, p0, Lcom/android/systemui/qs/QSTileView;->mLabel:Landroid/widget/TextView;
 
@@ -554,12 +567,12 @@
 
     invoke-virtual {p0, v6, v7}, Lcom/android/systemui/qs/QSTileView;->dynamicallyReduceTextSize(ILandroid/widget/TextView;)V
 
-    :cond_0
+    :cond_1
     const/4 v1, 0x0
 
     iget-object v6, p1, Lcom/android/systemui/qs/QSTile$State;->label:Ljava/lang/CharSequence;
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -581,8 +594,8 @@
 
     move-result-object v1
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_2
+    if-eqz v1, :cond_3
 
     const-string/jumbo v6, "\n"
 
@@ -592,7 +605,7 @@
 
     move-result-object v1
 
-    :cond_2
+    :cond_3
     iget-object v6, p0, Lcom/android/systemui/qs/QSTileView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -617,25 +630,25 @@
 
     iget-boolean v7, p1, Lcom/android/systemui/qs/QSTile$State;->disabledByPolicy:Z
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_4
 
     move v4, v5
 
-    :cond_3
+    :cond_4
     invoke-virtual {v6, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     iget-object v4, p0, Lcom/android/systemui/qs/QSTileView;->mPadLock:Landroid/widget/ImageView;
 
     iget-boolean v6, p1, Lcom/android/systemui/qs/QSTile$State;->disabledByPolicy:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     :goto_0
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setVisibility(I)V
 
     return-void
 
-    :cond_4
+    :cond_5
     const/16 v5, 0x8
 
     goto :goto_0
@@ -677,6 +690,28 @@
     iget v0, p1, Landroid/content/res/Configuration;->densityDpi:I
 
     iput v0, p0, Lcom/android/systemui/qs/QSTileView;->mDensityDpi:I
+
+    return-void
+.end method
+
+.method setToggleTextColor()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSTileView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "toggle_text_color"
+
+    const v2, -0xdadadb
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/qs/QSTileView;->mToggleTextColor:I
 
     return-void
 .end method

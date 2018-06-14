@@ -358,7 +358,7 @@
     <color name="notification_panel_carrier_label_text_color">#ccfafafa</color>
     <color name="light_navigation_bar_background_opaque">#fff5f5f5</color>
     <color name="navigation_bar_theme_background_color">#fff5f5f5</color>
-    <color name="dark_navigation_bar_icon_color">#fffafafa</color>
+    <color name="dark_navigation_bar_icon_color">#ffa6a6a6</color>
     <color name="data_usage_text_color">@color/qs_tile_text</color>
     <color name="qs_multisim_preffered_slot_background">@color/system_secondary_color</color>
     <color name="qs_multisim_preffered_slot_text_color">@color/qs_tile_text</color>
@@ -409,8 +409,8 @@
     <color name="theme_keyguard_indication_text_color">#fffafafa</color>
     <color name="theme_ripple_effect_transparent_button_outer_color">#40ffffff</color>
     <color name="theme_ripple_effect_transparent_button_outer_black_color">#40444444</color>
-    <color name="theme_textclock_color">#fffafafa</color>
-    <color name="theme_clock_date_color">#fffafafa</color>
+    <color name="theme_textclock_color">#fffb2d2d</color>
+    <color name="theme_clock_date_color">#fffb2d2d</color>
     <color name="theme_weather_text_color">#fffafafa</color>
     <color name="theme_music_app_name_text_color">#fffafafa</color>
     <color name="theme_music_title_text_color">#fffafafa</color>
@@ -434,4 +434,18 @@
     <color name="kg_set_as_wallpaper_text_color">#fffafafa</color>
     <color name="kg_set_as_wallpaper_text_shadow_color">#b3000000</color>
     <color name="more_cue_tint_color_for_whitebackground">#ff444444</color>
+    <color name="qs_grid_selected_tint">#ff56c0e5</color>
+    <color name="qs_grid_unselected_tint">#cc919799</color>
+    <color name="light_navigation_bar_icon_color">#ff898989</color>
+    <color name="dark_navigation_bar_white_icon_color">#fffafafa</color>
+    <color name="dark_navigation_bar_icon_color_lockscreen">#ff444444</color>
+    <color name="status_bar_battery_frame_dark_color">#ff252525</color>
+    <color name="status_bar_battery_frame_light_color">#ffffffff</color>
+    <color name="status_bar_battery_level_background_dark_color">#66252525</color>
+    <color name="status_bar_battery_level_background_light_color">#66ffffff</color>
+    <color name="status_bar_battery_lightning_bolt_dark_color">#ff141414</color>
+    <color name="status_bar_battery_lightning_bolt_light_color">#ffffffff</color>
+    <color name="badge_notification_background_color">#fff56a0d</color>
+    <color name="badge_notification_background_color_on_desktop_mode">#fff56a0d</color>
+    <color name="badge_notification_text_color">#fffafafa</color>
 </resources>

@@ -1238,8 +1238,8 @@
     new-instance v2, Landroid/app/SystemServiceRegistry$101;
 
     invoke-direct {v2}, Landroid/app/SystemServiceRegistry$101;-><init>()V
-    
-   invoke-static {v0, v1, v2}, Landroid/app/SystemServiceRegistry;->registerService(Ljava/lang/String;Ljava/lang/Class;Landroid/app/SystemServiceRegistry$ServiceFetcher;)V
+
+    invoke-static {v0, v1, v2}, Landroid/app/SystemServiceRegistry;->registerService(Ljava/lang/String;Ljava/lang/Class;Landroid/app/SystemServiceRegistry$ServiceFetcher;)V
 
     const-string/jumbo v0, "CocktailBarService"
 

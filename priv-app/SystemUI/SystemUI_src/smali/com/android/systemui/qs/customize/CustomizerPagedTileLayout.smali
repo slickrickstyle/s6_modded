@@ -1800,7 +1800,7 @@
 .end method
 
 .method public updateResources()Z
-    .locals 8
+    .locals 10
 
     const-string/jumbo v5, "CSTMPagedTileLayout"
 
@@ -1824,7 +1824,7 @@
 
     const/4 v5, 0x2
 
-    if-ne v3, v5, :cond_1
+    if-ne v3, v5, :cond_2
 
     const/4 v2, 0x1
 
@@ -1877,7 +1877,7 @@
 
     sget-boolean v5, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     :cond_0
     iget-object v5, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->mContext:Landroid/content/Context;
@@ -1895,6 +1895,19 @@
     move-result v5
 
     :goto_1
+    const-string v8, "quickpanel_3by7"
+
+    const/4 v9, 0x0
+
+    invoke-static {v8, v9}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    const/4 v5, 0x7
+
+    :cond_1
     iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->mColumns:I
 
     const/4 v1, 0x0
@@ -1906,7 +1919,7 @@
 
     move-result v5
 
-    if-ge v1, v5, :cond_3
+    if-ge v1, v5, :cond_4
 
     iget-object v5, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->mPages:Ljava/util/ArrayList;
 
@@ -1938,12 +1951,12 @@
 
     goto :goto_2
 
-    :cond_1
+    :cond_2
     const/4 v2, 0x0
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object v5, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->mContext:Landroid/content/Context;
 
     invoke-static {v5}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
@@ -1960,8 +1973,8 @@
 
     goto :goto_1
 
-    :cond_3
-    if-eqz v0, :cond_4
+    :cond_4
+    if-eqz v0, :cond_5
 
     invoke-direct {p0}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->updateTilesInfo()V
 
@@ -1969,7 +1982,7 @@
 
     invoke-direct {p0}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->distributeTiles()V
 
-    :cond_4
+    :cond_5
     const/4 v5, 0x1
 
     return v5

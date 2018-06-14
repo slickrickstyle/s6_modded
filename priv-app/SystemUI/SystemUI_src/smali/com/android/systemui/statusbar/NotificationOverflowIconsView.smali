@@ -306,31 +306,13 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/NotificationOverflowIconsView;->mMoreTextOverTenWidth:I
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/NotificationOverflowIconsView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0f06d9
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationOverflowIconsView;->setContentDescription(Ljava/lang/CharSequence;)V
-
     return-void
 .end method
 
 .method public setMoreText(Landroid/widget/TextView;)V
-    .locals 2
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationOverflowIconsView;->mMoreText:Landroid/widget/TextView;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationOverflowIconsView;->mMoreText:Landroid/widget/TextView;
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setImportantForAccessibility(I)V
 
     return-void
 .end method

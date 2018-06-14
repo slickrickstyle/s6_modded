@@ -14,6 +14,10 @@
 .end annotation
 
 
+# static fields
+.field public static mUseStockNPColors:Z
+
+
 # instance fields
 .field private mTexts:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -40,6 +44,10 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     iput-object v0, p0, Landroid/app/Notification$InboxStyle;->mTexts:Ljava/util/ArrayList;
+
+    const/4 v1, 0x1
+
+    sput-boolean v1, Landroid/app/Notification$InboxStyle;->mUseStockNPColors:Z
 
     return-void
 .end method
@@ -137,6 +145,30 @@
     goto :goto_1
 .end method
 
+.method private setPulldownText()I
+    .locals 3
+
+    iget-object v0, p0, Landroid/app/Notification$InboxStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v0}, Landroid/app/Notification$Builder;->-get1(Landroid/app/Notification$Builder;)Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "pulldown_text"
+
+    const v2, -0xdedede
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 
 # virtual methods
 .method public addExtras(Landroid/os/Bundle;)V
@@ -182,7 +214,7 @@
 .end method
 
 .method public makeBigContentView()Landroid/widget/RemoteViews;
-    .locals 14
+    .locals 15
 
     const/4 v2, 0x0
 
@@ -302,9 +334,9 @@
 
     move-result v4
 
-    if-ge v7, v4, :cond_4
+    if-ge v7, v4, :cond_6
 
-    if-ge v7, v8, :cond_4
+    if-ge v7, v8, :cond_6
 
     iget-object v4, p0, Landroid/app/Notification$InboxStyle;->mTexts:Ljava/util/ArrayList;
 
@@ -318,7 +350,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_4
 
     aget v4, v11, v7
 
@@ -332,8 +364,30 @@
 
     move-result-object v5
 
+    iget-object v14, p0, Landroid/app/Notification$InboxStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v14}, Landroid/app/Notification$Builder;->-get3(Landroid/app/Notification$Builder;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_2
+
+    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    :cond_2
     invoke-virtual {v0, v4, v5}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
+    if-eqz v14, :cond_3
+
+    invoke-direct {p0}, Landroid/app/Notification$InboxStyle;->setPulldownText()I
+
+    move-result v14
+
+    invoke-virtual {v0, v4, v14}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    :cond_3
     aget v1, v11, v7
 
     move v4, v2
@@ -346,25 +400,25 @@
 
     invoke-direct {p0, v0, v4, v6}, Landroid/app/Notification$InboxStyle;->handleInboxImageMargin(Landroid/widget/RemoteViews;IZ)V
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_5
 
     aget v1, v11, v7
 
     :goto_2
     const/4 v6, 0x0
 
-    :cond_2
+    :cond_4
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
-    :cond_3
+    :cond_5
     const/4 v1, 0x0
 
     goto :goto_2
 
-    :cond_4
-    if-eqz v1, :cond_5
+    :cond_6
+    if-eqz v1, :cond_7
 
     iget-object v4, p0, Landroid/app/Notification$InboxStyle;->mBuilder:Landroid/app/Notification$Builder;
 
@@ -388,10 +442,8 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/widget/RemoteViews;->setViewPadding(IIIII)V
 
-    :cond_5
+    :cond_7
     return-object v0
-
-    nop
 
     :array_0
     .array-data 4

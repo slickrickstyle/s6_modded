@@ -384,14 +384,6 @@
 
     move-result-object v18
 
-    invoke-virtual/range {v18 .. v18}, Landroid/widget/Toast;->getView()Landroid/view/View;
-
-    move-result-object v2
-
-    const/4 v3, 0x5
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setTextDirection(I)V
-
     invoke-virtual/range {v18 .. v18}, Landroid/widget/Toast;->setShowForAllUsers()V
 
     invoke-virtual/range {v18 .. v18}, Landroid/widget/Toast;->show()V

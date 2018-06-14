@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 7
+    .locals 9
 
     const/4 v6, 0x0
 
@@ -96,7 +96,7 @@
 
     sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_SPRWFC:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     new-instance v0, Landroid/content/IntentFilter;
 
@@ -152,14 +152,31 @@
 
     const-string/jumbo v3, "vowifi"
 
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v7
+
+    const-string v8, "vowifi_icon"
+
+    invoke-static {v7, v8, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    const/4 v6, 0x0
+
+    :cond_0
     invoke-virtual {v2, v3, v6}, Landroid/app/StatusBarManager;->setIconVisibility(Ljava/lang/String;Z)V
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->updateVoWifiState(Landroid/content/Context;)V
 
-    :cond_0
+    :cond_1
     sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_WFC_REFRESH_BY_SIM:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     new-instance v0, Landroid/content/IntentFilter;
 
@@ -175,10 +192,10 @@
 
     invoke-virtual {v2, v3, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    :cond_1
+    :cond_2
     sget-boolean v2, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->DEBUG:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     const-string/jumbo v2, "VoWiFiController"
 
@@ -186,7 +203,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
@@ -964,7 +981,7 @@
 .end method
 
 .method private final updateVoWiFi(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 9
 
     const-string/jumbo v4, "VOWIFI_STATUS_EXTRA_KEY"
 
@@ -1030,13 +1047,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->isSED()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     const v3, 0x7f0206f9
 
@@ -1049,7 +1066,7 @@
     :goto_1
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->mService:Landroid/app/StatusBarManager;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     if-eqz v2, :cond_3
 
@@ -1066,36 +1083,53 @@
 
     const-string/jumbo v5, "vowifi"
 
-    invoke-virtual {v4, v5, v2}, Landroid/app/StatusBarManager;->setIconVisibility(Ljava/lang/String;Z)V
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v7
+
+    const-string v8, "vowifi_icon"
+
+    invoke-static {v7, v8, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v7
+
+    if-nez v7, :cond_4
+
+    const/4 v2, 0x0
 
     :cond_4
-    return-void
+    invoke-virtual {v4, v5, v2}, Landroid/app/StatusBarManager;->setIconVisibility(Ljava/lang/String;Z)V
 
     :cond_5
+    return-void
+
+    :cond_6
     const v3, 0x7f0206f9
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     const-string/jumbo v4, "VOWIFI_SHOW_ROVE_OUT"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->isSED()Z
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
 
     const/4 v2, 0x0
 
     goto :goto_1
 
-    :cond_7
+    :cond_8
     const/4 v2, 0x1
 
     const v3, 0x7f0206fa
@@ -1104,7 +1138,7 @@
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
     const-string/jumbo v4, "VOWIFI_HIDE_ICON"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z

@@ -43,7 +43,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
@@ -51,7 +51,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
@@ -59,9 +59,9 @@
 
     move-result v0
 
-    if-lt p2, v0, :cond_2
+    if-lt p2, v0, :cond_1
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
@@ -86,25 +86,22 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
-
     return-void
 
-    :cond_1
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
     invoke-static {v0}, Lcom/android/systemui/settings/ToggleSlider;->-wrap0(Lcom/android/systemui/settings/ToggleSlider;)V
 
     return-void
 
-    :cond_2
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
     invoke-static {v0}, Lcom/android/systemui/settings/ToggleSlider;->-get5(Lcom/android/systemui/settings/ToggleSlider;)Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
@@ -112,7 +109,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
@@ -124,7 +121,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
@@ -132,9 +129,9 @@
 
     move-result v0
 
-    if-ge p2, v0, :cond_3
+    if-ge p2, v0, :cond_2
 
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_2
 
     const-string/jumbo v0, "ToggleSlider"
 
@@ -150,14 +147,14 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    :cond_3
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
     invoke-static {v0}, Lcom/android/systemui/settings/ToggleSlider;->-get6(Lcom/android/systemui/settings/ToggleSlider;)Lcom/android/systemui/settings/ToggleSlider$Listener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
@@ -165,7 +162,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider$2;->this$0:Lcom/android/systemui/settings/ToggleSlider;
 
@@ -197,7 +194,7 @@
 
     invoke-interface/range {v0 .. v5}, Lcom/android/systemui/settings/ToggleSlider$Listener;->onChanged(Lcom/android/systemui/settings/ToggleSlider;ZZIZ)V
 
-    :cond_4
+    :cond_3
     return-void
 .end method
 

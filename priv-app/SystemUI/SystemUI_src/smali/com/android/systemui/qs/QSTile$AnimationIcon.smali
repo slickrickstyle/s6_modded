@@ -120,7 +120,7 @@
 
     move/from16 v23, v0
 
-    if-eqz v23, :cond_3
+    if-eqz v23, :cond_4
 
     move-object/from16 v0, p0
 
@@ -150,6 +150,19 @@
 
     move-result v22
 
+    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->mUseStockNPColors:Z
+
+    if-eqz v1, :cond_2
+
+    const-string v1, "toggle_icon_off_color"
+
+    const v2, -0x336e6867    # -7.6332232E7f
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v22
+
+    :cond_2
     shr-int/lit8 v23, v9, 0x18
 
     move/from16 v0, v23
@@ -335,7 +348,7 @@
     const/4 v10, 0x0
 
     :goto_0
-    if-ge v10, v11, :cond_2
+    if-ge v10, v11, :cond_3
 
     invoke-virtual {v2, v10}, Landroid/graphics/drawable/AnimationDrawable;->getFrame(I)Landroid/graphics/drawable/Drawable;
 
@@ -423,12 +436,12 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const/16 v23, 0x1
 
     return v23
 
-    :cond_3
+    :cond_4
     invoke-super/range {p0 .. p3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->setColor(Landroid/content/Context;Lcom/android/systemui/qs/QSTile$State;Landroid/graphics/drawable/Drawable;)Z
 
     move-result v23

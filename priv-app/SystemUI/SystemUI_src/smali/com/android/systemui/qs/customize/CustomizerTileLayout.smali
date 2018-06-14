@@ -2633,7 +2633,7 @@
 .end method
 
 .method public updateResources()Z
-    .locals 10
+    .locals 12
 
     const/4 v9, 0x2
 
@@ -2659,7 +2659,7 @@
 
     iget v3, v7, Landroid/content/res/Configuration;->orientation:I
 
-    if-ne v3, v9, :cond_2
+    if-ne v3, v9, :cond_3
 
     move v2, v5
 
@@ -2668,7 +2668,7 @@
 
     sget-boolean v7, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_4
 
     :cond_0
     iget-object v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
@@ -2823,8 +2823,21 @@
     :cond_1
     iget v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
 
-    if-eq v7, v0, :cond_4
+    if-eq v7, v0, :cond_5
 
+    const-string v10, "quickpanel_3by7"
+
+    const/4 v11, 0x0
+
+    invoke-static {v10, v11}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v10
+
+    if-eqz v10, :cond_2
+
+    const/4 v0, 0x7
+
+    :cond_2
     iput v0, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
 
     const-string/jumbo v6, "CustomizerTileLayout"
@@ -2837,12 +2850,12 @@
 
     return v5
 
-    :cond_2
+    :cond_3
     move v2, v6
 
     goto/16 :goto_0
 
-    :cond_3
+    :cond_4
     iget-object v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
 
     invoke-static {v7}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
@@ -2954,7 +2967,7 @@
 
     goto/16 :goto_2
 
-    :cond_4
+    :cond_5
     return v6
 
     nop

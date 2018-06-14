@@ -127,7 +127,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .locals 18
 
     invoke-static {}, Lcom/android/systemui/statusbar/policy/TelephonyIcons;->getTelephonyNoServiceIcon()I
 
@@ -139,6 +139,546 @@
 
     new-array v0, v0, [[I
 
+    const/4 v7, 0x1
+
+    const-string v8, "switch_signal"
+
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-eqz v8, :cond_f
+
+    const v9, 0x1
+
+    if-eq v8, v9, :cond_f
+
+    const v9, 0x2
+
+    if-eq v8, v9, :cond_0
+
+    const v9, 0x3
+
+    if-eq v8, v9, :cond_1
+
+    const v9, 0x4
+
+    if-eq v8, v9, :cond_2
+
+    const v9, 0x5
+
+    if-eq v8, v9, :cond_3
+
+    const v9, 0x6
+
+    if-eq v8, v9, :cond_4
+
+    const v9, 0x7
+
+    if-eq v8, v9, :cond_5
+
+    const v9, 0x8
+
+    if-eq v8, v9, :cond_6
+
+    const v9, 0x9
+
+    if-eq v8, v9, :cond_7
+
+    const v9, 0xa
+
+    if-eq v8, v9, :cond_8
+
+    const v9, 0xb
+
+    if-eq v8, v9, :cond_9
+
+    const v9, 0xc
+
+    if-eq v8, v9, :cond_a
+
+    const v9, 0xd
+
+    if-eq v8, v9, :cond_b
+
+    const v9, 0xe
+
+    if-eq v8, v9, :cond_c
+
+    const v9, 0xf
+
+    if-eq v8, v9, :cond_d
+
+    const v9, 0x10
+
+    if-eq v8, v9, :cond_e
+
+    :cond_0
+    const v1, 0x7f020773
+
+    const v2, 0x7f020791
+
+    const v3, 0x7f0207af
+
+    const v4, 0x7f0207cd
+
+    const v5, 0x7f0207eb
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020607
+
+    const v2, 0x7f02060a
+
+    const v3, 0x7f02060d
+
+    const v4, 0x7f020610
+
+    const v5, 0x7f020613
+
+    goto/16 :goto_0
+
+    :cond_1
+    const v1, 0x7f020775
+
+    const v2, 0x7f020793
+
+    const v3, 0x7f0207b1
+
+    const v4, 0x7f0207cf
+
+    const v5, 0x7f0207ed
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020775
+
+    const v2, 0x7f020793
+
+    const v3, 0x7f0207b1
+
+    const v4, 0x7f0207cf
+
+    const v5, 0x7f0207ed
+
+    goto/16 :goto_0
+
+    :cond_2
+    const v1, 0x7f020777
+
+    const v2, 0x7f020795
+
+    const v3, 0x7f0207b3
+
+    const v4, 0x7f0207d1
+
+    const v5, 0x7f0207ef
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020777
+
+    const v2, 0x7f020795
+
+    const v3, 0x7f0207b3
+
+    const v4, 0x7f0207d1
+
+    const v5, 0x7f0207ef
+
+    goto/16 :goto_0
+
+    :cond_3
+    const v1, 0x7f020779
+
+    const v2, 0x7f020797
+
+    const v3, 0x7f0207b5
+
+    const v4, 0x7f0207d3
+
+    const v5, 0x7f0207f1
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020779
+
+    const v2, 0x7f020797
+
+    const v3, 0x7f0207b5
+
+    const v4, 0x7f0207d3
+
+    const v5, 0x7f0207f1
+
+    goto/16 :goto_0
+
+    :cond_4
+    const v1, 0x7f02077b
+
+    const v2, 0x7f020799
+
+    const v3, 0x7f0207b7
+
+    const v4, 0x7f0207d5
+
+    const v5, 0x7f0207f3
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02077b
+
+    const v2, 0x7f020799
+
+    const v3, 0x7f0207b7
+
+    const v4, 0x7f0207d5
+
+    const v5, 0x7f0207f3
+
+    goto/16 :goto_0
+
+    :cond_5
+    const v1, 0x7f02077d
+
+    const v2, 0x7f02079b
+
+    const v3, 0x7f0207b9
+
+    const v4, 0x7f0207d7
+
+    const v5, 0x7f0207f5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02077d
+
+    const v2, 0x7f02079b
+
+    const v3, 0x7f0207b9
+
+    const v4, 0x7f0207d7
+
+    const v5, 0x7f0207f5
+
+    goto/16 :goto_0
+
+    :cond_6
+    const v1, 0x7f02077f
+
+    const v2, 0x7f02079d
+
+    const v3, 0x7f0207bb
+
+    const v4, 0x7f0207d9
+
+    const v5, 0x7f0207f7
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02077f
+
+    const v2, 0x7f02079d
+
+    const v3, 0x7f0207bb
+
+    const v4, 0x7f0207d9
+
+    const v5, 0x7f0207f7
+
+    goto/16 :goto_0
+
+    :cond_7
+    const v1, 0x7f020781
+
+    const v2, 0x7f02079f
+
+    const v3, 0x7f0207bd
+
+    const v4, 0x7f0207db
+
+    const v5, 0x7f0207f9
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020781
+
+    const v2, 0x7f02079f
+
+    const v3, 0x7f0207bd
+
+    const v4, 0x7f0207db
+
+    const v5, 0x7f0207f9
+
+    goto/16 :goto_0
+
+    :cond_8
+    const v1, 0x7f020765
+
+    const v2, 0x7f020783
+
+    const v3, 0x7f0207a1
+
+    const v4, 0x7f0207bf
+
+    const v5, 0x7f0207dd
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020765
+
+    const v2, 0x7f020783
+
+    const v3, 0x7f0207a1
+
+    const v4, 0x7f0207bf
+
+    const v5, 0x7f0207dd
+
+    goto/16 :goto_0
+
+    :cond_9
+    const v1, 0x7f020767
+
+    const v2, 0x7f020785
+
+    const v3, 0x7f0207a3
+
+    const v4, 0x7f0207c1
+
+    const v5, 0x7f0207df
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020767
+
+    const v2, 0x7f020785
+
+    const v3, 0x7f0207a3
+
+    const v4, 0x7f0207c1
+
+    const v5, 0x7f0207df
+
+    goto/16 :goto_0
+
+    :cond_a
+    const v1, 0x7f020769
+
+    const v2, 0x7f020787
+
+    const v3, 0x7f0207a5
+
+    const v4, 0x7f0207c3
+
+    const v5, 0x7f0207e1
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020769
+
+    const v2, 0x7f020787
+
+    const v3, 0x7f0207a5
+
+    const v4, 0x7f0207c3
+
+    const v5, 0x7f0207e1
+
+    goto/16 :goto_0
+
+    :cond_b
+    const v1, 0x7f02076b
+
+    const v2, 0x7f020789
+
+    const v3, 0x7f0207a7
+
+    const v4, 0x7f0207c5
+
+    const v5, 0x7f0207e3
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02076b
+
+    const v2, 0x7f020789
+
+    const v3, 0x7f0207a7
+
+    const v4, 0x7f0207c5
+
+    const v5, 0x7f0207e3
+
+    goto/16 :goto_0
+
+    :cond_c
+    const v1, 0x7f02076d
+
+    const v2, 0x7f02078b
+
+    const v3, 0x7f0207a9
+
+    const v4, 0x7f0207c7
+
+    const v5, 0x7f0207e5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02076d
+
+    const v2, 0x7f02078b
+
+    const v3, 0x7f0207a9
+
+    const v4, 0x7f0207c7
+
+    const v5, 0x7f0207e5
+
+    goto :goto_0
+
+    :cond_d
+    const v1, 0x7f02076f
+
+    const v2, 0x7f02078d
+
+    const v3, 0x7f0207ab
+
+    const v4, 0x7f0207c9
+
+    const v5, 0x7f0207e7
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02076f
+
+    const v2, 0x7f02078d
+
+    const v3, 0x7f0207ab
+
+    const v4, 0x7f0207c9
+
+    const v5, 0x7f0207e7
+
+    goto :goto_0
+
+    :cond_e
+    const v1, 0x7f020771
+
+    const v2, 0x7f02078f
+
+    const v3, 0x7f0207ad
+
+    const v4, 0x7f0207cb
+
+    const v5, 0x7f0207e9
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020771
+
+    const v2, 0x7f02078f
+
+    const v3, 0x7f0207ad
+
+    const v4, 0x7f0207cb
+
+    const v5, 0x7f0207e9
+
+    goto :goto_0
+
+    :cond_f
     const v1, 0x7f020607
 
     const v2, 0x7f02060a
@@ -167,6 +707,7 @@
 
     const v5, 0x7f020613
 
+    :goto_0
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
     move-result-object v1
@@ -207,6 +748,546 @@
 
     new-array v0, v0, [[I
 
+    const/4 v7, 0x1
+
+    const-string v8, "switch_signal_sim2"
+
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-eqz v8, :cond_1f
+
+    const v9, 0x1
+
+    if-eq v8, v9, :cond_1f
+
+    const v9, 0x2
+
+    if-eq v8, v9, :cond_10
+
+    const v9, 0x3
+
+    if-eq v8, v9, :cond_11
+
+    const v9, 0x4
+
+    if-eq v8, v9, :cond_12
+
+    const v9, 0x5
+
+    if-eq v8, v9, :cond_13
+
+    const v9, 0x6
+
+    if-eq v8, v9, :cond_14
+
+    const v9, 0x7
+
+    if-eq v8, v9, :cond_15
+
+    const v9, 0x8
+
+    if-eq v8, v9, :cond_16
+
+    const v9, 0x9
+
+    if-eq v8, v9, :cond_17
+
+    const v9, 0xa
+
+    if-eq v8, v9, :cond_18
+
+    const v9, 0xb
+
+    if-eq v8, v9, :cond_19
+
+    const v9, 0xc
+
+    if-eq v8, v9, :cond_1a
+
+    const v9, 0xd
+
+    if-eq v8, v9, :cond_1b
+
+    const v9, 0xe
+
+    if-eq v8, v9, :cond_1c
+
+    const v9, 0xf
+
+    if-eq v8, v9, :cond_1d
+
+    const v9, 0x10
+
+    if-eq v8, v9, :cond_1e
+
+    :cond_10
+    const v1, 0x7f020773
+
+    const v2, 0x7f020791
+
+    const v3, 0x7f0207af
+
+    const v4, 0x7f0207cd
+
+    const v5, 0x7f0207eb
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020657
+
+    const v2, 0x7f020659
+
+    const v3, 0x7f02065b
+
+    const v4, 0x7f02065d
+
+    const v5, 0x7f02065f
+
+    goto/16 :goto_1
+
+    :cond_11
+    const v1, 0x7f020775
+
+    const v2, 0x7f020793
+
+    const v3, 0x7f0207b1
+
+    const v4, 0x7f0207cf
+
+    const v5, 0x7f0207ed
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020775
+
+    const v2, 0x7f020793
+
+    const v3, 0x7f0207b1
+
+    const v4, 0x7f0207cf
+
+    const v5, 0x7f0207ed
+
+    goto/16 :goto_1
+
+    :cond_12
+    const v1, 0x7f020777
+
+    const v2, 0x7f020795
+
+    const v3, 0x7f0207b3
+
+    const v4, 0x7f0207d1
+
+    const v5, 0x7f0207ef
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020777
+
+    const v2, 0x7f020795
+
+    const v3, 0x7f0207b3
+
+    const v4, 0x7f0207d1
+
+    const v5, 0x7f0207ef
+
+    goto/16 :goto_1
+
+    :cond_13
+    const v1, 0x7f020779
+
+    const v2, 0x7f020797
+
+    const v3, 0x7f0207b5
+
+    const v4, 0x7f0207d3
+
+    const v5, 0x7f0207f1
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020779
+
+    const v2, 0x7f020797
+
+    const v3, 0x7f0207b5
+
+    const v4, 0x7f0207d3
+
+    const v5, 0x7f0207f1
+
+    goto/16 :goto_1
+
+    :cond_14
+    const v1, 0x7f02077b
+
+    const v2, 0x7f020799
+
+    const v3, 0x7f0207b7
+
+    const v4, 0x7f0207d5
+
+    const v5, 0x7f0207d5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02077b
+
+    const v2, 0x7f020799
+
+    const v3, 0x7f0207b7
+
+    const v4, 0x7f0207d5
+
+    const v5, 0x7f0207d5
+
+    goto/16 :goto_1
+
+    :cond_15
+    const v1, 0x7f02077d
+
+    const v2, 0x7f02079b
+
+    const v3, 0x7f0207b9
+
+    const v4, 0x7f0207d7
+
+    const v5, 0x7f0207f5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02077d
+
+    const v2, 0x7f02079b
+
+    const v3, 0x7f0207b9
+
+    const v4, 0x7f0207d7
+
+    const v5, 0x7f0207f5
+
+    goto/16 :goto_1
+
+    :cond_16
+    const v1, 0x7f02077f
+
+    const v2, 0x7f02079d
+
+    const v3, 0x7f0207bb
+
+    const v4, 0x7f0207d9
+
+    const v5, 0x7f0207f7
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02077f
+
+    const v2, 0x7f02079d
+
+    const v3, 0x7f0207bb
+
+    const v4, 0x7f0207d9
+
+    const v5, 0x7f0207f7
+
+    goto/16 :goto_1
+
+    :cond_17
+    const v1, 0x7f020781
+
+    const v2, 0x7f02079f
+
+    const v3, 0x7f0207bd
+
+    const v4, 0x7f0207db
+
+    const v5, 0x7f0207f9
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020781
+
+    const v2, 0x7f02079f
+
+    const v3, 0x7f0207bd
+
+    const v4, 0x7f0207db
+
+    const v5, 0x7f0207f9
+
+    goto/16 :goto_1
+
+    :cond_18
+    const v1, 0x7f020765
+
+    const v2, 0x7f020783
+
+    const v3, 0x7f0207a1
+
+    const v4, 0x7f0207bf
+
+    const v5, 0x7f0207dd
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020765
+
+    const v2, 0x7f020783
+
+    const v3, 0x7f0207a1
+
+    const v4, 0x7f0207bf
+
+    const v5, 0x7f0207dd
+
+    goto/16 :goto_1
+
+    :cond_19
+    const v1, 0x7f020767
+
+    const v2, 0x7f020785
+
+    const v3, 0x7f0207a3
+
+    const v4, 0x7f0207c1
+
+    const v5, 0x7f0207df
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020767
+
+    const v2, 0x7f020785
+
+    const v3, 0x7f0207a3
+
+    const v4, 0x7f0207c1
+
+    const v5, 0x7f0207df
+
+    goto/16 :goto_1
+
+    :cond_1a
+    const v1, 0x7f020769
+
+    const v2, 0x7f020787
+
+    const v3, 0x7f0207a5
+
+    const v4, 0x7f0207c3
+
+    const v5, 0x7f0207e1
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020769
+
+    const v2, 0x7f020787
+
+    const v3, 0x7f0207a5
+
+    const v4, 0x7f0207c3
+
+    const v5, 0x7f0207e1
+
+    goto/16 :goto_1
+
+    :cond_1b
+    const v1, 0x7f02076b
+
+    const v2, 0x7f020789
+
+    const v3, 0x7f0207a7
+
+    const v4, 0x7f0207c5
+
+    const v5, 0x7f0207e3
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02076b
+
+    const v2, 0x7f020789
+
+    const v3, 0x7f0207a7
+
+    const v4, 0x7f0207c5
+
+    const v5, 0x7f0207e3
+
+    goto/16 :goto_1
+
+    :cond_1c
+    const v1, 0x7f02076d
+
+    const v2, 0x7f02078b
+
+    const v3, 0x7f0207a9
+
+    const v4, 0x7f0207c7
+
+    const v5, 0x7f0207e5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02076d
+
+    const v2, 0x7f02078b
+
+    const v3, 0x7f0207a9
+
+    const v4, 0x7f0207c7
+
+    const v5, 0x7f0207e5
+
+    goto :goto_1
+
+    :cond_1d
+    const v1, 0x7f02076f
+
+    const v2, 0x7f02078d
+
+    const v3, 0x7f0207ab
+
+    const v4, 0x7f0207c9
+
+    const v5, 0x7f0207e7
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02076f
+
+    const v2, 0x7f02078d
+
+    const v3, 0x7f0207ab
+
+    const v4, 0x7f0207c9
+
+    const v5, 0x7f0207e7
+
+    goto :goto_1
+
+    :cond_1e
+    const v1, 0x7f020771
+
+    const v2, 0x7f02078f
+
+    const v3, 0x7f0207ad
+
+    const v4, 0x7f0207cb
+
+    const v5, 0x7f0207e9
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020771
+
+    const v2, 0x7f02078f
+
+    const v3, 0x7f0207ad
+
+    const v4, 0x7f0207cb
+
+    const v5, 0x7f0207e9
+
+    goto :goto_1
+
+    :cond_1f
     const v1, 0x7f02066c
 
     const v2, 0x7f02066e
@@ -235,6 +1316,7 @@
 
     const v5, 0x7f020674
 
+    :goto_1
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
     move-result-object v1

@@ -2338,9 +2338,21 @@
 .end method
 
 .method private computeTimeoutH()I
-    .locals 2
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v2, "volpanel_timeout"
 
     const/16 v1, 0x1388
+
+    invoke-static {v0, v2, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
 
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mAccessibility:Lcom/android/systemui/volume/SecVolumeDialog$Accessibility;
 
@@ -3294,7 +3306,9 @@
 .end method
 
 .method private initDialog()V
-    .locals 13
+    .locals 14
+
+    const/16 v13, 0xc
 
     const/4 v12, 0x3
 
@@ -3470,13 +3484,13 @@
 
     const/4 v0, 0x4
 
-    invoke-direct {p0, v0, v11, v10, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v0, v11, v10, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const v0, 0x1080a05
 
     const v1, 0x1080a05
 
-    invoke-direct {p0, v8, v0, v1, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v8, v0, v1, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const/4 v0, 0x6
 
@@ -3484,7 +3498,7 @@
 
     const v2, 0x1080a03
 
-    invoke-direct {p0, v0, v1, v2, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v0, v1, v2, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const/16 v0, 0xa
 
@@ -3492,11 +3506,11 @@
 
     const v2, 0x7f020711
 
-    invoke-direct {p0, v0, v1, v2, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v0, v1, v2, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const/16 v0, 0xb
 
-    invoke-direct {p0, v0, v11, v10, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v0, v11, v10, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const v0, 0x7f020715
 
@@ -3639,13 +3653,13 @@
 
     const/4 v0, 0x4
 
-    invoke-direct {p0, v0, v11, v10, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v0, v11, v10, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const v0, 0x1080a05
 
     const v1, 0x1080a05
 
-    invoke-direct {p0, v8, v0, v1, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v13, v0, v1, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const/4 v0, 0x6
 
@@ -3653,7 +3667,7 @@
 
     const v2, 0x1080a03
 
-    invoke-direct {p0, v0, v1, v2, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v0, v1, v2, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const/16 v0, 0xa
 
@@ -3661,11 +3675,11 @@
 
     const v2, 0x7f020711
 
-    invoke-direct {p0, v0, v1, v2, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v0, v1, v2, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const/16 v0, 0xb
 
-    invoke-direct {p0, v0, v11, v10, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v0, v11, v10, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const v0, 0x7f020715
 

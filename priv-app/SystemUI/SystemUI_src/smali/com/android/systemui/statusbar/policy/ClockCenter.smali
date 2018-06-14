@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method protected updateClockVisibility()V
+.method public updateClockVisibility()V
     .locals 2
 
     iget v0, p0, Lcom/android/systemui/statusbar/policy/ClockCenter;->mClockStyle:I
@@ -44,6 +44,10 @@
     if-ne v0, v1, :cond_0
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/ClockCenter;->mShowClock:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/ClockCenter;->mShowClockStatusBar:Z
 
     if-eqz v0, :cond_0
 
@@ -60,4 +64,14 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/ClockCenter;->setVisibility(I)V
 
     goto :goto_0
+.end method
+
+.method public updateVisibilityFromStatusBar(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/ClockCenter;->mShowClockStatusBar:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/ClockCenter;->updateClockVisibility()V
+
+    return-void
 .end method

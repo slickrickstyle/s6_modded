@@ -2100,30 +2100,21 @@
 
     const/4 v8, 0x3
 
-    const/4 v7, 0x0
-
     const/4 v5, 0x0
 
-    invoke-virtual {p0}, Lcom/android/systemui/stackdivider/DividerView;->getVisibility()I
+    const/4 v7, 0x0
 
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    return-void
-
-    :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/stackdivider/DividerView;->isHorizontalDivision()Z
 
     move-result v4
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideView:Lcom/android/systemui/stackdivider/DividerView$GuideView;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_2
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideView:Lcom/android/systemui/stackdivider/DividerView$GuideView;
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideView:Lcom/android/systemui/stackdivider/DividerView$GuideView;
 
@@ -2131,29 +2122,29 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_2
 
-    :cond_1
+    :cond_0
     :goto_0
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideRect:Landroid/graphics/Rect;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1
 
     move p1, v5
 
-    :cond_2
+    :cond_1
     iput p1, v6, Landroid/graphics/Rect;->left:I
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideRect:Landroid/graphics/Rect;
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_6
 
     :goto_1
     iput p2, v6, Landroid/graphics/Rect;->top:I
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideRect:Landroid/graphics/Rect;
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_7
 
     iget v5, p0, Lcom/android/systemui/stackdivider/DividerView;->mDisplayWidth:I
 
@@ -2162,7 +2153,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideRect:Landroid/graphics/Rect;
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_8
 
     iget-object v5, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideRect:Landroid/graphics/Rect;
 
@@ -2183,7 +2174,7 @@
 
     return-void
 
-    :cond_3
+    :cond_2
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mContext:Landroid/content/Context;
 
     invoke-static {v6}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
@@ -2200,9 +2191,9 @@
 
     sget v1, Lcom/android/systemui/stackdivider/FocusedFrameView;->mFocusedStackId:I
 
-    if-ne v1, v8, :cond_5
+    if-ne v1, v8, :cond_4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mDockedRect:Landroid/graphics/Rect;
 
@@ -2252,7 +2243,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_3
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mDockedRect:Landroid/graphics/Rect;
 
     const/4 v7, 0x1
@@ -2261,8 +2252,8 @@
 
     goto :goto_4
 
-    :cond_5
-    if-eqz v4, :cond_6
+    :cond_4
+    if-eqz v4, :cond_5
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mOtherRect:Landroid/graphics/Rect;
 
@@ -2279,19 +2270,19 @@
 
     goto :goto_5
 
-    :cond_6
+    :cond_5
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerView;->mOtherRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0, p1, v8, v6}, Lcom/android/systemui/stackdivider/DividerView;->calculateBoundsForPosition(IILandroid/graphics/Rect;)V
 
     goto :goto_6
 
-    :cond_7
+    :cond_6
     move p2, v5
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_7
     iget-object v5, p0, Lcom/android/systemui/stackdivider/DividerView;->mGuideRect:Landroid/graphics/Rect;
 
     iget v5, v5, Landroid/graphics/Rect;->left:I
@@ -2302,7 +2293,7 @@
 
     goto/16 :goto_2
 
-    :cond_9
+    :cond_8
     iget v5, p0, Lcom/android/systemui/stackdivider/DividerView;->mDisplayHeight:I
 
     goto :goto_3

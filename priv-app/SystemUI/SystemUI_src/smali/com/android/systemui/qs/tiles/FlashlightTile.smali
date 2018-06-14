@@ -54,7 +54,7 @@
     .end annotation
 .end field
 
-.field private final mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+.field private final mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/systemui/qs/QSTile",
@@ -182,7 +182,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
 
-    new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon2;
 
     const v2, 0x7f02037f
 
@@ -198,9 +198,9 @@
 
     move-object v1, p0
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;IIIIII)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/qs/QSTile$AnimationIcon2;-><init>(Lcom/android/systemui/qs/QSTile;IIIIII)V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon2;
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
@@ -974,7 +974,7 @@
 
     if-eqz v2, :cond_4
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile;->mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon2;
 
     :goto_3
     iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;

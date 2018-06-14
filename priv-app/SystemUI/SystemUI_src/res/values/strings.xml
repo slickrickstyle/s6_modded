@@ -13,6 +13,17 @@
     <string name="dock_minimized_notification_content_text">Tap here to open.</string>
     <string name="date_format_for_display">EEEMMMMd</string>
     <string name="date_format_for_tts">EEEEMMMMd</string>
+    <string name="clear_cover_wday_day" />
+    <string name="clear_cover_month_day_no_year" />
+    <string name="clear_cover_day_month_no_year" />
+    <string name="sview_cover_wday_month_day_no_year" />
+    <string name="sview_cover_wday_day_month_no_year" />
+    <string name="full_wday_month_day_no_year" />
+    <string name="full_wday_day_month_no_year" />
+    <string name="sview_cover_dual_wday_month_day_no_year" />
+    <string name="sview_cover_dual_wday_day_month_no_year" />
+    <string name="mini_cover_month_day_no_year" />
+    <string name="mini_cover_day_month_no_year" />
     <string name="cancel">Cancel</string>
     <string name="clearcover_1_missed_call">You have 1 missed call</string>
     <string name="clearcover_1_unread_message">You have 1 unread message</string>
@@ -55,8 +66,48 @@
     <string name="minimized_notification_talkback_description_open_more">Double tap to open notification panel.</string>
     <string name="clear_cover_no_music">Open cover to play music</string>
     <string name="clear_cover_calendar_stub_page_text">"Today's schedule"</string>
+    <string name="volumepanel_notification" />
     <string name="save">Save</string>
+    <item type="string" name="APKTOOL_DUMMY_44">false</item>
     <string name="ok">@android:string/ok</string>
+    <item type="string" name="APKTOOL_DUMMY_46">false</item>
+    <item type="string" name="APKTOOL_DUMMY_47">false</item>
+    <item type="string" name="APKTOOL_DUMMY_48">false</item>
+    <item type="string" name="APKTOOL_DUMMY_49">false</item>
+    <item type="string" name="APKTOOL_DUMMY_4a">false</item>
+    <item type="string" name="APKTOOL_DUMMY_4b">false</item>
+    <item type="string" name="APKTOOL_DUMMY_4c">false</item>
+    <item type="string" name="APKTOOL_DUMMY_4d">false</item>
+    <item type="string" name="APKTOOL_DUMMY_4e">false</item>
+    <item type="string" name="APKTOOL_DUMMY_4f">false</item>
+    <item type="string" name="APKTOOL_DUMMY_50">false</item>
+    <item type="string" name="APKTOOL_DUMMY_51">false</item>
+    <item type="string" name="APKTOOL_DUMMY_52">false</item>
+    <item type="string" name="APKTOOL_DUMMY_53">false</item>
+    <item type="string" name="APKTOOL_DUMMY_54">false</item>
+    <item type="string" name="APKTOOL_DUMMY_55">false</item>
+    <item type="string" name="APKTOOL_DUMMY_56">false</item>
+    <item type="string" name="APKTOOL_DUMMY_57">false</item>
+    <item type="string" name="APKTOOL_DUMMY_58">false</item>
+    <item type="string" name="APKTOOL_DUMMY_59">false</item>
+    <item type="string" name="APKTOOL_DUMMY_5a">false</item>
+    <item type="string" name="APKTOOL_DUMMY_5b">false</item>
+    <item type="string" name="APKTOOL_DUMMY_5c">false</item>
+    <item type="string" name="APKTOOL_DUMMY_5d">false</item>
+    <item type="string" name="APKTOOL_DUMMY_5e">false</item>
+    <item type="string" name="APKTOOL_DUMMY_5f">false</item>
+    <item type="string" name="APKTOOL_DUMMY_60">false</item>
+    <item type="string" name="APKTOOL_DUMMY_61">false</item>
+    <item type="string" name="APKTOOL_DUMMY_62">false</item>
+    <item type="string" name="APKTOOL_DUMMY_63">false</item>
+    <item type="string" name="APKTOOL_DUMMY_64">false</item>
+    <item type="string" name="APKTOOL_DUMMY_65">false</item>
+    <item type="string" name="APKTOOL_DUMMY_66">false</item>
+    <item type="string" name="APKTOOL_DUMMY_67">false</item>
+    <item type="string" name="APKTOOL_DUMMY_68">false</item>
+    <item type="string" name="APKTOOL_DUMMY_69">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6a">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6b">false</item>
     <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
     <string name="battery_history_minutes_no_seconds">%1$dm</string>
     <string name="wifi_fail_to_scan">"Can't scan for networks"</string>
@@ -508,7 +559,7 @@
     <string name="v7_preference_on">ON</string>
     <string name="v7_preference_off">OFF</string>
     <string name="config_statusBarComponent">com.android.systemui.statusbar.phone.PhoneStatusBar</string>
-    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,AirplaneMode,PowerSaving,MobileData,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode</string>
+    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,AirplaneMode,PowerSaving,MobileData,WifiCalling,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode</string>
     <string name="quick_settings_tiles_upsm">Wifi,Bluetooth,AirplaneMode,custom(com.sec.android.emergencymode.service/.PowerSavingTile),MobileData,Location</string>
     <string name="quick_settings_custom_tile_component_names">Performance:com.samsung.android.lool/com.samsung.android.sm.ui.booster.PerformanceTile,PerformanceCHN:com.samsung.android.sm_cn/com.samsung.android.sm.ui.booster.PerformanceTile,PowerSaving:com.android.settings/com.samsung.android.settings.qstile.PowerSavingTile,Aod:com.samsung.android.app.aodservice/.settings.AODTileService,DeviceVisibility:com.samsung.android.oneconnect/.external.DeviceVisibilityTile,PowerSavingUPSM:com.sec.android.emergencymode.service/.PowerSavingTile,Sync:com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles,PersonalMode:com.android.settings/com.samsung.android.settings.qstile.PersonalModeTile,AllShareCast:com.samsung.android.smartmirroring/.tile.SmartMirroringTile,AllShareCastOld:com.sec.android.app.wfdbroker/.AllShareCastTile,Nfc:com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile,SecureFolder:com.samsung.knox.securefolder/.switcher.SecureFolderTile</string>
     <string name="quick_settings_tiles_dex">Wifi,SilentMode,Bluetooth,Flashlight,MobileData,AirplaneMode,WifiHotspot,custom(com.samsung.knox.securefolder/.switcher.SecureFolderTile),Location,custom(com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile),custom(com.samsung.android.oneconnect/.external.DeviceVisibilityTile),Dnd,custom(com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles)</string>
@@ -1182,7 +1233,7 @@ be monitored"</string>
     <string name="keyguard_more_overflow_text">+%d</string>
     <string name="speed_bump_explanation">Less urgent notifications below</string>
     <string name="notification_tap_again">Tap again to open</string>
-    <string name="keyguard_unlock">Swipe up to unlock</string>
+    <string name="keyguard_unlock" />
     <string name="phone_hint">Swipe from icon for phone</string>
     <string name="voice_hint">Swipe from icon for voice assist</string>
     <string name="camera_hint">Swipe from icon for camera</string>
@@ -1775,7 +1826,7 @@ To prevent this pop-up from appearing in the future, make sure the proximity sen
     <string name="kg_voice_assistant_active_instructions" />
     <string name="kg_voice_assistant_unlock_instructions">Swipe with two fingers to unlock the screen.</string>
     <string name="kg_swipe_active_instructions" />
-    <string name="kg_swipe_unlock_instructions">Swipe screen to unlock</string>
+    <string name="kg_swipe_unlock_instructions" />
     <string name="kg_power_connect_charger">Connect charger</string>
     <string name="kg_power_fully_charged">Fully charged</string>
     <string name="kg_power_fast_charging">Fast charging: %d%%</string>
@@ -1887,6 +1938,12 @@ Connect to Samsung GALAXY Apps and download the application."</string>
     <string name="more_container_talkback_desctiprion_notification_panel_open">Double tap to open notification panel</string>
     <string name="qs_detail_smart_capture_title">Smart capture</string>
     <string name="qs_detail_palm_capture_title">Palm swipe to capture</string>
+    <item type="string" name="APKTOOL_DUMMY_6dd">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6de">false</item>
+    <string name="screenshot_failed_to_save_unknown_text" />
+    <string name="screenshot_failed_to_save_text" />
+    <string name="screenshot_failed_to_capture_text" />
+    <string name="recents_help_dlg_split_page2" />
     <string name="car_lockscreen_disclaimer_title">Drive safely</string>
     <string name="car_lockscreen_disclaimer_text">Stay fully aware of driving conditions and always obey applicable laws. Directions may be inaccurate, incomplete, dangerous, not suitable, prohibited, or involve crossing administrative areas. Business information may also be inaccurate or incomplete. Data is not real-time, and location accuracy cannot be guaranteed. Do not handle your mobile device or use apps not intended for Android Auto while driving.</string>
     <string name="pip_close">Close PIP</string>
@@ -2485,61 +2542,5 @@ Try again in 1 second"</string>
     <string name="kg_too_many_failed_countdown_by_fingerprint">%d incorrect attempts to verify fingerprints. Try again in 30 seconds.</string>
     <string name="kg_too_many_failed_countdown_by_biometrics">%d incorrect attempts to verify biometrics. Try again in 30 seconds.</string>
     <string name="kg_finger_print_bad_quality_error_message">Home key may be dirty or damp. Clean and dry Home key, then try again.</string>
-    <item type="string" name="APKTOOL_DUMMY_44">false</item>
-    <item type="string" name="APKTOOL_DUMMY_46">false</item>
-    <item type="string" name="APKTOOL_DUMMY_47">false</item>
-    <item type="string" name="APKTOOL_DUMMY_48">false</item>
-    <item type="string" name="APKTOOL_DUMMY_49">false</item>
-    <item type="string" name="APKTOOL_DUMMY_4a">false</item>
-    <item type="string" name="APKTOOL_DUMMY_4b">false</item>
-    <item type="string" name="APKTOOL_DUMMY_4c">false</item>
-    <item type="string" name="APKTOOL_DUMMY_4d">false</item>
-    <item type="string" name="APKTOOL_DUMMY_4e">false</item>
-    <item type="string" name="APKTOOL_DUMMY_4f">false</item>
-    <item type="string" name="APKTOOL_DUMMY_50">false</item>
-    <item type="string" name="APKTOOL_DUMMY_51">false</item>
-    <item type="string" name="APKTOOL_DUMMY_52">false</item>
-    <item type="string" name="APKTOOL_DUMMY_53">false</item>
-    <item type="string" name="APKTOOL_DUMMY_54">false</item>
-    <item type="string" name="APKTOOL_DUMMY_55">false</item>
-    <item type="string" name="APKTOOL_DUMMY_56">false</item>
-    <item type="string" name="APKTOOL_DUMMY_57">false</item>
-    <item type="string" name="APKTOOL_DUMMY_58">false</item>
-    <item type="string" name="APKTOOL_DUMMY_59">false</item>
-    <item type="string" name="APKTOOL_DUMMY_5a">false</item>
-    <item type="string" name="APKTOOL_DUMMY_5b">false</item>
-    <item type="string" name="APKTOOL_DUMMY_5c">false</item>
-    <item type="string" name="APKTOOL_DUMMY_5d">false</item>
-    <item type="string" name="APKTOOL_DUMMY_5e">false</item>
-    <item type="string" name="APKTOOL_DUMMY_5f">false</item>
-    <item type="string" name="APKTOOL_DUMMY_60">false</item>
-    <item type="string" name="APKTOOL_DUMMY_61">false</item>
-    <item type="string" name="APKTOOL_DUMMY_62">false</item>
-    <item type="string" name="APKTOOL_DUMMY_63">false</item>
-    <item type="string" name="APKTOOL_DUMMY_64">false</item>
-    <item type="string" name="APKTOOL_DUMMY_65">false</item>
-    <item type="string" name="APKTOOL_DUMMY_66">false</item>
-    <item type="string" name="APKTOOL_DUMMY_67">false</item>
-    <item type="string" name="APKTOOL_DUMMY_68">false</item>
-    <item type="string" name="APKTOOL_DUMMY_69">false</item>
-    <item type="string" name="APKTOOL_DUMMY_6a">false</item>
-    <item type="string" name="APKTOOL_DUMMY_6b">false</item>
-    <item type="string" name="APKTOOL_DUMMY_6dd">false</item>
-    <item type="string" name="APKTOOL_DUMMY_6de">false</item>
-    <string name="clear_cover_day_month_no_year" />
-<string name="clear_cover_month_day_no_year" />
-<string name="clear_cover_wday_day" />
-<string name="full_wday_day_month_no_year" />
-<string name="full_wday_month_day_no_year" />
-<string name="mini_cover_day_month_no_year" />
-<string name="mini_cover_month_day_no_year" />
-<string name="recents_help_dlg_split_page2" />
-<string name="screenshot_failed_to_capture_text" />
-<string name="screenshot_failed_to_save_text" />
-<string name="screenshot_failed_to_save_unknown_text" />
-<string name="sview_cover_dual_wday_day_month_no_year" />
-<string name="sview_cover_dual_wday_month_day_no_year" />
-<string name="sview_cover_wday_day_month_no_year" />
-<string name="sview_cover_wday_month_day_no_year" />
-<string name="volumepanel_notification" />
+    <string name="status_view_24_hours_format">kk:mm</string>
 </resources>

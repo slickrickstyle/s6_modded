@@ -3371,10 +3371,6 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/NotificationContentView;->mHeadsUpChild:Landroid/view/View;
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/NotificationContentView;->mExpandable:Z
-
     return-void
 .end method
 

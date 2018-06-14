@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 3
+    .locals 5
 
     const/4 v2, 0x1
 
@@ -114,16 +114,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x0
 
+    const-string v3, "sfinder_visibility"
+
+    const/4 v4, 0x1
+
+    invoke-static {v3, v4}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const/16 v0, 0x8
+
+    :cond_0
     :goto_0
     invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
 
     return-void
 
-    :cond_0
+    :cond_1
     const/16 v0, 0x8
 
     goto :goto_0

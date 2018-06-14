@@ -9194,14 +9194,6 @@
 
     if-nez v3, :cond_4
 
-    const-string/jumbo v3, "710"
-
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_4
-
     const-string/jumbo v3, "714"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -9221,6 +9213,8 @@
     move-result-object v0
 
     goto :goto_1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0xd

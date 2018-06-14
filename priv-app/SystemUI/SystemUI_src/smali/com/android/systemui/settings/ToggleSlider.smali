@@ -2,6 +2,9 @@
 .super Landroid/widget/RelativeLayout;
 .source "ToggleSlider.java"
 
+# interfaces
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -31,6 +34,8 @@
 .field private mContext:Landroid/content/Context;
 
 .field private mDoNotShowStrainPopup:Z
+
+.field private mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
 
 .field private mHbmOn:Z
 
@@ -427,6 +432,8 @@
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->setUpBrightnessSliderColors()V
+
     return-void
 .end method
 
@@ -452,6 +459,76 @@
     invoke-direct {v1, v0, v2}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
 
     return-object v1
+.end method
+
+.method private registerGearObserver()V
+    .locals 7
+
+    new-instance v3, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v3, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    iput-object v3, p0, Lcom/android/systemui/settings/ToggleSlider;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v3, "qs_seekbar_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v3, "qs_thumb_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v3, "custom_slider_colors"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    iget-object v6, p0, Lcom/android/systemui/settings/ToggleSlider;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    invoke-virtual {v1, v4, v5, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
 .end method
 
 .method private showStrainWarningPopup()V
@@ -710,6 +787,33 @@
     return-void
 .end method
 
+.method public isCustomColorEnabled()Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "custom_slider_colors"
+
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
 .method protected onAttachedToWindow()V
     .locals 2
 
@@ -730,6 +834,53 @@
     invoke-interface {v0, p0}, Lcom/android/systemui/settings/ToggleSlider$Listener;->onInit(Lcom/android/systemui/settings/ToggleSlider;)V
 
     :cond_0
+    invoke-direct {p0}, Lcom/android/systemui/settings/ToggleSlider;->registerGearObserver()V
+
+    return-void
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+
+    const-string v0, "qs_seekbar_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->setUpBrightnessSliderColors()V
+
+    :cond_0
+    const-string v0, "qs_thumb_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->setUpBrightnessSliderColors()V
+
+    :cond_1
+    const-string v0, "custom_slider_colors"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->setUpBrightnessSliderColors()V
+
+    :cond_2
     return-void
 .end method
 
@@ -749,6 +900,14 @@
     iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    return-void
+.end method
+
+.method public onWindowFocusChanged(Z)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->setUpBrightnessSliderColors()V
 
     return-void
 .end method
@@ -1106,6 +1265,121 @@
     iput-boolean p1, p0, Lcom/android/systemui/settings/ToggleSlider;->mTouchEnabled:Z
 
     return-void
+.end method
+
+.method public setUpBrightnessSliderColors()V
+    .locals 10
+
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mUseStockNPColors:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const-string v7, "brightness_controller_seekbar_color_activated"
+
+    const-string v8, "color"
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->getContext()Landroid/content/Context;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v6, v7, v8, v9}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v2
+
+    const-string v5, "qs_seekbar_color"
+
+    invoke-static {v0, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    const-string v5, "qs_thumb_color"
+
+    invoke-static {v0, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->isCustomColorEnabled()Z
+
+    move-result v4
+
+    iget-object v5, p0, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
+
+    sget-object v6, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v5, v6}, Lcom/android/systemui/settings/ToggleSeekBar;->setProgressTintMode(Landroid/graphics/PorterDuff$Mode;)V
+
+    iget-object v6, p0, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v5
+
+    :goto_0
+    invoke-virtual {v6, v5}, Lcom/android/systemui/settings/ToggleSeekBar;->setProgressTintList(Landroid/content/res/ColorStateList;)V
+
+    iget-object v5, p0, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
+
+    sget-object v6, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v5, v6}, Lcom/android/systemui/settings/ToggleSeekBar;->setThumbTintMode(Landroid/graphics/PorterDuff$Mode;)V
+
+    iget-object v6, p0, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
+
+    if-eqz v4, :cond_2
+
+    invoke-static {v3}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v5
+
+    :goto_1
+    invoke-virtual {v6, v5}, Lcom/android/systemui/settings/ToggleSeekBar;->setThumbTintList(Landroid/content/res/ColorStateList;)V
+
+    :cond_0
+    return-void
+
+    :cond_1
+    invoke-static {v2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v5
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {v2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v5
+
+    goto :goto_1
 .end method
 
 .method public setValue(I)V
