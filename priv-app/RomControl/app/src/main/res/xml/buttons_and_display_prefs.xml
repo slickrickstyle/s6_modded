@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="Mokee Listview Animations">
+        <com.wubydax.romcontrol.v2.prefs.MyListPreference android:entries="@array/listview_animation_entries" android:title="Listview animation" android:key="listview_animation" android:dependency="listview_animation" android:defaultValue="0" android:entryValues="@array/listview_animation_values" />
+        <com.wubydax.romcontrol.v2.prefs.MyListPreference android:entries="@array/listview_interpolator_entries" android:title="Listview interpolator" android:key="listview_interpolator" android:dependency="listview_interpolator" android:defaultValue="0" android:entryValues="@array/listview_interpolator_values" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Other Display Features">
+        <com.wubydax.romcontrol.v2.prefs.MySwitchPreference android:title="Outdoor Mode" android:key="display_outdoor_mode" android:defaultValue="false" android:summaryOn="Enabled  \n> Outdoor mode provides full screen brightness for a period of 15 minutes." android:summaryOff="Disabled  \n> Outdoor mode provides full screen brightness for a period of 15 minutes." />
+        <com.wubydax.romcontrol.v2.prefs.MySwitchPreference android:title="USB Plugged/Unplugged Wake" android:key="no_wake_unplugged" android:defaultValue="true" android:summaryOn="Wake the phone when usb is plugged or unplugged." android:summaryOff="Do not Wake the phone when usb is pluggin in." />
+        <com.wubydax.romcontrol.v2.prefs.MySwitchPreference android:title="Screen Pinning for Recent Apps" android:key="lock_to_app_enabled" android:defaultValue="false" android:summaryOn="Option is currently enabled" android:summaryOff="Option is currently disabled" />
+    </PreferenceCategory>
+</PreferenceScreen>

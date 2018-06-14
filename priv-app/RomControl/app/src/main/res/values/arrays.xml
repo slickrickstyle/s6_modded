@@ -1,0 +1,1103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="theme_items">
+        <item>Light theme</item>
+        <item>Dark theme</item>
+    </string-array>
+    <string-array name="backup_restore_items">
+        <item>Backup data</item>
+        <item>Restore data</item>
+    </string-array>
+    <string-array name="custom_bg_type_entries">
+        <item>Image</item>
+        <item>Solid color</item>
+        <item>Gradient</item>
+    </string-array>
+    <string-array name="custom_bg_type_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="gradient_entries">
+        <item>Top to bottom</item>
+        <item>Bottom to top</item>
+        <item>Left to right</item>
+        <item>Right to left</item>
+    </string-array>
+    <string-array name="gradient_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="crop_entries">
+        <item>Center crop</item>
+        <item>Center inside</item>
+        <item>Fit XY</item>
+    </string-array>
+    <string-array name="crop_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="clock_format_entries">
+        <item>Normal clock</item>
+        <item>Funky clock</item>
+        <item>Word clock</item>
+    </string-array>
+    <string-array name="clock_format_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+      <string-array name="clock_style_entries">
+        <item>Center clock</item>
+        <item>Left clock</item>
+        <item>Right clock</item>
+    </string-array>
+    <string-array name="clock_style_values">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </string-array>
+       <string-array name="entries_status_bar_am_pm">
+        <item>"Don't show"</item>
+        <item>Small AM/PM</item>
+        <item>Regular AM/PM</item>
+    </string-array>
+    <string-array name="values_status_bar_am_pm">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+        <string-array name="clock_font_style_entries">
+        <item>Bold</item>
+        <item>Condensed</item>
+        <item>Light</item>
+        <item>Light Italic</item>
+        <item>Normal</item>
+        <item>Chococooky</item>
+        <item>Coming Soon</item>
+        <item>Cool Jazz</item>
+        <item>Lindsey for Samsung</item>
+        <item>MTL</item>
+    </string-array>
+    <string-array name="clock_font_style_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+       <string-array name="clock_date_display_entries">
+        <item>"Don't show"</item>
+        <item>Small date</item>
+        <item>Regular date</item>
+    </string-array>
+    <string-array name="clock_date_display_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="clock_date_style_entries">
+        <item>Normal date</item>
+        <item>Lowercase date</item>
+        <item>Uppercase date</item>
+    </string-array>
+    <string-array name="clock_date_style_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+        <string-array name="clock_date_position_entries">
+        <item>"Clock date left</item>
+        <item>"Clock date right</item>
+    </string-array>
+    <string-array name="clock_date_position_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+       <string-array name="clock_date_format_entries_values">
+        <item>dd/MM/yy</item>
+        <item>MM/dd/yy</item>
+        <item>yyyy-MM-dd</item>
+        <item>yyyy-dd-MM</item>
+        <item>dd-MM-yyyy</item>
+        <item>MM-dd-yyyy</item>
+        <item>MMM dd</item>
+        <item>MMM dd, yyyy</item>
+        <item>MMMM dd, yyyy</item>
+        <item>EEE</item>
+        <item>EEE dd</item>
+        <item>EEE dd/MM</item>
+        <item>EEE MM/dd</item>
+        <item>EEE dd MMM</item>
+        <item>EEE MMM dd</item>
+        <item>EEE MMMM dd</item>
+        <item>EEEE dd/MM</item>
+        <item>EEEE MM/dd</item>
+    </string-array>
+        <string-array name="listview_animation_entries">
+        <item>Off</item>
+        <item>Wave Left</item>
+        <item>Wave Right</item>
+        <item>Scale</item>
+        <item>Alpha</item>
+        <item>Stack Top</item>
+        <item>Stack Bottom</item>
+        <item>Unfold</item>
+        <item>Fold</item>
+        <item>Translate Left</item>
+        <item>Translate Right</item>
+        <item>Rotate</item>
+    </string-array>
+    <string-array name="listview_animation_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="listview_interpolator_entries">
+        <item>Off</item>
+        <item>Accelerate</item>
+        <item>Decelerate</item>
+        <item>Accelerate decelerate</item>
+        <item>Anticipate</item>
+        <item>Overshoot</item>
+        <item>Anticipate overshoot</item>
+        <item>Bounce</item>
+    </string-array>
+    <string-array name="listview_interpolator_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+      <string-array name="battery_icon_entries">
+        <item>Stock Icon</item>
+        <item>3Minit Icon</item>
+        <item>Hide Icon</item>
+    </string-array>
+    <string-array name="battery_icon_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+        <string-array name="battery_bar_entries">
+        <item>Disabled</item>
+        <item>Enabled</item>
+    </string-array>
+    <string-array name="battery_bar_style_entries">
+        <item>Regular</item>
+        <item>Center-mirrored</item>
+    </string-array>
+    <string-array name="battery_bar_style_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="battery_bar_thickness_entries">
+        <item>1 dp</item>
+        <item>2 dp</item>
+        <item>3 dp</item>
+        <item>4 dp</item>
+    </string-array>
+    <string-array name="battery_bar_thickness_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="battery_bar_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+        <string-array name="dsb_gradient_filter_entries">
+        <item>@string/dsb_gradient_filter_value_0</item>
+        <item>@string/dsb_gradient_filter_value_1</item>
+        <item>@string/dsb_gradient_filter_value_2</item>
+        <item>@string/dsb_gradient_filter_value_3</item>
+    </string-array>
+    <string-array name="dsb_gradient_filter_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+        <string-array name="immersive_entries">
+        <item>Show Statusbar (Default)</item>
+        <item>Hide StatusBar</item>
+    </string-array>
+    <string-array name="immersive_values">
+        <item>immersive.full</item>
+        <item>immersive.status=*</item>
+    </string-array>
+        <string-array name="restore_allcolors_keys">
+        <item>kg_clock_global_color</item>
+        <item>kg_clock_hours_color</item>
+        <item>kg_clock_minutes_color</item>
+        <item>kg_clock_seconds_color</item>
+        <item>kg_date_color</item>
+        <item>ownerinfo_color</item>
+        <item>np_global_color</item>
+        <item>header_bg_color</item>
+        <item>pulldown_clock_color</item>
+        <item>pulldown_date_color</item>
+        <item>pulldown_button_color</item>
+        <item>third_button_color</item>
+        <item>datausage_bg_color</item>
+        <item>data_usage_text_color</item>
+        <item>sfinder_bg_color</item>
+        <item>qconnect_text_color</item>
+        <item>notification_bg_color</item>
+        <item>toggle_bg_color</item>
+        <item>toggle_icon_on_color</item>
+        <item>toggle_icon_off_color</item>
+        <item>toggle_text_color</item>
+        <item>pulldown_text</item>
+        <item>toggle_icon_bg_color</item>
+        <item>gear_reboot_view_color</item>
+        <item>header_divider_color</item>
+        <item>gear_info_names_color</item>
+        <item>gear_info_values_color</item>
+        <item>carrier_label_text_color</item>
+        <item>data_usage_text_color</item>
+        <item>datausage_bg_color</item>
+        <item>brightness_slider_thumb_color</item>
+        <item>brightness_slider_foreground_color</item>
+        <item>brightness_bg_color</item>
+        <item>brightness_checkbox_color</item>
+        <item>brightness_icon_color</item>
+        <item>brightness_label_color</item>
+        <item>pulldown_text_timestamp</item>
+        <item>clear_button_color</item>
+        <item>notif_icon_bg_color</item>
+        <item>sfinder_mic_color</item>
+        <item>sfinder_text_color</item>
+        <item>qs_seekbar_color</item>
+        <item>qs_thumb_color</item>
+        <item>qs_icons_color</item>
+        <item>bottom_handler_button</item>
+        <item>bottom_handler_bg</item>
+        <item>clearnotif_bg_color</item>
+        <item>statusbar_clock_color</item>
+        <item>statusbar_wallpaper_color</item>
+        <item>battery_text_color</item>
+        <item>battery_bar_color</item>
+        <item>sysbar_lock_button_color</item>
+        <item>sb_global_color</item>
+        <item>statusbar_wifi_color</item>
+        <item>statusbar_signal_color</item>
+        <item>statusbar_data_color</item>
+        <item>statusbar_icon_color</item>
+        <item>battery_bolt_color</item>
+        <item>battery_icon_color</item>
+        <item>battery_icon_charging_color</item>
+        <item>gear_reboot_view_color</item>
+        <item>network_traffic_global_color</item>
+        <item>network_traffic_color</item>
+        <item>network_traffic_upload_color</item>
+        <item>network_traffic_download_color</item>
+        <item>network_traffic_arrow_color</item>
+        <item>notification_icon_color</item>
+    </string-array>
+    <string-array name="restore_allcolors_titles">
+        <item>Clock Global Color</item>
+        <item>Clock Hours Color</item>
+        <item>Clock Minutes Color</item>
+        <item>Clock Seconds Color</item>
+        <item>Date Color</item>
+        <item>Owner Info Color</item>
+        <item>Header Global Color</item>
+        <item>Header Background Color</item>
+        <item>Pulldown Clock Color</item>
+        <item>Pulldown Date Color</item>
+        <item>Pulldown Icons Color</item>
+        <item>Virtual Button Color</item>
+        <item>Data Usage Background Color</item>
+        <item>Data Usage Text Color</item>
+        <item>Header Global Color</item>
+        <item>Quickconnect Background Color</item>
+        <item>Quickconnect Text Color</item>
+        <item>Notifications Background Color</item>
+        <item>Toggle Panel Background Color</item>
+        <item>Toggle Icon On Color</item>
+        <item>Toggle Icon Off Color</item>
+        <item>Notifications Text Color</item>
+        <item>Toggle Icons Background Color</item>
+        <item>Mini Restart Icon Color</item>
+        <item>Header Divider Color</item>
+        <item>Device Info Names Color</item>
+        <item>Device Info Values Color</item>
+        <item>Carrier Text Color</item>
+        <item>Data Usage Text Color</item>
+        <item>Data Usage Background Color</item>
+        <item>Brightness Slider handle color</item>
+        <item>Brightness Slider progress bar color</item>
+        <item>Brightness Slider panel background color</item>
+        <item>Brightness Slider checkbox color</item>
+        <item>Brightness Slider icon color</item>
+        <item>Brightness Slider text color</item>
+        <item>Notification TimeStamp</item>
+        <item>Notification and Clear Button Colors</item>
+        <item>Notification Icons Background</item>
+        <item>Sfinder Mic Color</item>
+        <item>Sfinder Text Color</item>
+        <item>QS Seekbar Color</item>
+        <item>QS Thumb Color</item>
+        <item>QS Icons Color</item>
+        <item>Bottom Handler button color</item>
+        <item>Bottom Handler background color</item>
+        <item>Block and Clear background color</item>
+        <item>Statusbar Clock Color</item>
+        <item>Statusbar Wallpaper Color</item>
+        <item>Battery Text Color</item>
+        <item>Battery Bar Color</item>
+        <item>Lock Button Color</item>
+        <item>Statusbar Global Color</item>
+        <item>Statusbar Wifi Color</item>
+        <item>Statusbar Signal Color</item>
+        <item>Statusbar Data Color</item>
+        <item>Statusbar Icon Color</item>
+        <item>Battery Charging Bolt Color</item>
+        <item>Battery Icon Color</item>
+        <item>Battery Icon Charging Color</item>
+        <item>Mini Restart Icon Color</item>
+        <item>Network Traffic Global Color</item>
+        <item>Network Traffic Color</item>
+        <item>Network Traffic Upload Color</item>
+        <item>Network Traffic Download Color</item>
+        <item>Network Traffic Arrows Color</item>
+        <item>Statusbar Notification Icons Color</item>
+    </string-array>
+    <integer-array name="restore_allcolors_values">
+        <item>-1</item>
+        <item>-9568330</item>
+        <item>-2883760</item>
+        <item>-41892</item>
+        <item>-18837</item>
+        <item>-1</item>
+        <item>-328966</item>
+        <item>-328966</item>
+        <item>-10066330</item>
+        <item>-10066330</item>
+        <item>-10066330</item>
+        <item>-13476476</item>
+        <item>-328966</item>
+        <item>-11832686</item>
+        <item>-1</item>
+        <item>-11832686</item>
+        <item>-328966</item>
+        <item>-328966</item>
+        <item>-11091739</item>
+        <item>-862873703</item>
+        <item>-14342875</item>
+        <item>-14606046</item>
+        <item>-328966</item>
+        <item>-13476476</item>
+        <item>-13476476</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-11832686</item>
+        <item>-1643795</item>
+        <item>-14791048</item>
+        <item>-14791048</item>
+        <item>-1643795</item>
+        <item>-14791048</item>
+        <item>-14791048</item>
+        <item>-14791048</item>
+        <item>-12434878</item>
+        <item>-11513776</item>
+        <item>-8940887</item>
+        <item>1490014159</item>
+        <item>-7500403</item>
+        <item>-11091739</item>
+        <item>-8791557</item>
+        <item>-11513776</item>
+        <item>-10066330</item>
+        <item>-328966</item>
+        <item>-328966</item>
+        <item>-1</item>
+        <item>0</item>
+        <item>-1</item>
+        <item>-13388315</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-15461356</item>
+        <item>-1</item>
+        <item>-16580864</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+    </integer-array>
+    <string-array name="restore_incallcolors_keys">
+        <item>incall_digit_color</item>
+        <item>incall_letter_color</item>
+        <item>incall_name_color</item>
+        <item>incall_phonenum_color</item>
+        <item>incall_text_color</item>
+        <item>button_bg_color</item>
+        <item>button_text_color</item>
+        <item>last_spoke_icon_color</item>
+        <item>last_spoke_txt_color</item>
+    </string-array>
+    <string-array name="restore_incallcolors_titles">
+        <item>InCall Dialpad Digits Color</item>
+        <item>InCall Dialpad Letters Color</item>
+        <item>InCall Caller Name Color</item>
+        <item>InCall Phone Number Color</item>
+        <item>InCall Text Color</item>
+        <item>InCall Buttons Background Color</item>
+        <item>InCall Buttons Text Color</item>
+        <item>InCall Last Spoke Icon Color</item>
+        <item>InCall Last Spoke Text Color</item>
+    </string-array>
+    <integer-array name="restore_incallcolors_values">
+        <item>-328966</item>
+        <item>-5329234</item>
+        <item>-65536</item>
+        <item>-3407976</item>
+        <item>-328966</item>
+        <item>-12431632</item>
+        <item>-328966</item>
+        <item>-5329234</item>
+        <item>-328966</item>
+    </integer-array>
+    <string-array name="restore_lscolors_keys">
+        <item>kg_clock_global_color</item>
+        <item>kg_clock_hours_color</item>
+        <item>kg_clock_minutes_color</item>
+        <item>kg_clock_seconds_color</item>
+        <item>kg_date_color</item>
+        <item>ownerinfo_color</item>
+    </string-array>
+    <string-array name="restore_lscolors_titles">
+        <item>Clock Global Color</item>
+        <item>Clock Hours Color</item>
+        <item>Clock Minutes Color</item>
+        <item>Clock Seconds Color</item>
+        <item>Date Color</item>
+        <item>Owner Info Color</item>
+    </string-array>
+    <integer-array name="restore_lscolors_values">
+        <item>-1</item>
+        <item>-9568330</item>
+        <item>-2883760</item>
+        <item>-41892</item>
+        <item>-18837</item>
+        <item>-1</item>
+    </integer-array>
+    <string-array name="restore_npcolors_keys">
+        <item>np_global_color</item>
+        <item>header_bg_color</item>
+        <item>pulldown_clock_color</item>
+        <item>pulldown_date_color</item>
+        <item>pulldown_button_color</item>
+        <item>third_button_color</item>
+        <item>datausage_bg_color</item>
+        <item>data_usage_text_color</item>
+        <item>sfinder_bg_color</item>
+        <item>qconnect_text_color</item>
+        <item>notification_bg_color</item>
+        <item>toggle_bg_color</item>
+        <item>toggle_icon_on_color</item>
+        <item>toggle_icon_off_color</item>
+        <item>toggle_text_color</item>
+        <item>pulldown_text</item>
+        <item>toggle_icon_bg_color</item>
+        <item>gear_reboot_view_color</item>
+        <item>header_divider_color</item>
+        <item>gear_info_names_color</item>
+        <item>gear_info_values_color</item>
+        <item>carrier_label_text_color</item>
+        <item>data_usage_text_color</item>
+        <item>datausage_bg_color</item>
+        <item>brightness_slider_thumb_color</item>
+        <item>brightness_slider_foreground_color</item>
+        <item>brightness_bg_color</item>
+        <item>brightness_checkbox_color</item>
+        <item>brightness_icon_color</item>
+        <item>brightness_label_color</item>
+        <item>pulldown_text_timestamp</item>
+        <item>clear_button_color</item>
+        <item>notif_icon_bg_color</item>
+        <item>sfinder_mic_color</item>
+        <item>sfinder_text_color</item>
+        <item>qs_seekbar_color</item>
+        <item>qs_thumb_color</item>
+        <item>qs_icons_color</item>
+        <item>bottom_handler_button</item>
+        <item>bottom_handler_bg</item>
+        <item>clearnotif_bg_color</item>
+    </string-array>
+    <string-array name="restore_npcolors_titles">
+        <item>Header Global Color</item>
+        <item>Header Background Color</item>
+        <item>Pulldown Clock Color</item>
+        <item>Pulldown Date Color</item>
+        <item>Pulldown Icons Color</item>
+        <item>Virtual Button Color</item>
+        <item>Data Usage Background Color</item>
+        <item>Data Usage Text Color</item>
+        <item>Header Global Color</item>
+        <item>Quickconnect Background Color</item>
+        <item>Quickconnect Text Color</item>
+        <item>Notifications Background Color</item>
+        <item>Toggle Panel Background Color</item>
+        <item>Toggle Icon On Color</item>
+        <item>Toggle Icon Off Color</item>
+        <item>Notifications Text Color</item>
+        <item>Toggle Icons Background Color</item>
+        <item>Mini Restart Icon Color</item>
+        <item>Header Divider Color</item>
+        <item>Device Info Names Color</item>
+        <item>Device Info Values Color</item>
+        <item>Carrier Text Color</item>
+        <item>Data Usage Text Color</item>
+        <item>Data Usage Background Color</item>
+        <item>Brightness Slider handle color</item>
+        <item>Brightness Slider progress bar color</item>
+        <item>Brightness Slider panel background color</item>
+        <item>Brightness Slider checkbox color</item>
+        <item>Brightness Slider icon color</item>
+        <item>Brightness Slider text color</item>
+        <item>Notification TimeStamp</item>
+        <item>Notification and Clear Button Colors</item>
+        <item>Notification Icons Background</item>
+        <item>Sfinder Mic Color</item>
+        <item>Sfinder Text Color</item>
+        <item>QS Seekbar Color</item>
+        <item>QS Thumb Color</item>
+        <item>QS Icons Color</item>
+        <item>Bottom Handler button color</item>
+        <item>Bottom Handler background color</item>
+        <item>Block and Clear background color</item>
+    </string-array>
+    <integer-array name="restore_npcolors_values">
+        <item>-328966</item>
+        <item>-328966</item>
+        <item>-10066330</item>
+        <item>-10066330</item>
+        <item>-10066330</item>
+        <item>-13476476</item>
+        <item>-328966</item>
+        <item>-11832686</item>
+        <item>-1</item>
+        <item>-11832686</item>
+        <item>-328966</item>
+        <item>-328966</item>
+        <item>-11091739</item>
+        <item>-862873703</item>
+        <item>-14342875</item>
+        <item>-14606046</item>
+        <item>-328966</item>
+        <item>-10066330</item>
+        <item>-13476476</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-11832686</item>
+        <item>-1643795</item>
+        <item>-14791048</item>
+        <item>-14791048</item>
+        <item>-1643795</item>
+        <item>-14791048</item>
+        <item>-14791048</item>
+        <item>-14791048</item>
+        <item>-12434878</item>
+        <item>-11513776</item>
+        <item>-8940887</item>
+        <item>1490014159</item>
+        <item>-7500403</item>
+        <item>-11091739</item>
+        <item>-8791557</item>
+        <item>-11513776</item>
+        <item>-10066330</item>
+        <item>-328966</item>
+        <item>-328966</item>
+    </integer-array>
+    <string-array name="restore_sbcolors_keys">
+        <item>statusbar_clock_color</item>
+        <item>statusbar_wallpaper_color</item>
+        <item>battery_text_color</item>
+        <item>battery_bar_color</item>
+        <item>sysbar_lock_button_color</item>
+        <item>sb_global_color</item>
+        <item>statusbar_wifi_color</item>
+        <item>statusbar_signal_color</item>
+        <item>statusbar_data_color</item>
+        <item>statusbar_icon_color</item>
+        <item>battery_bolt_color</item>
+        <item>battery_icon_color</item>
+        <item>battery_icon_charging_color</item>
+        <item>gear_reboot_view_color</item>
+        <item>network_traffic_global_color</item>
+        <item>network_traffic_color</item>
+        <item>network_traffic_upload_color</item>
+        <item>network_traffic_download_color</item>
+        <item>network_traffic_arrow_color</item>
+        <item>notification_icon_color</item>
+    </string-array>
+    <string-array name="restore_sbcolors_titles">
+        <item>Statusbar Clock Color</item>
+        <item>Statusbar Wallpaper Color</item>
+        <item>Battery Text Color</item>
+        <item>Battery Bar Color</item>
+        <item>Lock Button Color</item>
+        <item>Statusbar Global Color</item>
+        <item>Statusbar Wifi Color</item>
+        <item>Statusbar Signal Color</item>
+        <item>Statusbar Data Color</item>
+        <item>Statusbar Icon Color</item>
+        <item>Battery Charging Bolt Color</item>
+        <item>Battery Icon Color</item>
+        <item>Battery Icon Charging Color</item>
+        <item>Mini Restart Icon Color</item>
+        <item>Network Traffic Global Color</item>
+        <item>Network Traffic Color</item>
+        <item>Network Traffic Upload Color</item>
+        <item>Network Traffic Download Color</item>
+        <item>Network Traffic Arrows Color</item>
+        <item>Statusbar Notification Icons Color</item>
+    </string-array>
+    <integer-array name="restore_sbcolors_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>-1</item>
+        <item>-13388315</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-15461356</item>
+        <item>-1</item>
+        <item>-16580864</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+    </integer-array>
+    <string-array name="restore_slidercolors_keys">
+        <item>brightness_slider_thumb_color</item>
+        <item>brightness_slider_foreground_color</item>
+        <item>brightness_bg_color</item>
+        <item>brightness_checkbox_color</item>
+        <item>brightness_icon_color</item>
+        <item>brightness_label_color</item>
+    </string-array>
+    <string-array name="restore_slidercolors_titles">
+        <item>Brightness Slider handle color</item>
+        <item>Brightness Slider progress bar color</item>
+        <item>Brightness Slider panel background color</item>
+        <item>Brightness Slider checkbox color</item>
+        <item>Brightness Slider icon color</item>
+        <item>Brightness Slider text color</item>
+    </string-array>
+    <integer-array name="restore_slidercolors_values">
+        <item>-14791048</item>
+        <item>-14791048</item>
+        <item>-1643795</item>
+        <item>-14791048</item>
+        <item>-14791048</item>
+        <item>-14791048</item>
+    </integer-array>
+    <string-array name="restore_transparent_keys">
+        <item>header_bg_color</item>
+        <item>datausage_bg_color</item>
+        <item>sfinder_bg_color</item>
+        <item>toggle_bg_color</item>
+        <item>notification_bg_color</item>
+        <item>notification_bg_alpha</item>
+    </string-array>
+    <string-array name="restore_transparent_titles">
+        <item>Pulldown Header</item>
+        <item>Pulldown DataUsage</item>
+        <item>Pulldown QuickConnect Panel</item>
+        <item>Pulldown Toggle Panel</item>
+        <item>Pulldown Notifications Background Color</item>
+        <item>Pulldown Notifications Background Alpha</item>
+    </string-array>
+    <integer-array name="restore_transparent_values">
+        <item>-1643795</item>
+        <item>-1643795</item>
+        <item>-3287074</item>
+        <item>-1643795</item>
+        <item>0</item>
+        <item>255</item>
+    </integer-array>
+    <string-array name="right_longpress">
+        <item>Stock (Menu)</item>
+        <item>Screenshot</item>
+        <item>Lock Phone</item>
+        <item>Kill Current App</item>
+        <item>Voice Assist</item>
+        <item>Recent Apps</item>
+        <item>Custom App</item>
+        <item>Torch</item>
+        <item>Screen Record</item>
+    </string-array>
+    <string-array name="right_longpress_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="set_transparent_keys">
+        <item>header_bg_color</item>
+        <item>datausage_bg_color</item>
+        <item>sfinder_bg_color</item>
+        <item>toggle_bg_color</item>
+        <item>notification_bg_color</item>
+        <item>notification_bg_alpha</item>
+    </string-array>
+    <string-array name="set_transparent_titles">
+        <item>Pulldown Header</item>
+        <item>Pulldown DataUsage</item>
+        <item>Pulldown QuickConnect Panel</item>
+        <item>Pulldown Toggle Panel</item>
+        <item>Pulldown Notifications Background Color</item>
+        <item>Pulldown Notifications Background Alpha</item>
+    </string-array>
+    <integer-array name="set_transparent_values">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+        <string-array name="traffic_state_items">
+        <item>Disable view</item>
+        <item>Upload only</item>
+        <item>Download only</item>
+        <item>Upload and Download</item>
+    </string-array>
+    <string-array name="traffic_state_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="traffic_style_entries">
+        <item>Normal</item>
+        <item>Bold</item>
+        <item>Italic</item>
+        <item>Bold italic</item>
+    </string-array>
+    <string-array name="traffic_style_entry_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+        <string-array name="arrow_position_entries">
+        <item>To end of view</item>
+        <item>To start of view</item>
+    </string-array>
+    <string-array name="arrow_position_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+        <string-array name="SignalPositionName">
+        <item>Shown on the Right</item>
+        <item>Shown on the Left</item>
+    </string-array>
+    <string-array name="SignalPositionValue">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+        <array name="signal_drawables">
+        <item>@drawable/signal1</item>
+        <item>@drawable/signal2</item>
+        <item>@drawable/signal3</item>
+        <item>@drawable/signal4</item>
+        <item>@drawable/signal5</item>
+        <item>@drawable/signal6</item>
+        <item>@drawable/signal7</item>
+        <item>@drawable/signal8</item>
+        <item>@drawable/signal9</item>
+        <item>@drawable/signal10</item>
+        <item>@drawable/signal11</item>
+        <item>@drawable/signal12</item>
+        <item>@drawable/signal13</item>
+        <item>@drawable/signal14</item>
+        <item>@drawable/signal15</item>
+        <item>@drawable/signal16</item>
+    </array>
+    <string-array name="signal_entries">
+        <item>Signa l1</item>
+        <item>Signa l2</item>
+        <item>Signa l3</item>
+        <item>Signa l4</item>
+        <item>Signa l5</item>
+        <item>Signa l6</item>
+        <item>Signa l7</item>
+        <item>Signa l8</item>
+        <item>Signa l9</item>
+        <item>Signal 10</item>
+        <item>Signal 11</item>
+        <item>Signal 12</item>
+        <item>Signal 13</item>
+        <item>Signal 14</item>
+        <item>Signal 15</item>
+        <item>Signal 16</item>
+    </string-array>
+    <string-array name="signal_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+    </string-array>
+    <array name="wifi_drawables">
+        <item>@drawable/wifi1</item>
+        <item>@drawable/wifi2</item>
+        <item>@drawable/wifi3</item>
+        <item>@drawable/wifi4</item>
+        <item>@drawable/wifi5</item>
+        <item>@drawable/wifi6</item>
+        <item>@drawable/wifi7</item>
+        <item>@drawable/wifi8</item>
+        <item>@drawable/wifi9</item>
+        <item>@drawable/wifi10</item>
+        <item>@drawable/wifi11</item>
+        <item>@drawable/wifi12</item>
+    </array>
+    <string-array name="wifi_entries">
+        <item>SignalWifi 1</item>
+        <item>SignalWifi 2</item>
+        <item>SignalWifi 3</item>
+        <item>SignalWifi 4</item>
+        <item>SignalWifi 5</item>
+        <item>SignalWifi 6</item>
+        <item>SignalWifi 7</item>
+        <item>SignalWifi 8</item>
+        <item>SignalWifi 9</item>
+        <item>SignalWifi 10</item>
+        <item>SignalWifi 11</item>
+        <item>SignalWifi 12</item>
+    </string-array>
+    <string-array name="wifi_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <array name="wifiarrow_drawables">
+        <item>@drawable/arrow1</item>
+        <item>@drawable/arrow2</item>
+    </array>
+    <string-array name="wifiarrow_entries">
+        <item>SignalStockArrows</item>
+        <item>SignalNoArrows</item>
+    </string-array>
+    <string-array name="wifiarrow_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <array name="alarm_drawables">
+        <item>@drawable/alarm1</item>
+        <item>@drawable/alarm2</item>
+        <item>@drawable/alarm3</item>
+        <item>@drawable/alarm4</item>
+        <item>@drawable/alarm5</item>
+        <item>@drawable/alarm6</item>
+    </array>
+    <string-array name="alarm_entries">
+        <item>SignalAlarm 1</item>
+        <item>SignalAlarm 2</item>
+        <item>SignalAlarm 3</item>
+        <item>SignalAlarm 4</item>
+        <item>SignalAlarm 5</item>
+        <item>SignalAlarm 6</item>
+    </string-array>
+    <string-array name="alarm_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+        <string-array name="carrier_entries">
+        <item>Stock Carrier Label</item>
+        <item>Custom Carrier Label</item>
+    </string-array>
+    <string-array name="carrier_entry_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+        <string-array name="toggle_entries">
+        <item>5 toggles shown</item>
+        <item>6 toggles shown (stock)</item>
+        <item>7 toggles shown</item>
+        <item>8 toggles shown</item>
+    </string-array>
+    <string-array name="toggle_scroll_entries">
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+    <string-array name="toggle_scroll_values">
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+        <string-array name="toggle_values">
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+	<string-array name="display_timeout_entries">
+        <item>5 seconds</item>
+        <item>10 seconds (default)</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+    </string-array>
+    <string-array name="display_timeout_values">
+        <item>5000</item>
+        <item>10000</item>
+        <item>15000</item>
+        <item>30000</item>
+    </string-array>
+	<string-array name="lockscreen_clock_size_entries">
+        <item>Normal</item>
+        <item>Tiny</item>
+        <item>Small</item>
+    </string-array>
+    <string-array name="lockscreen_clock_size_values">
+        <item>1</item>
+        <item>0</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="lockscreen_entries">
+        <item>None</item>
+        <item>Brilliant ring</item>
+        <item>Stone skipping</item>
+        <item>Sparkling bubbles</item>
+        <item>Coloured Droplets</item>
+    </string-array>
+    <string-array name="lockscreen_font_style_entries">
+        <item>Stock Font (Reset UI or Reboot to change back)</item>
+        <item>AndroidClock</item>
+        <item>Archibald</item>
+        <item>CaviarDreams</item>
+        <item>Chococooky</item>
+        <item>CutiveMono</item>
+        <item>Cool Jazz</item>
+        <item>Rosemary</item>
+        <item>Ultima</item>
+    </string-array>
+    <string-array name="lockscreen_font_style_values">
+        <item>0</item>
+        <item>1</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="lockscreen_notif_entries">
+        <item>2 max shown</item>
+        <item>3 (Stock)</item>
+        <item>4 max shown</item>
+        <item>5 max shown</item>
+    </string-array>
+    <string-array name="lockscreen_notif_values">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="lockscreen_values">
+        <item>0</item>
+        <item>6</item>
+        <item>7</item>
+        <item>14</item>
+        <item>15</item>
+    </string-array>
+</resources>

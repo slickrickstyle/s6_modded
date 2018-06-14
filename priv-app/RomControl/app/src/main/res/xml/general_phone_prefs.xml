@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+        <PreferenceCategory android:title="Mokee Listview Animations">
+        <com.wubydax.romcontrol.v2.prefs.MyListPreference android:entries="@array/listview_animation_entries" android:title="Listview animation" android:key="listview_animation" android:dependency="listview_animation" android:defaultValue="0" android:entryValues="@array/listview_animation_values" />
+        <com.wubydax.romcontrol.v2.prefs.MyListPreference android:entries="@array/listview_interpolator_entries" android:title="Listview interpolator" android:key="listview_interpolator" android:dependency="listview_interpolator" android:defaultValue="0" android:entryValues="@array/listview_interpolator_values" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Fast Charging" />
+    <com.wubydax.romcontrol.v2.prefs.MySwitchPreference android:title="Adaptive Fast Charging" android:key="adaptive_fast_charging" android:defaultValue="true" android:summaryOn="Adaptive fast charging enabled" android:summaryOff="Adaptive fast charging disabled" />
+    <com.wubydax.romcontrol.v2.prefs.MySwitchPreference android:title="Wireless Fast Charging" android:key="wireless_fast_charging" android:defaultValue="true" android:summaryOn="Wireless fast charging enabled" android:summaryOff="Wireless fast charging disabled" />
+    <PreferenceCategory android:title="Color Management" />
+    <PreferenceScreen android:title="Reset your colors HERE" android:summary="A SystemUI restart will occur automatically once the script has finished for the indicated items.">
+        <PreferenceCategory android:title="Restore ALL Colors" />
+        <com.wubydax.romcontrol.v2.prefs.GlobalRestorePreference android:title="Restore All colors to stock values *" android:summary="This action will restore All colors to their default value as they were originally" app:titlesList="@array/restore_allcolors_titles" app:keysList="@array/restore_allcolors_keys" app:valuesList="@array/restore_allcolors_values" app:packageNameToKill="com.android.systemui" />
+        <PreferenceCategory android:title="Restore Lockscreen Colors Only" />
+        <com.wubydax.romcontrol.v2.prefs.GlobalRestorePreference android:title="Restore lockscreen colors to stock values *" android:summary="This action will restore all lockscreen colors to their default value as they were originally" app:titlesList="@array/restore_lscolors_titles" app:keysList="@array/restore_lscolors_keys" app:valuesList="@array/restore_lscolors_values" app:packageNameToKill="com.android.systemui" />
+        <PreferenceCategory android:title="Restore Notification Panel Colors Only" />
+        <com.wubydax.romcontrol.v2.prefs.GlobalRestorePreference android:title="Restore notification panel colors to stock values *" android:summary="This action will restore all notification panel colors to their default value as they were originally" app:titlesList="@array/restore_npcolors_titles" app:keysList="@array/restore_npcolors_keys" app:valuesList="@array/restore_npcolors_values" app:packageNameToKill="com.android.systemui" />
+        <PreferenceCategory android:title="Restore StatusBar Colors Only" />
+        <com.wubydax.romcontrol.v2.prefs.GlobalRestorePreference android:title="Restore statusbar colors to stock values *" android:summary="This action will restore all statusbar colors to their default value as they were originally" app:titlesList="@array/restore_sbcolors_titles" app:keysList="@array/restore_sbcolors_keys" app:valuesList="@array/restore_sbcolors_values" app:packageNameToKill="com.android.systemui" />
+    </PreferenceScreen>
+</PreferenceScreen>

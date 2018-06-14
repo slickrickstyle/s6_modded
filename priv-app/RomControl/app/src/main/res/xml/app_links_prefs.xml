@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="Application Settings">
+        <com.wubydax.romcontrol.v2.prefs.OpenAppPreference android:title="AdAway" android:summary="Block Advertising in a lot of apps" app:componentName="org.adaway/org.adaway.ui.BaseActivity" />
+        <com.wubydax.romcontrol.v2.prefs.OpenAppPreference android:title="Greenify" android:summary="Hibernate Apps with Greenify to help further with battery conservation" app:componentName="com.oasisfeng.greenify/com.oasisfeng.greenify.GreenifyActivity" />
+        <com.wubydax.romcontrol.v2.prefs.OpenAppPreference android:title="Shortcut to GearTWSwipe" android:summary="This will allow you to reset the app preference if the swipe launcher is active." app:componentName="com.wubydax.geartwswipe/com.wubydax.geartwswipe.ResetDialogActivity" />
+        <com.wubydax.romcontrol.v2.prefs.OpenAppPreference android:summary="Control samsung's toolbox, turn it on or off, choose available apps and rearrange them" app:componentName="com.wubydax.toolboxsettings/com.wubydax.toolboxsettings.ToolboxSettings" />
+        <com.wubydax.romcontrol.v2.prefs.OpenAppPreference android:title="SuperSu" android:summary="Root Access Control" app:componentName="eu.chainfire.supersu/eu.chainfire.supersu.MainActivity-Material" />
+        <com.wubydax.romcontrol.v2.prefs.OpenAppPreference android:title="MagiSK" android:summary="Root Access Control" app:componentName="com.topjohnwu.magisk/com.topjohnwu.magisk.SplashActivity" />
+        <com.wubydax.romcontrol.v2.prefs.OpenAppPreference android:title="WizIconizer" android:summary="TouchWiz Icon Changer" app:componentName="com.wiziconizer/com.wiziconizer.HomeActivity" />
+        <com.wubydax.romcontrol.v2.prefs.OpenAppPreference android:title="UPSM Manager" android:summary="Enable extra apps for Ultra Power Save Mode" app:componentName="mobi.xperiacle.upsm.manager/mobi.xperiacle.upsm.manager.MainActivity" />
+    </PreferenceCategory>
+</PreferenceScreen>

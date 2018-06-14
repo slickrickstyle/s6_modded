@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="Background">
+        <PreferenceScreen android:title="Custom Backgrounds" android:summary="Choose image or solid or gradient colors with opacity">
+            <com.wubydax.romcontrol.v2.prefs.MySwitchPreference android:title="Enable custom background" android:key="enable_power_custom_bg" android:defaultValue="false" android:summaryOn="Enabled" android:summaryOff="Disabled" />
+            <com.wubydax.romcontrol.v2.prefs.MyListPreference android:entries="@array/custom_bg_type_entries" android:title="Background type" android:key="power_custom_bg_type" android:dependency="enable_power_custom_bg" android:defaultValue="0" android:entryValues="@array/custom_bg_type_values" />
+            <com.wubydax.romcontrol.v2.prefs.UriSelectionPreference android:title="Select image using Gallery only." android:key="power_bg" android:dependency="enable_power_custom_bg" />
+            <com.wubydax.romcontrol.v2.prefs.MyListPreference android:entries="@array/crop_entries" android:title="Set Image Scaling Type" android:key="power_crop_type" android:dependency="enable_power_custom_bg" android:defaultValue="0" android:entryValues="@array/crop_values" />
+            <com.wubydax.romcontrol.v2.prefs.ColorPickerPreference android:title="Select primary color" android:key="power_bg_primary_color" android:dependency="enable_power_custom_bg" android:defaultValue="\#00000000" />
+            <com.wubydax.romcontrol.v2.prefs.ColorPickerPreference android:title="Secondary Color (for gradient)" android:key="power_second_gradient_color" android:dependency="enable_power_custom_bg" android:defaultValue="\#00000000" />
+            <com.wubydax.romcontrol.v2.prefs.MyListPreference android:entries="@array/gradient_entries" android:title="Gradient orientation" android:key="power_bg_gradient_orientation" android:dependency="enable_power_custom_bg" android:defaultValue="0" android:entryValues="@array/gradient_values" />
+            <com.wubydax.romcontrol.v2.prefs.MySeekBarPreference android:title="Background Opacity" android:key="power_opacity" android:dependency="enable_power_custom_bg" android:defaultValue="255" app:maxValue="255" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Power and Restart Confirmation Dialog Popup" />
+    <com.wubydax.romcontrol.v2.prefs.MySwitchPreference android:title="Power and Restart Confirmation Popup" android:key="power_confirmation" android:defaultValue="1" android:summaryOn="Enabled \n> This choice turns on the dialog popup that asks for permission before performing action." android:summaryOff="Disabled \n> This choice removes the permission dialog popup, the action will be instant." app:rebootDevice="true" />
+    <PreferenceCategory android:title="Extended Power Menu" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Power Off" android:key="power_poweroff" android:defaultValue="true" android:summaryOn="Power off currently shown" android:summaryOff="Currently removed" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Restart Menu" android:key="power_restart" android:defaultValue="true" android:summaryOn="Restart menu will be shown" android:summaryOff="Currently removed" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Recovery" android:key="power_recovery" android:defaultValue="true" android:summaryOn="Recovery mode now shown" android:summaryOff="Currently removed" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Download" android:key="power_download" android:defaultValue="true" android:summaryOn="Download mode now shown" android:summaryOff="Currently removed" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Data Mode" android:key="power_data" android:defaultValue="false" android:summaryOn="Data mode now shown" android:summaryOff="Currently removed" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Airplane Mode" android:key="power_airplane" android:defaultValue="false" android:summaryOn="Airplane mode shown in menu" android:summaryOff="Currently removed" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Flashlight" android:key="power_torch" android:defaultValue="false" android:summaryOn="Flashlight now shown" android:summaryOff="Currently removed" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Screen Recorder" android:key="power_record" android:defaultValue="false" android:summaryOn="Screen recorder currently shown" android:summaryOff="Currently removed" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Screenshot" android:key="power_screenshot" android:defaultValue="false" android:summaryOn="Screenshot currently shown" android:summaryOff="Currently removed" />
+    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference android:title="Emergency Mode" android:key="power_emergency" android:defaultValue="false" android:summaryOn="Emergency mode will be shown" android:summaryOff="Currently removed" />
+</PreferenceScreen>
