@@ -11,6 +11,9 @@
     <string name="dock_minimized_notification_text">%s ridotta a icona</string>
     <string name="dock_minimized_notification_dimiss_text">Chiudi</string>
     <string name="dock_minimized_notification_content_text">Toccate qui per aprire.</string>
+    <string name="clear_cover_wday_day">E</string>
+    <string name="clear_cover_month_day_no_year">MMM d</string>
+    <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="cancel">Annulla</string>
     <string name="clearcover_1_missed_call">1 chiamata persa.</string>
     <string name="clearcover_1_unread_message">1 messaggio non letto.</string>
@@ -50,6 +53,7 @@
     <string name="monotype_dialog_button">Scarica</string>
     <string name="minimized_notification_talkback_description_open">Toccate due volte per aprire la notifica da %s.</string>
     <string name="minimized_notification_talkback_description_open_more">Toccate due volte per aprire il pannello notifiche.</string>
+    <string name="volumepanel_notification">Notifica</string>
     <string name="save">Salva</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
@@ -2196,8 +2200,4 @@ Riprovate tra 1 secondo"</string>
     <string name="kg_wallpaper_applied_toast">Sfondo applicato alla schermata di blocco.</string>
     <string name="kg_too_many_failed_countdown_by_fingerprint">%d tentativi errati di conferma delle impronte digitali. Riprovate tra 30 secondi.</string>
     <string name="kg_finger_print_bad_quality_error_message">Il tasto Home potrebbe essere sporco o umido. Pulitelo e asciugatelo e riprovate.</string>
-    <string name="clear_cover_wday_day">E</string>
-    <string name="clear_cover_month_day_no_year">MMM d</string>
-    <string name="clear_cover_day_month_no_year">d MMM</string>
-    <string name="volumepanel_notification">Notifica</string>
 </resources>

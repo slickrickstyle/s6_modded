@@ -1044,7 +1044,7 @@
 
     cmp-long v3, v0, v4
 
-    if-gtz v3, :cond_3
+if-nez v3, :cond_3
 
     sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_ATT_LOCK_TIMEOUT:Z
 
@@ -1445,14 +1445,6 @@
     move-result v8
 
     if-eqz v8, :cond_9
-
-    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isForcedLock()Z
-
-    move-result v8
-
-    if-nez v8, :cond_9
 
     const-string/jumbo v6, "KeyguardViewMediator"
 
@@ -3561,7 +3553,7 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mSystemReady:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -3573,26 +3565,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->sendUserPresentBroadcast()V
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isForcedLock()Z
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mWallpaperController:Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;
 
-    move-result v0
-
-    if-eqz v0, :cond_2
+    invoke-virtual {v0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->cleanUp()V
 
     :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     iget-boolean v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mSystemReady:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->shouldWaitForProvisioning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->getLockPatternUtils()Lcom/android/internal/widget/LockPatternUtils;
 
@@ -3603,17 +3597,6 @@
     move-result v1
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternUtils;->userPresent(I)V
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->sendUserPresentBroadcast()V
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mWallpaperController:Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->cleanUp()V
 
     goto :goto_0
 .end method

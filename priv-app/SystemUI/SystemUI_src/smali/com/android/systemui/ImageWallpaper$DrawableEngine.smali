@@ -15,8 +15,7 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/ImageWallpaper$DrawableEngine$1;,
-        Lcom/android/systemui/ImageWallpaper$DrawableEngine$2;
+        Lcom/android/systemui/ImageWallpaper$DrawableEngine$1;
     }
 .end annotation
 
@@ -85,12 +84,6 @@
 
 .field mMobileKeyboardWidth:I
 
-.field mNavigationBarColorHSV:[F
-
-.field private mNavigationBarHeight:I
-
-.field mNeedBlackNavigationBar:I
-
 .field mNeedBlackStatusBar:I
 
 .field mNeedBlackText:I
@@ -125,8 +118,6 @@
 
 .field private mWallpaperType:I
 
-.field private mWallpaperTypeObserver:Landroid/database/ContentObserver;
-
 .field mXOffset:F
 
 .field mYOffset:F
@@ -139,14 +130,6 @@
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedsDrawAfterLoadingWallpaper:Z
-
-    return v0
-.end method
-
-.method static synthetic -get1(Lcom/android/systemui/ImageWallpaper$DrawableEngine;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperType:I
 
     return v0
 .end method
@@ -167,14 +150,6 @@
     return p1
 .end method
 
-.method static synthetic -set2(Lcom/android/systemui/ImageWallpaper$DrawableEngine;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperType:I
-
-    return p1
-.end method
-
 .method static synthetic -wrap0(Lcom/android/systemui/ImageWallpaper$DrawableEngine;)Landroid/view/DisplayInfo;
     .locals 1
 
@@ -188,13 +163,13 @@
 .method public constructor <init>(Lcom/android/systemui/ImageWallpaper;)V
     .locals 5
 
+    const/4 v4, 0x3
+
     const/high16 v0, 0x3f000000    # 0.5f
 
-    const/4 v2, 0x3
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     const/4 v1, -0x1
 
@@ -226,15 +201,15 @@
 
     iput v1, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mMobileKeyboardHeight:I
 
-    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOrthoWidth:I
+    iput v2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOrthoWidth:I
 
-    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOrthoHeight:I
+    iput v2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOrthoHeight:I
 
-    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mVpWidth:I
+    iput v2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mVpWidth:I
 
-    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mVpHeight:I
+    iput v2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mVpHeight:I
 
-    iput-boolean v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mForceDraw:Z
+    iput-boolean v2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mForceDraw:Z
 
     new-instance v0, Landroid/view/DisplayInfo;
 
@@ -242,7 +217,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mTmpDisplayInfo:Landroid/view/DisplayInfo;
 
-    iput-boolean v4, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mVisible:Z
+    iput-boolean v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mVisible:Z
 
     const/16 v0, 0x19
 
@@ -260,29 +235,21 @@
 
     iput v1, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastRequestedHeight:I
 
-    iput-boolean v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mGetBackgroundHSV:Z
+    iput-boolean v2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mGetBackgroundHSV:Z
 
-    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackText:I
+    iput v2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackText:I
 
-    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackStatusBar:I
+    iput v2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackStatusBar:I
 
-    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackNavigationBar:I
-
-    new-array v0, v2, [F
+    new-array v0, v4, [F
 
     iput-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperColorHSV:[F
 
-    new-array v0, v2, [F
+    new-array v0, v4, [F
 
     iput-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mStatusBarColorHSV:[F
 
-    new-array v0, v2, [F
-
-    iput-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarColorHSV:[F
-
-    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarHeight:I
-
-    iput v4, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperType:I
+    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperType:I
 
     new-instance v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$1;
 
@@ -294,51 +261,17 @@
 
     iput-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperTiltSettingChanged:Landroid/database/ContentObserver;
 
-    new-instance v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$2;
-
-    new-instance v1, Landroid/os/Handler;
-
-    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
-
-    invoke-direct {v0, p0, v1}, Lcom/android/systemui/ImageWallpaper$DrawableEngine$2;-><init>(Lcom/android/systemui/ImageWallpaper$DrawableEngine;Landroid/os/Handler;)V
-
-    iput-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperTypeObserver:Landroid/database/ContentObserver;
-
     invoke-virtual {p1}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
     const-string/jumbo v1, "android.wallpaper.settings_systemui_transparency"
 
-    invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperType:I
-
-    const-string/jumbo v0, "ImageWallpaper"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "mWallpaperType="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperType:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p1}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -346,37 +279,15 @@
 
     const-string/jumbo v1, "wallpaper_extract_color_mode"
 
-    invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mExtractMode:I
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/systemui/ImageWallpaper;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x1050018
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarHeight:I
-
-    :goto_0
-    invoke-virtual {p0, v4}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->setFixedSizeAllowed(Z)V
+    invoke-virtual {p0, v3}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->setFixedSizeAllowed(Z)V
 
     return-void
-
-    :cond_0
-    iput v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarHeight:I
-
-    goto :goto_0
 .end method
 
 .method private buildProgram(Ljava/lang/String;Ljava/lang/String;)I
@@ -2131,8 +2042,8 @@
     goto :goto_0
 .end method
 
-.method private getDisplayedWallpaperRegion([Landroid/graphics/Rect;[Landroid/graphics/Rect;)V
-    .locals 14
+.method private getDisplayedWallpaperRegion([Landroid/graphics/Rect;)V
+    .locals 13
 
     iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
 
@@ -2140,69 +2051,19 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->getSurfaceHolder()Landroid/view/SurfaceHolder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-interface {v11}, Landroid/view/SurfaceHolder;->getSurfaceFrame()Landroid/graphics/Rect;
+    invoke-interface {v9}, Landroid/view/SurfaceHolder;->getSurfaceFrame()Landroid/graphics/Rect;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
 
-    move-result v9
+    move-result v7
 
-    invoke-virtual {v10}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
 
-    move-result v8
-
-    const-string/jumbo v0, "ImageWallpaper"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "getDisplayedWallpaperRegion() dw="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ", dh="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget v7, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarHeight:I
-
-    int-to-float v0, v9
-
-    const v1, 0x3f733333    # 0.95f
-
-    mul-float/2addr v0, v1
-
-    float-to-int v9, v0
-
-    int-to-float v0, v8
-
-    const v1, 0x3f733333    # 0.95f
-
-    mul-float/2addr v0, v1
-
-    float-to-int v8, v0
+    move-result v6
 
     int-to-float v0, v7
 
@@ -2212,23 +2073,31 @@
 
     float-to-int v7, v0
 
-    if-le v9, v8, :cond_1
+    int-to-float v0, v6
 
-    move v4, v9
+    const v1, 0x3f733333    # 0.95f
 
-    move v3, v8
+    mul-float/2addr v0, v1
 
-    invoke-virtual {v10}, Landroid/graphics/Rect;->height()I
+    float-to-int v6, v0
+
+    if-le v7, v6, :cond_1
+
+    move v3, v7
+
+    move v2, v6
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
 
     move-result v0
 
-    sub-int v5, v0, v8
+    sub-int v4, v0, v6
 
-    invoke-virtual {v10}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
 
     move-result v0
 
-    sub-int v6, v0, v9
+    sub-int v5, v0, v7
 
     :goto_0
     new-instance v0, Landroid/graphics/Rect;
@@ -2239,25 +2108,13 @@
 
     aput-object v0, p1, v1
 
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    const/4 v1, 0x0
-
-    aput-object v0, p2, v1
-
     const/4 v0, 0x0
 
     aget-object v1, p1, v0
 
-    const/4 v0, 0x0
-
-    aget-object v2, p2, v0
-
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->getImageRegionForDisplay(Landroid/graphics/Rect;Landroid/graphics/Rect;IIIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->getImageRegionForDisplay(Landroid/graphics/Rect;IIII)V
 
     iget v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mExtractMode:I
 
@@ -2265,23 +2122,23 @@
 
     if-ne v0, v1, :cond_0
 
-    if-ge v9, v8, :cond_2
+    if-ge v7, v6, :cond_2
 
-    move v4, v9
+    move v3, v7
 
-    move v3, v8
+    move v2, v6
 
-    invoke-virtual {v10}, Landroid/graphics/Rect;->height()I
-
-    move-result v0
-
-    sub-int v5, v0, v8
-
-    invoke-virtual {v10}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
 
     move-result v0
 
-    sub-int v6, v0, v9
+    sub-int v4, v0, v6
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
+
+    move-result v0
+
+    sub-int v5, v0, v7
 
     :goto_1
     new-instance v0, Landroid/graphics/Rect;
@@ -2304,13 +2161,9 @@
 
     aget-object v1, p1, v0
 
-    const/4 v0, 0x0
-
-    aget-object v2, p2, v0
-
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->getImageRegionForDisplay(Landroid/graphics/Rect;Landroid/graphics/Rect;IIIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->getImageRegionForDisplay(Landroid/graphics/Rect;IIII)V
 
     const/4 v0, 0x2
 
@@ -2322,25 +2175,25 @@
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
 
-    const/4 v2, 0x1
+    const/4 v10, 0x1
 
-    aget-object v2, p1, v2
+    aget-object v10, p1, v10
 
-    iget v2, v2, Landroid/graphics/Rect;->bottom:I
+    iget v10, v10, Landroid/graphics/Rect;->bottom:I
+
+    const/4 v11, 0x0
+
+    aget-object v11, p1, v11
+
+    iget v11, v11, Landroid/graphics/Rect;->right:I
 
     const/4 v12, 0x0
 
     aget-object v12, p1, v12
 
-    iget v12, v12, Landroid/graphics/Rect;->right:I
+    iget v12, v12, Landroid/graphics/Rect;->bottom:I
 
-    const/4 v13, 0x0
-
-    aget-object v13, p1, v13
-
-    iget v13, v13, Landroid/graphics/Rect;->bottom:I
-
-    invoke-virtual {v0, v1, v2, v12, v13}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v0, v1, v10, v11, v12}, Landroid/graphics/Rect;->set(IIII)V
 
     const/4 v0, 0x0
 
@@ -2352,64 +2205,64 @@
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
 
-    const/4 v2, 0x0
+    const/4 v10, 0x0
 
-    aget-object v2, p1, v2
+    aget-object v10, p1, v10
 
-    iget v2, v2, Landroid/graphics/Rect;->top:I
+    iget v10, v10, Landroid/graphics/Rect;->top:I
 
-    const/4 v12, 0x0
+    const/4 v11, 0x0
+
+    aget-object v11, p1, v11
+
+    iget v11, v11, Landroid/graphics/Rect;->right:I
+
+    const/4 v12, 0x1
 
     aget-object v12, p1, v12
 
-    iget v12, v12, Landroid/graphics/Rect;->right:I
+    iget v12, v12, Landroid/graphics/Rect;->top:I
 
-    const/4 v13, 0x1
-
-    aget-object v13, p1, v13
-
-    iget v13, v13, Landroid/graphics/Rect;->top:I
-
-    invoke-virtual {v0, v1, v2, v12, v13}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v0, v1, v10, v11, v12}, Landroid/graphics/Rect;->set(IIII)V
 
     :cond_0
     return-void
 
     :cond_1
-    move v4, v8
+    move v3, v6
 
-    move v3, v9
+    move v2, v7
 
-    invoke-virtual {v10}, Landroid/graphics/Rect;->width()I
-
-    move-result v0
-
-    sub-int v5, v0, v9
-
-    invoke-virtual {v10}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
 
     move-result v0
 
-    sub-int v6, v0, v8
+    sub-int v4, v0, v7
 
-    goto/16 :goto_0
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+
+    move-result v0
+
+    sub-int v5, v0, v6
+
+    goto :goto_0
 
     :cond_2
-    move v4, v8
+    move v3, v6
 
-    move v3, v9
+    move v2, v7
 
-    invoke-virtual {v10}, Landroid/graphics/Rect;->width()I
-
-    move-result v0
-
-    sub-int v5, v0, v9
-
-    invoke-virtual {v10}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
 
     move-result v0
 
-    sub-int v6, v0, v8
+    sub-int v4, v0, v7
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+
+    move-result v0
+
+    sub-int v5, v0, v6
 
     goto :goto_1
 .end method
@@ -3077,9 +2930,9 @@
     return-void
 
     :cond_0
-    new-instance v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$3;
+    new-instance v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$2;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/ImageWallpaper$DrawableEngine$3;-><init>(Lcom/android/systemui/ImageWallpaper$DrawableEngine;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/ImageWallpaper$DrawableEngine$2;-><init>(Lcom/android/systemui/ImageWallpaper$DrawableEngine;)V
 
     sget-object v1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
@@ -3087,7 +2940,7 @@
 
     new-array v2, v2, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/ImageWallpaper$DrawableEngine$3;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/ImageWallpaper$DrawableEngine$2;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     move-result-object v0
 
@@ -3403,7 +3256,7 @@
 .end method
 
 .method drawFrame(Z)V
-    .locals 26
+    .locals 24
 
     move-object/from16 v0, p0
 
@@ -3417,9 +3270,9 @@
     :try_start_0
     const-string/jumbo v2, "drawWallpaper"
 
-    const-wide/16 v22, 0x8
+    const-wide/16 v20, 0x8
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v20
 
     invoke-static {v0, v1, v2}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
@@ -3427,61 +3280,61 @@
 
     move-result-object v11
 
-    iget v15, v11, Landroid/view/DisplayInfo;->rotation:I
+    iget v14, v11, Landroid/view/DisplayInfo;->rotation:I
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "drawFrame="
+    const-string/jumbo v21, "drawFrame="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " rotation="
+    const-string/jumbo v21, " rotation="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " mLastRotation="
+    const-string/jumbo v21, " mLastRotation="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastRotation:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3497,23 +3350,23 @@
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    move-object/from16 v21, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v21 .. v21}, Lcom/android/systemui/ImageWallpaper;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {v20 .. v20}, Lcom/android/systemui/ImageWallpaper;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual/range {v20 .. v20}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     iget v0, v0, Landroid/content/res/Configuration;->semMobileKeyboardCovered:I
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
     invoke-static {v2, v0}, Lcom/android/systemui/ImageWallpaper;->-set1(Lcom/android/systemui/ImageWallpaper;I)I
 
@@ -3521,7 +3374,7 @@
 
     iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastSurfaceRotation:I
 
-    if-ne v15, v2, :cond_1
+    if-ne v14, v2, :cond_1
 
     if-nez p1, :cond_1
 
@@ -3537,20 +3390,20 @@
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    move-object/from16 v21, v0
+    move-object/from16 v20, v0
 
-    invoke-static/range {v21 .. v21}, Lcom/android/systemui/ImageWallpaper;->-get0(Lcom/android/systemui/ImageWallpaper;)I
+    invoke-static/range {v20 .. v20}, Lcom/android/systemui/ImageWallpaper;->-get0(Lcom/android/systemui/ImageWallpaper;)I
 
-    move-result v21
+    move-result v20
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
     if-eq v2, v0, :cond_7
 
     :cond_1
     move-object/from16 v0, p0
 
-    iput v15, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mRotationAtLastSurfaceSizeUpdate:I
+    iput v14, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mRotationAtLastSurfaceSizeUpdate:I
 
     iget v2, v11, Landroid/view/DisplayInfo;->logicalWidth:I
 
@@ -3568,11 +3421,11 @@
 
     move-result-object v2
 
-    const/16 v21, 0x1
+    const/16 v20, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v21
+    move/from16 v1, v20
 
     invoke-virtual {v0, v2, v11, v1}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->updateSurfaceSize(Landroid/view/SurfaceHolder;Landroid/view/DisplayInfo;Z)Z
 
@@ -3582,9 +3435,9 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    const-string/jumbo v21, "SurfaceSize updated"
+    const-string/jumbo v20, "SurfaceSize updated"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3596,9 +3449,9 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const-wide/16 v22, 0x8
+    const-wide/16 v20, 0x8
 
-    invoke-static/range {v22 .. v23}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
     move-object/from16 v0, p0
 
@@ -3634,7 +3487,7 @@
 
     iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastSurfaceRotation:I
 
-    if-ne v15, v2, :cond_4
+    if-ne v14, v2, :cond_4
 
     if-eqz p1, :cond_7
 
@@ -3643,11 +3496,11 @@
 
     move-result-object v2
 
-    const/16 v21, 0x1
+    const/16 v20, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v21
+    move/from16 v1, v20
 
     invoke-virtual {v0, v2, v11, v1}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->updateSurfaceSize(Landroid/view/SurfaceHolder;Landroid/view/DisplayInfo;Z)Z
 
@@ -3657,9 +3510,9 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    const-string/jumbo v21, "SurfaceSize updated"
+    const-string/jumbo v20, "SurfaceSize updated"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3671,9 +3524,9 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const-wide/16 v22, 0x8
+    const-wide/16 v20, 0x8
 
-    invoke-static/range {v22 .. v23}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
     move-object/from16 v0, p0
 
@@ -3707,7 +3560,7 @@
     :try_start_2
     move-object/from16 v0, p0
 
-    iput v15, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mRotationAtLastSurfaceSizeUpdate:I
+    iput v14, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mRotationAtLastSurfaceSizeUpdate:I
 
     iget v2, v11, Landroid/view/DisplayInfo;->logicalWidth:I
 
@@ -3740,39 +3593,39 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "drawFrame:[frame.width()]"
+    const-string/jumbo v21, "drawFrame:[frame.width()]"
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, "[frame.height()]"
+    const-string/jumbo v21, "[frame.height()]"
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3788,82 +3641,82 @@
 
     if-eq v10, v2, :cond_e
 
-    const/16 v18, 0x1
+    const/16 v17, 0x1
 
     :goto_2
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "surfaceDimensionsChanged="
+    const-string/jumbo v21, "surfaceDimensionsChanged="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    move/from16 v1, v18
+    move/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " mLastSurfaceRotation="
+    const-string/jumbo v21, " mLastSurfaceRotation="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastSurfaceRotation:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " mDisplayWidth="
+    const-string/jumbo v21, " mDisplayWidth="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mDisplayWidthAtLastSurfaceSizeUpdate:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " mDisplayHeight="
+    const-string/jumbo v21, " mDisplayHeight="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mDisplayHeightAtLastSurfaceSizeUpdate:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3873,96 +3726,15 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "mNewKeyboard : "
+    const-string/jumbo v21, "mNewKeyboard : "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
-
-    move-object/from16 v22, v0
-
-    invoke-static/range {v22 .. v22}, Lcom/android/systemui/ImageWallpaper;->-get1(Lcom/android/systemui/ImageWallpaper;)I
-
-    move-result v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, " mLastKeyboard : "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
-
-    move-object/from16 v22, v0
-
-    invoke-static/range {v22 .. v22}, Lcom/android/systemui/ImageWallpaper;->-get0(Lcom/android/systemui/ImageWallpaper;)I
-
-    move-result v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, " mForceDraw = "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mForceDraw:Z
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_8
-    const/16 v16, 0x0
-
-    sget-boolean v2, Lcom/android/keyguard/KeyguardRune;->SUPPORT_MOBILE_KEYBOARD:Z
-
-    if-eqz v2, :cond_10
-
-    if-nez v18, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastRotation:I
-
-    if-eq v15, v2, :cond_f
-
-    :cond_9
-    const/16 v16, 0x1
-
-    :goto_3
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
+    move-result-object v20
 
     move-object/from16 v0, p0
 
@@ -3974,56 +3746,135 @@
 
     move-result v21
 
-    move/from16 v0, v21
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    const-string/jumbo v21, " mLastKeyboard : "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
+
+    move-object/from16 v21, v0
+
+    invoke-static/range {v21 .. v21}, Lcom/android/systemui/ImageWallpaper;->-get0(Lcom/android/systemui/ImageWallpaper;)I
+
+    move-result v21
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    const-string/jumbo v21, " mForceDraw = "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mForceDraw:Z
+
+    move/from16 v21, v0
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    const/4 v15, 0x0
+
+    sget-boolean v2, Lcom/android/keyguard/KeyguardRune;->SUPPORT_MOBILE_KEYBOARD:Z
+
+    if-eqz v2, :cond_10
+
+    if-nez v17, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastRotation:I
+
+    if-eq v14, v2, :cond_f
+
+    :cond_9
+    const/4 v15, 0x1
+
+    :goto_3
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
+
+    move-object/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Lcom/android/systemui/ImageWallpaper;->-get1(Lcom/android/systemui/ImageWallpaper;)I
+
+    move-result v20
+
+    move/from16 v0, v20
 
     invoke-static {v2, v0}, Lcom/android/systemui/ImageWallpaper;->-set0(Lcom/android/systemui/ImageWallpaper;I)I
 
     :goto_4
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "redrawNeeded = "
+    const-string/jumbo v21, "redrawNeeded = "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    move/from16 v1, v16
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v20
 
-    move-result-object v21
+    const-string/jumbo v21, ", mOffsetsChanged = "
 
-    const-string/jumbo v22, ", mOffsetsChanged = "
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOffsetsChanged:Z
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v16, :cond_a
+    if-nez v15, :cond_a
 
     move-object/from16 v0, p0
 
@@ -4034,9 +3885,9 @@
     :cond_a
     move-object/from16 v0, p0
 
-    iput v15, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastRotation:I
+    iput v14, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastRotation:I
 
-    if-eqz v18, :cond_c
+    if-eqz v17, :cond_c
 
     move-object/from16 v0, p0
 
@@ -4067,79 +3918,79 @@
     :cond_b
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "Surface != bitmap dimensions: surface w/h, bitmap w/h: "
+    const-string/jumbo v21, "Surface != bitmap dimensions: surface w/h, bitmap w/h: "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, ", "
+    const-string/jumbo v21, ", "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, ", "
+    const-string/jumbo v21, ", "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
-
-    move-object/from16 v22, v0
-
-    invoke-virtual/range {v22 .. v22}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ", "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
 
-    move-object/from16 v22, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v22 .. v22}, Landroid/graphics/Bitmap;->getHeight()I
+    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v22
+    move-result v21
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v21, ", "
 
-    move-result-object v21
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v21
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v21
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4150,15 +4001,15 @@
 
     if-nez v2, :cond_18
 
-    const-string/jumbo v21, "ImageWallpaper"
+    const-string/jumbo v20, "ImageWallpaper"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "Reloading bitmap: mBackground, bgw, bgh, dw, dh = "
+    const-string/jumbo v21, "Reloading bitmap: mBackground, bgw, bgh, dw, dh = "
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4168,21 +4019,21 @@
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
 
-    move-object/from16 v22, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string/jumbo v22, ", "
+    const-string/jumbo v21, ", "
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v21
 
     move-object/from16 v0, p0
 
@@ -4193,19 +4044,19 @@
     const/4 v2, 0x0
 
     :goto_5
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string/jumbo v22, ", "
+    const-string/jumbo v21, ", "
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v21
 
     move-object/from16 v0, p0
 
@@ -4216,15 +4067,15 @@
     const/4 v2, 0x0
 
     :goto_6
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string/jumbo v22, ", "
+    const-string/jumbo v21, ", "
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4234,9 +4085,9 @@
 
     move-result-object v2
 
-    const-string/jumbo v22, ", "
+    const-string/jumbo v21, ", "
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4250,7 +4101,7 @@
 
     move-result-object v2
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4270,17 +4121,17 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    const-string/jumbo v21, "Reloading, resuming draw later"
+    const-string/jumbo v20, "Reloading, resuming draw later"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    const-wide/16 v22, 0x8
+    const-wide/16 v20, 0x8
 
-    invoke-static/range {v22 .. v23}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
     move-object/from16 v0, p0
 
@@ -4294,12 +4145,12 @@
     return-void
 
     :cond_d
-    const/16 v18, 0x1
+    const/16 v17, 0x1
 
     goto/16 :goto_2
 
     :cond_e
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
     goto/16 :goto_2
 
@@ -4317,61 +4168,57 @@
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    move-object/from16 v21, v0
+    move-object/from16 v20, v0
 
-    invoke-static/range {v21 .. v21}, Lcom/android/systemui/ImageWallpaper;->-get0(Lcom/android/systemui/ImageWallpaper;)I
+    invoke-static/range {v20 .. v20}, Lcom/android/systemui/ImageWallpaper;->-get0(Lcom/android/systemui/ImageWallpaper;)I
 
-    move-result v21
+    move-result v20
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
     if-ne v2, v0, :cond_9
 
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mForceDraw:Z
-
-    move/from16 v16, v0
+    iget-boolean v15, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mForceDraw:Z
 
     goto/16 :goto_3
 
     :cond_10
-    if-nez v18, :cond_11
+    if-nez v17, :cond_11
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastRotation:I
 
-    if-eq v15, v2, :cond_12
+    if-eq v14, v2, :cond_12
 
     :cond_11
-    const/16 v16, 0x1
+    const/4 v15, 0x1
 
     goto/16 :goto_4
 
     :cond_12
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mForceDraw:Z
-
-    move/from16 v16, v0
+    iget-boolean v15, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mForceDraw:Z
 
     goto/16 :goto_4
 
     :cond_13
     const-string/jumbo v2, "ImageWallpaper"
 
-    const-string/jumbo v21, "Suppressed drawFrame since redraw is not needed and offsets have not changed."
+    const-string/jumbo v20, "Suppressed drawFrame since redraw is not needed and offsets have not changed."
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    const-wide/16 v22, 0x8
+    const-wide/16 v20, 0x8
 
-    invoke-static/range {v22 .. v23}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
     move-object/from16 v0, p0
 
@@ -4441,7 +4288,7 @@
 
     invoke-virtual {v2}, Landroid/app/WallpaperManager;->forgetLoadedWallpaper()V
 
-    goto/16 :goto_7
+    goto :goto_7
 
     :cond_18
     :try_start_5
@@ -4449,7 +4296,7 @@
 
     iget-boolean v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mGetBackgroundHSV:Z
 
-    if-nez v2, :cond_1f
+    if-nez v2, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -4461,162 +4308,62 @@
 
     iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperType:I
 
-    const/16 v21, 0x2
+    const/16 v20, 0x2
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    if-ne v2, v0, :cond_24
+    if-ne v2, v0, :cond_23
 
     :cond_19
     :goto_9
-    const/16 v20, 0x0
+    const/16 v19, 0x0
 
-    const/16 v17, 0x0
-
-    const/4 v14, 0x0
+    const/16 v16, 0x0
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mExtractMode:I
 
-    const/16 v21, 0x1
+    const/16 v20, 0x1
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    if-ne v2, v0, :cond_25
-
-    const/4 v2, 0x3
-
-    new-array v0, v2, [Landroid/graphics/Rect;
-
-    move-object/from16 v20, v0
+    if-ne v2, v0, :cond_24
 
     const/4 v2, 0x3
 
     new-array v0, v2, [Landroid/graphics/Rect;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
     const/4 v2, 0x3
 
-    new-array v14, v2, [Landroid/graphics/Rect;
+    new-array v0, v2, [Landroid/graphics/Rect;
+
+    move-object/from16 v16, v0
 
     :goto_a
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
-
-    invoke-direct {v0, v1, v14}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->getDisplayedWallpaperRegion([Landroid/graphics/Rect;[Landroid/graphics/Rect;)V
-
-    const-string/jumbo v2, "ImageWallpaper"
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v22, "drawFrame() wallpaperRegion = "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v20, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->left:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ","
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v20, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->top:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, " x "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v20, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ","
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v20, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->bottom:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
     iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperType:I
 
-    const/16 v21, 0x2
+    const/16 v20, 0x2
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
     if-eq v2, v0, :cond_1a
 
     move-object/from16 v0, p0
 
+    move-object/from16 v1, v19
+
+    invoke-direct {v0, v1}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->getDisplayedWallpaperRegion([Landroid/graphics/Rect;)V
+
+    move-object/from16 v0, p0
+
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
     invoke-static {v2, v0}, Lcom/android/systemui/ImageWallpaper$ExtractColor;->getColorHSV(Landroid/graphics/Bitmap;[Landroid/graphics/Rect;)[F
 
@@ -4630,7 +4377,7 @@
 
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperColorHSV:[F
 
-    if-nez v2, :cond_26
+    if-nez v2, :cond_25
 
     const/4 v2, 0x0
 
@@ -4642,109 +4389,15 @@
     :goto_b
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v16
 
     invoke-direct {v0, v1}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->getDisplayedStatusBarRegion([Landroid/graphics/Rect;)V
-
-    const-string/jumbo v2, "ImageWallpaper"
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v22, "drawFrame() statusBarRegion = "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v17, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->left:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ","
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v17, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->top:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, " x "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v17, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ","
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v17, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->bottom:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
     invoke-static {v2, v0}, Lcom/android/systemui/ImageWallpaper$ExtractColor;->getColorHSV(Landroid/graphics/Bitmap;[Landroid/graphics/Rect;)[F
 
@@ -4758,7 +4411,7 @@
 
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mStatusBarColorHSV:[F
 
-    if-nez v2, :cond_28
+    if-nez v2, :cond_27
 
     const/4 v2, 0x0
 
@@ -4766,190 +4419,51 @@
 
     iput v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackStatusBar:I
 
-    :goto_c
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
-
-    if-eqz v2, :cond_1b
-
-    const-string/jumbo v2, "ImageWallpaper"
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v22, "drawFrame() navigationBarRegion = "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v14, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->left:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ","
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v14, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->top:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, " x "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v14, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ","
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aget-object v22, v14, v22
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Landroid/graphics/Rect;->bottom:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
-
-    invoke-static {v2, v14}, Lcom/android/systemui/ImageWallpaper$ExtractColor;->getColorHSV(Landroid/graphics/Bitmap;[Landroid/graphics/Rect;)[F
-
-    move-result-object v2
-
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarColorHSV:[F
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarColorHSV:[F
-
-    if-nez v2, :cond_2a
-
-    const/4 v2, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackNavigationBar:I
-
     :cond_1b
-    :goto_d
+    :goto_c
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "mNeedBlackText = "
+    const-string/jumbo v21, "mNeedBlackText = "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackText:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " mNeedBlackStatusBar = "
+    const-string/jumbo v21, " mNeedBlackStatusBar = "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackStatusBar:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " mNeedBlackNavigationBar = "
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v20
 
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackNavigationBar:I
-
-    move/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4961,21 +4475,21 @@
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    move-object/from16 v21, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v21 .. v21}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {v20 .. v20}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, "need_dark_font"
+    const-string/jumbo v21, "need_dark_font"
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    invoke-static/range {v21 .. v23}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v21
+    move-result v20
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
     if-ne v2, v0, :cond_1c
 
@@ -4987,26 +4501,25 @@
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    move-object/from16 v21, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v21 .. v21}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {v20 .. v20}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, "need_dark_statusbar"
+    const-string/jumbo v21, "need_dark_statusbar"
 
-    const/16 v23, 0x0
+    const/16 v22, 0x0
 
-    invoke-static/range {v21 .. v23}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v21
+    move-result v20
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    if-eq v2, v0, :cond_2c
+    if-eq v2, v0, :cond_1d
 
     :cond_1c
-    :goto_e
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
@@ -5015,17 +4528,17 @@
 
     move-result-object v2
 
-    const-string/jumbo v21, "need_dark_font"
+    const-string/jumbo v20, "need_dark_font"
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackText:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    move/from16 v1, v22
+    move/from16 v1, v21
 
     invoke-static {v2, v0, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -5037,54 +4550,27 @@
 
     move-result-object v2
 
-    const-string/jumbo v21, "need_dark_statusbar"
+    const-string/jumbo v20, "need_dark_statusbar"
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackStatusBar:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    move/from16 v1, v22
-
-    invoke-static {v2, v0, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
-
-    if-eqz v2, :cond_1d
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
-
-    invoke-virtual {v2}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v21, "need_dark_navigationbar"
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackNavigationBar:I
-
-    move/from16 v22, v0
-
-    move-object/from16 v0, v21
-
-    move/from16 v1, v22
+    move/from16 v1, v21
 
     invoke-static {v2, v0, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :cond_1d
-    new-instance v19, Landroid/content/Intent;
+    new-instance v18, Landroid/content/Intent;
 
-    invoke-direct/range {v19 .. v19}, Landroid/content/Intent;-><init>()V
+    invoke-direct/range {v18 .. v18}, Landroid/content/Intent;-><init>()V
 
     const-string/jumbo v2, "com.sec.android.intent.action.WALLPAPER_CHANGED"
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -5092,23 +4578,23 @@
 
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v2, v0}, Lcom/android/systemui/ImageWallpaper;->sendBroadcast(Landroid/content/Intent;)V
 
-    :cond_1e
+    :cond_1d
     const/4 v2, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mGetBackgroundHSV:Z
 
-    :cond_1f
+    :cond_1e
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->isMobileKeyboardCovered()Z
 
     move-result v2
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_1f
 
     invoke-virtual {v13}, Landroid/graphics/Rect;->width()I
 
@@ -5128,37 +4614,37 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "mMobileKeyboardHeight:"
+    const-string/jumbo v21, "mMobileKeyboardHeight:"
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mMobileKeyboardHeight:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     sget-boolean v2, Lcom/android/keyguard/KeyguardRune;->SUPPORT_HOME_WALLPAPER_TILT_EFFECT:Z
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_29
 
     move-object/from16 v0, p0
 
@@ -5168,7 +4654,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_29
 
     move-object/from16 v0, p0
 
@@ -5176,13 +4662,13 @@
 
     int-to-double v0, v2
 
-    move-wide/from16 v22, v0
+    move-wide/from16 v20, v0
 
-    const-wide v24, 0x3ff199999999999aL    # 1.1
+    const-wide v22, 0x3ff199999999999aL    # 1.1
 
-    mul-double v22, v22, v24
+    mul-double v20, v20, v22
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v20
 
     double-to-int v2, v0
 
@@ -5196,13 +4682,13 @@
 
     int-to-double v0, v2
 
-    move-wide/from16 v22, v0
+    move-wide/from16 v20, v0
 
-    const-wide v24, 0x3ff199999999999aL    # 1.1
+    const-wide v22, 0x3ff199999999999aL    # 1.1
 
-    mul-double v22, v22, v24
+    mul-double v20, v20, v22
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v20
 
     double-to-int v2, v0
 
@@ -5216,13 +4702,13 @@
 
     int-to-double v0, v2
 
-    move-wide/from16 v22, v0
+    move-wide/from16 v20, v0
 
-    const-wide v24, 0x3ff199999999999aL    # 1.1
+    const-wide v22, 0x3ff199999999999aL    # 1.1
 
-    div-double v22, v22, v24
+    div-double v20, v20, v22
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v20
 
     double-to-int v2, v0
 
@@ -5230,25 +4716,25 @@
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mMobileKeyboardHeight:I
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
     int-to-double v0, v0
 
-    move-wide/from16 v22, v0
+    move-wide/from16 v20, v0
 
-    const-wide v24, 0x3fb999999999999aL    # 0.1
+    const-wide v22, 0x3fb999999999999aL    # 0.1
 
-    mul-double v22, v22, v24
+    mul-double v20, v20, v22
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v20
 
     double-to-int v0, v0
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    add-int v2, v2, v21
+    add-int v2, v2, v20
 
     move-object/from16 v0, p0
 
@@ -5262,23 +4748,23 @@
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOrthoHeight:I
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    mul-int v2, v2, v21
+    mul-int v2, v2, v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mVpHeight:I
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    div-int v2, v2, v21
+    div-int v2, v2, v20
 
     move-object/from16 v0, p0
 
     iput v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOrthoWidth:I
 
-    :goto_f
+    :goto_d
     move-object/from16 v0, p0
 
     iget v12, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOrthoWidth:I
@@ -5287,8 +4773,30 @@
 
     iget v10, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOrthoHeight:I
 
-    :cond_20
+    :cond_1f
     int-to-float v2, v12
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v20
+
+    move/from16 v0, v20
+
+    int-to-float v0, v0
+
+    move/from16 v20, v0
+
+    div-float v2, v2, v20
+
+    int-to-float v0, v10
+
+    move/from16 v20, v0
 
     move-object/from16 v0, p0
 
@@ -5296,7 +4804,7 @@
 
     move-object/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Bitmap;->getWidth()I
+    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v21
 
@@ -5306,39 +4814,17 @@
 
     move/from16 v21, v0
 
-    div-float v2, v2, v21
+    div-float v20, v20, v21
 
-    int-to-float v0, v10
-
-    move/from16 v21, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
-
-    move-object/from16 v22, v0
-
-    invoke-virtual/range {v22 .. v22}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v22
-
-    move/from16 v0, v22
-
-    int-to-float v0, v0
-
-    move/from16 v22, v0
-
-    div-float v21, v21, v22
-
-    move/from16 v0, v21
+    move/from16 v0, v20
 
     invoke-static {v2, v0}, Ljava/lang/Math;->max(FF)F
 
     move-result v2
 
-    const/high16 v21, 0x3f800000    # 1.0f
+    const/high16 v20, 0x3f800000    # 1.0f
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
     invoke-static {v0, v2}, Ljava/lang/Math;->max(FF)F
 
@@ -5362,9 +4848,9 @@
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mScale:F
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    mul-float v2, v2, v21
+    mul-float v2, v2, v20
 
     float-to-int v2, v2
 
@@ -5384,9 +4870,9 @@
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mScale:F
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    mul-float v2, v2, v21
+    mul-float v2, v2, v20
 
     float-to-int v2, v2
 
@@ -5398,55 +4884,55 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "mScale="
+    const-string/jumbo v21, "mScale="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mScale:F
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " availw="
+    const-string/jumbo v21, " availw="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " availh="
+    const-string/jumbo v21, " availh="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5472,43 +4958,43 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "availwUnscaled="
+    const-string/jumbo v21, "availwUnscaled="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, "  availhUnscaled="
+    const-string/jumbo v21, "  availhUnscaled="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-gez v9, :cond_21
+    if-gez v9, :cond_20
 
     int-to-float v2, v9
 
@@ -5516,24 +5002,24 @@
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mXOffset:F
 
-    move/from16 v21, v0
-
-    const/high16 v22, 0x3f000000    # 0.5f
-
-    sub-float v21, v21, v22
-
-    mul-float v2, v2, v21
+    move/from16 v20, v0
 
     const/high16 v21, 0x3f000000    # 0.5f
 
-    add-float v2, v2, v21
+    sub-float v20, v20, v21
+
+    mul-float v2, v2, v20
+
+    const/high16 v20, 0x3f000000    # 0.5f
+
+    add-float v2, v2, v20
 
     float-to-int v2, v2
 
     add-int/2addr v6, v2
 
-    :cond_21
-    if-gez v8, :cond_22
+    :cond_20
+    if-gez v8, :cond_21
 
     int-to-float v2, v8
 
@@ -5541,30 +5027,30 @@
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mYOffset:F
 
-    move/from16 v21, v0
-
-    const/high16 v22, 0x3f000000    # 0.5f
-
-    sub-float v21, v21, v22
-
-    mul-float v2, v2, v21
+    move/from16 v20, v0
 
     const/high16 v21, 0x3f000000    # 0.5f
 
-    add-float v2, v2, v21
+    sub-float v20, v20, v21
+
+    mul-float v2, v2, v20
+
+    const/high16 v20, 0x3f000000    # 0.5f
+
+    add-float v2, v2, v20
 
     float-to-int v2, v2
 
     add-int/2addr v7, v2
 
-    :cond_22
+    :cond_21
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
     iput-boolean v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOffsetsChanged:Z
 
-    if-eqz v18, :cond_23
+    if-eqz v17, :cond_22
 
     move-object/from16 v0, p0
 
@@ -5576,78 +5062,78 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "mLastSurfaceWidth:"
+    const-string/jumbo v21, "mLastSurfaceWidth:"
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastSurfaceWidth:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, " mLastSurfaceHeight:"
+    const-string/jumbo v21, " mLastSurfaceHeight:"
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastSurfaceHeight:I
 
-    move/from16 v22, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_23
-    if-nez v16, :cond_2f
+    :cond_22
+    if-nez v15, :cond_2b
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastXTranslation:I
 
-    if-ne v6, v2, :cond_2f
+    if-ne v6, v2, :cond_2b
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastYTranslation:I
 
-    if-ne v7, v2, :cond_2f
+    if-ne v7, v2, :cond_2b
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    const-string/jumbo v21, "Suppressed drawFrame since the image has not actually moved an integral number of pixels."
+    const-string/jumbo v20, "Suppressed drawFrame since the image has not actually moved an integral number of pixels."
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    const-wide/16 v22, 0x8
+    const-wide/16 v20, 0x8
 
-    invoke-static/range {v22 .. v23}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
     move-object/from16 v0, p0
 
@@ -5655,12 +5141,12 @@
 
     iget-boolean v2, v2, Lcom/android/systemui/ImageWallpaper;->mIsHwAccelerated:Z
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_2a
 
-    :goto_10
+    :goto_e
     return-void
 
-    :cond_24
+    :cond_23
     :try_start_6
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->isWhiteCSCWallpaper()Z
 
@@ -5670,97 +5156,93 @@
 
     goto/16 :goto_9
 
-    :cond_25
+    :cond_24
     const/4 v2, 0x1
 
     new-array v0, v2, [Landroid/graphics/Rect;
 
-    move-object/from16 v20, v0
+    move-object/from16 v19, v0
 
     const/4 v2, 0x1
 
     new-array v0, v2, [Landroid/graphics/Rect;
 
-    move-object/from16 v17, v0
-
-    const/4 v2, 0x1
-
-    new-array v14, v2, [Landroid/graphics/Rect;
+    move-object/from16 v16, v0
 
     goto/16 :goto_a
 
-    :cond_26
+    :cond_25
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "Whole Area Hue="
+    const-string/jumbo v21, "Whole Area Hue="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperColorHSV:[F
-
-    move-object/from16 v22, v0
-
-    const/16 v23, 0x0
-
-    aget v22, v22, v23
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ", Saturation="
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperColorHSV:[F
 
-    move-object/from16 v22, v0
+    move-object/from16 v21, v0
 
-    const/16 v23, 0x1
+    const/16 v22, 0x0
 
-    aget v22, v22, v23
+    aget v21, v21, v22
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, ", Brightness="
+    const-string/jumbo v21, ", Saturation="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperColorHSV:[F
 
-    move-object/from16 v22, v0
+    move-object/from16 v21, v0
 
-    const/16 v23, 0x2
+    const/16 v22, 0x1
 
-    aget v22, v22, v23
+    aget v21, v21, v22
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v21, ", Brightness="
 
-    move-result-object v21
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v21
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperColorHSV:[F
+
+    move-object/from16 v21, v0
+
+    const/16 v22, 0x2
+
+    aget v21, v21, v22
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5768,29 +5250,29 @@
 
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperColorHSV:[F
 
-    const/16 v21, 0x1
+    const/16 v20, 0x1
 
-    aget v2, v2, v21
+    aget v2, v2, v20
 
-    const v21, 0x3e99999a    # 0.3f
+    const v20, 0x3e99999a    # 0.3f
 
-    cmpg-float v2, v2, v21
+    cmpg-float v2, v2, v20
 
-    if-gez v2, :cond_27
+    if-gez v2, :cond_26
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperColorHSV:[F
 
-    const/16 v21, 0x2
+    const/16 v20, 0x2
 
-    aget v2, v2, v21
+    aget v2, v2, v20
 
-    const v21, 0x3f6147ae    # 0.88f
+    const v20, 0x3f6147ae    # 0.88f
 
-    cmpl-float v2, v2, v21
+    cmpl-float v2, v2, v20
 
-    if-ltz v2, :cond_27
+    if-ltz v2, :cond_26
 
     const/4 v2, 0x1
 
@@ -5805,28 +5287,28 @@
     :catchall_0
     move-exception v2
 
-    const-wide/16 v22, 0x8
+    const-wide/16 v20, 0x8
 
-    invoke-static/range {v22 .. v23}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    move-object/from16 v21, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     iget-boolean v0, v0, Lcom/android/systemui/ImageWallpaper;->mIsHwAccelerated:Z
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    if-eqz v21, :cond_34
+    if-eqz v20, :cond_30
 
-    :goto_11
+    :goto_f
     throw v2
 
-    :cond_27
+    :cond_26
     const/4 v2, 0x0
 
     :try_start_7
@@ -5836,78 +5318,78 @@
 
     goto/16 :goto_b
 
-    :cond_28
+    :cond_27
     const-string/jumbo v2, "ImageWallpaper"
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "StatusBar Area Hue="
+    const-string/jumbo v21, "StatusBar Area Hue="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mStatusBarColorHSV:[F
-
-    move-object/from16 v22, v0
-
-    const/16 v23, 0x0
-
-    aget v22, v22, v23
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ", Saturation="
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mStatusBarColorHSV:[F
 
-    move-object/from16 v22, v0
+    move-object/from16 v21, v0
 
-    const/16 v23, 0x1
+    const/16 v22, 0x0
 
-    aget v22, v22, v23
+    aget v21, v21, v22
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    const-string/jumbo v22, ", Brightness="
+    const-string/jumbo v21, ", Saturation="
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mStatusBarColorHSV:[F
 
-    move-object/from16 v22, v0
+    move-object/from16 v21, v0
 
-    const/16 v23, 0x2
+    const/16 v22, 0x1
 
-    aget v22, v22, v23
+    aget v21, v21, v22
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v20
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v21, ", Brightness="
 
-    move-result-object v21
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v21
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mStatusBarColorHSV:[F
+
+    move-object/from16 v21, v0
+
+    const/16 v22, 0x2
+
+    aget v21, v21, v22
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5915,31 +5397,40 @@
 
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mStatusBarColorHSV:[F
 
-    const/16 v21, 0x1
+    const/16 v20, 0x1
 
-    aget v2, v2, v21
+    aget v2, v2, v20
 
-    const v21, 0x3e99999a    # 0.3f
+    const v20, 0x3e99999a    # 0.3f
 
-    cmpg-float v2, v2, v21
+    cmpg-float v2, v2, v20
 
-    if-gez v2, :cond_29
+    if-gez v2, :cond_28
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mStatusBarColorHSV:[F
 
-    const/16 v21, 0x2
+    const/16 v20, 0x2
 
-    aget v2, v2, v21
+    aget v2, v2, v20
 
-    const v21, 0x3f6147ae    # 0.88f
+    const v20, 0x3f6147ae    # 0.88f
 
-    cmpl-float v2, v2, v21
+    cmpl-float v2, v2, v20
 
-    if-ltz v2, :cond_29
+    if-ltz v2, :cond_28
 
     const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackStatusBar:I
+
+    goto/16 :goto_c
+
+    :cond_28
+    const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
@@ -5948,164 +5439,6 @@
     goto/16 :goto_c
 
     :cond_29
-    const/4 v2, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackStatusBar:I
-
-    goto/16 :goto_c
-
-    :cond_2a
-    const-string/jumbo v2, "ImageWallpaper"
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v22, "NavigationBar Area Hue="
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarColorHSV:[F
-
-    move-object/from16 v22, v0
-
-    const/16 v23, 0x0
-
-    aget v22, v22, v23
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ", Saturation="
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarColorHSV:[F
-
-    move-object/from16 v22, v0
-
-    const/16 v23, 0x1
-
-    aget v22, v22, v23
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, ", Brightness="
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarColorHSV:[F
-
-    move-object/from16 v22, v0
-
-    const/16 v23, 0x2
-
-    aget v22, v22, v23
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarColorHSV:[F
-
-    const/16 v21, 0x1
-
-    aget v2, v2, v21
-
-    const v21, 0x3e99999a    # 0.3f
-
-    cmpg-float v2, v2, v21
-
-    if-gez v2, :cond_2b
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNavigationBarColorHSV:[F
-
-    const/16 v21, 0x2
-
-    aget v2, v2, v21
-
-    const v21, 0x3f6147ae    # 0.88f
-
-    cmpl-float v2, v2, v21
-
-    if-ltz v2, :cond_2b
-
-    const/4 v2, 0x1
-
-    move-object/from16 v0, p0
-
-    iput v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackNavigationBar:I
-
-    goto/16 :goto_d
-
-    :cond_2b
-    const/4 v2, 0x0
-
-    move-object/from16 v0, p0
-
-    iput v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackNavigationBar:I
-
-    goto/16 :goto_d
-
-    :cond_2c
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mNeedBlackNavigationBar:I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
-
-    move-object/from16 v21, v0
-
-    invoke-virtual/range {v21 .. v21}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v21
-
-    const-string/jumbo v22, "need_dark_navigationbar"
-
-    const/16 v23, 0x0
-
-    invoke-static/range {v21 .. v23}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v21
-
-    move/from16 v0, v21
-
-    if-eq v2, v0, :cond_1e
-
-    goto/16 :goto_e
-
-    :cond_2d
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mMobileKeyboardWidth:I
@@ -6138,17 +5471,17 @@
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mOrthoHeight:I
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    mul-int v2, v2, v21
+    mul-int v2, v2, v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mVpHeight:I
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    div-int v2, v2, v21
+    div-int v2, v2, v20
 
     move-object/from16 v0, p0
 
@@ -6156,9 +5489,9 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    goto/16 :goto_f
+    goto/16 :goto_d
 
-    :cond_2e
+    :cond_2a
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -6173,9 +5506,9 @@
 
     invoke-virtual {v2}, Landroid/app/WallpaperManager;->forgetLoadedWallpaper()V
 
-    goto/16 :goto_10
+    goto/16 :goto_e
 
-    :cond_2f
+    :cond_2b
     :try_start_8
     move-object/from16 v0, p0
 
@@ -6193,11 +5526,11 @@
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastSurfaceWidth:I
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    if-ne v2, v0, :cond_30
+    if-ne v2, v0, :cond_2c
 
     move-object/from16 v0, p0
 
@@ -6207,17 +5540,17 @@
 
     iget v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mLastSurfaceHeight:I
 
-    move/from16 v21, v0
+    move/from16 v20, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v20
 
-    if-ne v2, v0, :cond_30
+    if-ne v2, v0, :cond_2c
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mVisible:Z
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_2c
 
     const/4 v2, 0x0
 
@@ -6227,18 +5560,18 @@
 
     const-string/jumbo v2, "ImageWallpaper"
 
-    const-string/jumbo v21, "initialize mForceDraw = false"
+    const-string/jumbo v20, "initialize mForceDraw = false"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_30
+    :cond_2c
     const-string/jumbo v2, "ImageWallpaper"
 
-    const-string/jumbo v21, "Redrawing wallpaper"
+    const-string/jumbo v20, "Redrawing wallpaper"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -6248,7 +5581,7 @@
 
     iget-boolean v2, v2, Lcom/android/systemui/ImageWallpaper;->mIsHwAccelerated:Z
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_2e
 
     move-object/from16 v2, p0
 
@@ -6256,7 +5589,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_31
+    if-nez v2, :cond_2d
 
     move-object/from16 v2, p0
 
@@ -6264,11 +5597,11 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    :cond_31
-    :goto_12
-    const-wide/16 v22, 0x8
+    :cond_2d
+    :goto_10
+    const-wide/16 v20, 0x8
 
-    invoke-static/range {v22 .. v23}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
     move-object/from16 v0, p0
 
@@ -6276,12 +5609,12 @@
 
     iget-boolean v2, v2, Lcom/android/systemui/ImageWallpaper;->mIsHwAccelerated:Z
 
-    if-eqz v2, :cond_33
+    if-eqz v2, :cond_2f
 
-    :goto_13
+    :goto_11
     return-void
 
-    :cond_32
+    :cond_2e
     move-object/from16 v2, p0
 
     :try_start_9
@@ -6289,9 +5622,9 @@
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
-    goto :goto_12
+    goto :goto_10
 
-    :cond_33
+    :cond_2f
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -6306,12 +5639,12 @@
 
     invoke-virtual {v2}, Landroid/app/WallpaperManager;->forgetLoadedWallpaper()V
 
-    goto :goto_13
+    goto :goto_11
 
-    :cond_34
-    const/16 v21, 0x0
+    :cond_30
+    const/16 v20, 0x0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p0
 
@@ -6321,17 +5654,17 @@
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    move-object/from16 v21, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper;->mWallpaperManager:Landroid/app/WallpaperManager;
 
-    move-object/from16 v21, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v21 .. v21}, Landroid/app/WallpaperManager;->forgetLoadedWallpaper()V
+    invoke-virtual/range {v20 .. v20}, Landroid/app/WallpaperManager;->forgetLoadedWallpaper()V
 
-    goto/16 :goto_11
+    goto/16 :goto_f
 .end method
 
 .method protected dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
@@ -6512,424 +5845,230 @@
     return-void
 .end method
 
-.method getImageRegionForDisplay(Landroid/graphics/Rect;Landroid/graphics/Rect;IIIII)V
-    .locals 23
+.method getImageRegionForDisplay(Landroid/graphics/Rect;IIII)V
+    .locals 14
 
-    if-eqz p4, :cond_0
+    if-eqz p3, :cond_0
 
-    if-nez p3, :cond_1
+    if-nez p2, :cond_1
 
     :cond_0
-    const-string/jumbo v19, "ImageWallpaper"
+    const-string/jumbo v10, "ImageWallpaper"
 
-    const-string/jumbo v20, "Investigate this::Unable to get viewRatio as viewHeight is zero"
+    const-string/jumbo v11, "Investigate this::Unable to get viewRatio as viewHeight is zero"
 
-    invoke-static/range {v19 .. v20}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v19, 0x0
+    const/4 v10, 0x0
 
-    const/16 v20, 0x0
+    const/4 v11, 0x0
 
-    const/16 v21, 0x0
+    const/4 v12, 0x0
 
-    const/16 v22, 0x0
+    const/4 v13, 0x0
 
-    move-object/from16 v0, p1
-
-    move/from16 v1, v19
-
-    move/from16 v2, v20
-
-    move/from16 v3, v21
-
-    move/from16 v4, v22
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    const/16 v19, 0x0
-
-    const/16 v20, 0x0
-
-    const/16 v21, 0x0
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p2
-
-    move/from16 v1, v19
-
-    move/from16 v2, v20
-
-    move/from16 v3, v21
-
-    move/from16 v4, v22
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p1, v10, v11, v12, v13}, Landroid/graphics/Rect;->set(IIII)V
 
     return-void
 
     :cond_1
-    move-object/from16 v0, p0
+    iget-object v10, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
 
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
+    invoke-virtual {v10}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-object/from16 v19, v0
+    move-result v3
 
-    invoke-virtual/range {v19 .. v19}, Landroid/graphics/Bitmap;->getWidth()I
+    iget-object v10, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
 
-    move-result v8
+    invoke-virtual {v10}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-object/from16 v0, p0
+    move-result v1
 
-    iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mBackground:Landroid/graphics/Bitmap;
+    if-eqz v3, :cond_2
 
-    move-object/from16 v19, v0
-
-    invoke-virtual/range {v19 .. v19}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v6
-
-    if-eqz v8, :cond_2
-
-    if-nez v6, :cond_3
+    if-nez v1, :cond_3
 
     :cond_2
-    const-string/jumbo v19, "ImageWallpaper"
+    const-string/jumbo v10, "ImageWallpaper"
 
-    const-string/jumbo v20, "Investigate this::Unable to get imageRatio as imageHeight is zero"
+    const-string/jumbo v11, "Investigate this::Unable to get imageRatio as imageHeight is zero"
 
-    invoke-static/range {v19 .. v20}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v19, 0x0
+    const/4 v10, 0x0
 
-    const/16 v20, 0x0
+    const/4 v11, 0x0
 
-    const/16 v21, 0x0
+    const/4 v12, 0x0
 
-    const/16 v22, 0x0
+    const/4 v13, 0x0
 
-    move-object/from16 v0, p1
-
-    move/from16 v1, v19
-
-    move/from16 v2, v20
-
-    move/from16 v3, v21
-
-    move/from16 v4, v22
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    const/16 v19, 0x0
-
-    const/16 v20, 0x0
-
-    const/16 v21, 0x0
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p2
-
-    move/from16 v1, v19
-
-    move/from16 v2, v20
-
-    move/from16 v3, v21
-
-    move/from16 v4, v22
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p1, v10, v11, v12, v13}, Landroid/graphics/Rect;->set(IIII)V
 
     return-void
 
     :cond_3
-    move/from16 v0, p3
+    move/from16 v0, p2
 
-    int-to-float v0, v0
-
-    move/from16 v19, v0
-
-    move/from16 v0, p4
-
-    int-to-float v0, v0
-
-    move/from16 v20, v0
-
-    div-float v17, v19, v20
-
-    int-to-float v0, v8
-
-    move/from16 v19, v0
-
-    int-to-float v0, v6
-
-    move/from16 v20, v0
-
-    div-float v7, v19, v20
-
-    cmpg-float v19, v17, v7
-
-    if-gtz v19, :cond_5
-
-    move/from16 v0, p4
-
-    int-to-float v0, v0
-
-    move/from16 v19, v0
-
-    int-to-float v0, v6
-
-    move/from16 v20, v0
-
-    div-float v18, v19, v20
+    int-to-float v10, v0
 
     move/from16 v0, p3
 
-    int-to-float v0, v0
+    int-to-float v11, v0
 
-    move/from16 v19, v0
+    div-float v8, v10, v11
 
-    div-float v19, v19, v18
+    int-to-float v10, v3
 
-    move/from16 v0, v19
+    int-to-float v11, v1
 
-    float-to-int v15, v0
+    div-float v2, v10, v11
 
-    sub-int v19, v8, v15
+    cmpg-float v10, v8, v2
 
-    move/from16 v0, v19
+    if-gtz v10, :cond_4
 
-    int-to-float v0, v0
+    move/from16 v0, p3
 
-    move/from16 v19, v0
+    int-to-float v10, v0
 
-    const/high16 v20, 0x40000000    # 2.0f
+    int-to-float v11, v1
 
-    div-float v19, v19, v20
+    div-float v9, v10, v11
 
-    invoke-static/range {v19 .. v19}, Ljava/lang/Math;->round(F)I
+    move/from16 v0, p2
 
-    move-result v11
+    int-to-float v10, v0
+
+    div-float/2addr v10, v9
+
+    float-to-int v7, v10
+
+    sub-int v10, v3, v7
+
+    int-to-float v10, v10
+
+    const/high16 v11, 0x40000000    # 2.0f
+
+    div-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v4
+
+    move/from16 v0, p4
+
+    int-to-float v10, v0
+
+    div-float/2addr v10, v9
+
+    float-to-int v0, v10
+
+    move/from16 p4, v0
+
+    div-int/lit8 p4, p4, 0x2
 
     move/from16 v0, p5
 
-    int-to-float v0, v0
+    int-to-float v10, v0
 
-    move/from16 v19, v0
+    div-float/2addr v10, v9
 
-    div-float v19, v19, v18
-
-    move/from16 v0, v19
-
-    float-to-int v0, v0
+    float-to-int v0, v10
 
     move/from16 p5, v0
 
     div-int/lit8 p5, p5, 0x2
 
-    move/from16 v0, p6
+    add-int v10, p4, v4
 
-    int-to-float v0, v0
+    add-int/lit8 v11, p5, 0x0
 
-    move/from16 v19, v0
+    add-int v12, v7, v4
 
-    div-float v19, v19, v18
+    add-int/lit8 v12, v12, -0x1
 
-    move/from16 v0, v19
+    sub-int v12, v12, p4
 
-    float-to-int v0, v0
+    add-int/lit8 v13, v1, -0x1
 
-    move/from16 p6, v0
+    sub-int v13, v13, p5
 
-    div-int/lit8 p6, p6, 0x2
-
-    add-int v9, p5, v11
-
-    move/from16 v16, p6
-
-    add-int v19, v15, v11
-
-    add-int/lit8 v19, v19, -0x1
-
-    sub-int v13, v19, p5
-
-    add-int/lit8 v19, v6, -0x1
-
-    sub-int v5, v19, p6
-
-    sub-int v10, v6, p7
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, p6
-
-    invoke-virtual {v0, v9, v1, v13, v5}, Landroid/graphics/Rect;->set(IIII)V
-
-    sget-boolean v19, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
-
-    if-eqz v19, :cond_4
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v9, v10, v13, v5}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p1, v10, v11, v12, v13}, Landroid/graphics/Rect;->set(IIII)V
 
     :goto_0
     return-void
 
     :cond_4
-    const/16 v19, 0x0
+    move/from16 v0, p2
 
-    const/16 v20, 0x0
+    int-to-float v10, v0
 
-    const/16 v21, 0x0
+    int-to-float v11, v3
 
-    const/16 v22, 0x0
+    div-float v9, v10, v11
 
-    move-object/from16 v0, p2
-
-    move/from16 v1, v19
-
-    move/from16 v2, v20
-
-    move/from16 v3, v21
-
-    move/from16 v4, v22
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    goto :goto_0
-
-    :cond_5
     move/from16 v0, p3
 
-    int-to-float v0, v0
+    int-to-float v10, v0
 
-    move/from16 v19, v0
+    div-float/2addr v10, v9
 
-    int-to-float v0, v8
+    float-to-int v6, v10
 
-    move/from16 v20, v0
+    sub-int v10, v1, v6
 
-    div-float v18, v19, v20
+    int-to-float v10, v10
+
+    const/high16 v11, 0x40000000    # 2.0f
+
+    div-float/2addr v10, v11
+
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
+
+    move-result v5
 
     move/from16 v0, p4
 
-    int-to-float v0, v0
+    int-to-float v10, v0
 
-    move/from16 v19, v0
+    div-float/2addr v10, v9
 
-    div-float v19, v19, v18
+    float-to-int v0, v10
 
-    move/from16 v0, v19
+    move/from16 p4, v0
 
-    float-to-int v14, v0
-
-    sub-int v19, v6, v14
-
-    move/from16 v0, v19
-
-    int-to-float v0, v0
-
-    move/from16 v19, v0
-
-    const/high16 v20, 0x40000000    # 2.0f
-
-    div-float v19, v19, v20
-
-    invoke-static/range {v19 .. v19}, Ljava/lang/Math;->round(F)I
-
-    move-result v12
+    div-int/lit8 p4, p4, 0x2
 
     move/from16 v0, p5
 
-    int-to-float v0, v0
+    int-to-float v10, v0
 
-    move/from16 v19, v0
+    div-float/2addr v10, v9
 
-    div-float v19, v19, v18
-
-    move/from16 v0, v19
-
-    float-to-int v0, v0
+    float-to-int v0, v10
 
     move/from16 p5, v0
 
     div-int/lit8 p5, p5, 0x2
 
-    move/from16 v0, p6
+    add-int v10, p5, v5
 
-    int-to-float v0, v0
+    add-int/lit8 v11, v3, -0x1
 
-    move/from16 v19, v0
+    sub-int v11, v11, p4
 
-    div-float v19, v19, v18
+    add-int v12, v6, v5
 
-    move/from16 v0, v19
+    add-int/lit8 v12, v12, -0x1
 
-    float-to-int v0, v0
+    sub-int v12, v12, p5
 
-    move/from16 p6, v0
+    move/from16 v0, p4
 
-    div-int/lit8 p6, p6, 0x2
-
-    move/from16 v9, p5
-
-    add-int v16, p6, v12
-
-    add-int/lit8 v19, v8, -0x1
-
-    sub-int v13, v19, p5
-
-    add-int v19, v14, v12
-
-    add-int/lit8 v19, v19, -0x1
-
-    sub-int v5, v19, p6
-
-    sub-int v10, v6, p7
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, p5
-
-    move/from16 v2, v16
-
-    invoke-virtual {v0, v1, v2, v13, v5}, Landroid/graphics/Rect;->set(IIII)V
-
-    sget-boolean v19, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
-
-    if-eqz v19, :cond_6
-
-    move-object/from16 v0, p2
-
-    move/from16 v1, p5
-
-    invoke-virtual {v0, v1, v10, v13, v5}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p1, v0, v10, v11, v12}, Landroid/graphics/Rect;->set(IIII)V
 
     goto :goto_0
-
-    :cond_6
-    const/16 v19, 0x0
-
-    const/16 v20, 0x0
-
-    const/16 v21, 0x0
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p2
-
-    move/from16 v1, v19
-
-    move/from16 v2, v20
-
-    move/from16 v3, v21
-
-    move/from16 v4, v22
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    goto/16 :goto_0
 .end method
 
 .method getImageRegionforStatusBar(Landroid/graphics/Rect;IIII)V
@@ -7343,9 +6482,9 @@
 .method public onCreate(Landroid/view/SurfaceHolder;)V
     .locals 5
 
-    const/4 v2, 0x0
-
     const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     const-string/jumbo v0, "ImageWallpaper"
 
@@ -7399,36 +6538,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    invoke-virtual {v0}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v3, "android.wallpaper.settings_systemui_transparency"
-
-    invoke-static {v0, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperType:I
-
-    iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
-
-    invoke-virtual {v0}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v3, "android.wallpaper.settings_systemui_transparency"
-
-    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperTypeObserver:Landroid/database/ContentObserver;
-
-    invoke-virtual {v0, v3, v1, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
-    iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
-
     const-class v1, Landroid/view/WindowManager;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/ImageWallpaper;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -7460,7 +6569,7 @@
 .end method
 
 .method public onDestroy()V
-    .locals 2
+    .locals 1
 
     invoke-super {p0}, Landroid/service/wallpaper/WallpaperService$Engine;->onDestroy()V
 
@@ -7473,31 +6582,6 @@
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper;->mWallpaperManager:Landroid/app/WallpaperManager;
 
     invoke-virtual {v0}, Landroid/app/WallpaperManager;->forgetLoadedWallpaper()V
-
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_HOME_WALLPAPER_TILT_EFFECT:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
-
-    invoke-virtual {v0}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperTiltSettingChanged:Landroid/database/ContentObserver;
-
-    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
-
-    invoke-virtual {v0}, Lcom/android/systemui/ImageWallpaper;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->mWallpaperTypeObserver:Landroid/database/ContentObserver;
-
-    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
     return-void
 .end method

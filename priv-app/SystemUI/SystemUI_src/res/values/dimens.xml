@@ -58,7 +58,7 @@
     <dimen name="multiwindow_divider_guideview_height">5.0dip</dimen>
     <dimen name="statusbar_height">25.0dip</dimen>
     <dimen name="sview_cover_height">278.0dip</dimen>
-    <dimen name="sview_cover_popup_height">256.0dip</dimen>
+    <dimen name="sview_cover_popup_height">254.0dip</dimen>
     <dimen name="sview_cover_pager_width">292.0dip</dimen>
     <dimen name="sview_cover_unlock_area_unlock_circle_size">224.0dip</dimen>
     <dimen name="sview_cover_wallpaper_width">292.0dip</dimen>
@@ -76,8 +76,8 @@
     <dimen name="sview_cover_pin_widnow_image_size">46.0dip</dimen>
     <dimen name="sview_cover_pin_widnow_text_margin">14.0dip</dimen>
     <dimen name="sview_cover_popup_dialog_padding">2.5dip</dimen>
-    <dimen name="sview_cover_battery_state_view_width">170.0dip</dimen>
-    <dimen name="sview_cover_battery_state_view_top_margin">226.0dip</dimen>
+    <dimen name="sview_cover_battery_state_view_width">181.0dip</dimen>
+    <dimen name="sview_cover_battery_state_view_top_margin">225.0dip</dimen>
     <dimen name="battery_charging_text_size">11.0dip</dimen>
     <dimen name="clear_cover_page_margin">32.0dip</dimen>
     <dimen name="clear_cover_dialog_margin">39.0dip</dimen>
@@ -242,6 +242,7 @@
     <dimen name="lb_details_v2_logo_max_width">150.0dip</dimen>
     <dimen name="lb_details_v2_logo_max_height">210.0dip</dimen>
     <dimen name="lb_details_v2_blank_height">160.0dip</dimen>
+    <dimen name="sview_cover_battery_state_view_bottom_margin">16.0dip</dimen>
     <dimen name="lb_details_v2_card_height">540.0dip</dimen>
     <dimen name="lb_details_v2_left">270.0dip</dimen>
     <dimen name="lb_details_v2_logo_margin_start">128.0dip</dimen>

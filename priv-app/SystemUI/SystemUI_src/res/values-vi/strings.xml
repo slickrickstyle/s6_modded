@@ -11,6 +11,9 @@
     <string name="dock_minimized_notification_text">%s đã thu nhỏ</string>
     <string name="dock_minimized_notification_dimiss_text">Đóng</string>
     <string name="dock_minimized_notification_content_text">Chạm vào đây để mở.</string>
+    <string name="clear_cover_wday_day">E</string>
+    <string name="clear_cover_month_day_no_year">MMM d</string>
+    <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="cancel">Hủy</string>
     <string name="clearcover_1_missed_call">Bạn có 1 cuộc gọi nhỡ.</string>
     <string name="clearcover_1_unread_message">Bạn có 1 tin nhắn chưa đọc.</string>
@@ -50,6 +53,7 @@
     <string name="monotype_dialog_button">Tải về</string>
     <string name="minimized_notification_talkback_description_open">Chạm hai lần để mở thông báo từ %s.</string>
     <string name="minimized_notification_talkback_description_open_more">Chạm hai lần để mở bảng thông báo.</string>
+    <string name="volumepanel_notification">Thông báo</string>
     <string name="save">Lưu</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
@@ -2196,8 +2200,4 @@ Hãy thử lại sau 1 giây"</string>
     <string name="kg_wallpaper_applied_toast">Hình nền đã được áp dụng vào màn hình khóa.</string>
     <string name="kg_too_many_failed_countdown_by_fingerprint">%d lần xác thực vân tay sai. Hãy thử lại sau 30 giây.</string>
     <string name="kg_finger_print_bad_quality_error_message">Phím Trang chính có thể bị bẩn hoặc ướt. Hãy lau khô phím Trang chính rồi thử lại.</string>
-    <string name="clear_cover_wday_day">E</string>
-    <string name="clear_cover_month_day_no_year">MMM d</string>
-    <string name="clear_cover_day_month_no_year">d MMM</string>
-    <string name="volumepanel_notification">Thông báo</string>
 </resources>

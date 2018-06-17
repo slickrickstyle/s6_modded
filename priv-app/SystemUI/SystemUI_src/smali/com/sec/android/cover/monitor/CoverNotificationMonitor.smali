@@ -9,7 +9,6 @@
         Lcom/sec/android/cover/monitor/CoverNotificationMonitor$1;,
         Lcom/sec/android/cover/monitor/CoverNotificationMonitor$2;,
         Lcom/sec/android/cover/monitor/CoverNotificationMonitor$3;,
-        Lcom/sec/android/cover/monitor/CoverNotificationMonitor$4;,
         Lcom/sec/android/cover/monitor/CoverNotificationMonitor$CoverNotificationListener;
     }
 .end annotation
@@ -44,17 +43,6 @@
 .field private final mNotificationListener:Landroid/service/notification/NotificationListenerService;
 
 .field private mRankingMap:Landroid/service/notification/NotificationListenerService$RankingMap;
-
-.field private final mTimeComparator:Ljava/util/Comparator;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Comparator",
-            "<",
-            "Landroid/service/notification/StatusBarNotification;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 .field private final mTmpRanking:Landroid/service/notification/NotificationListenerService$Ranking;
 
@@ -196,12 +184,6 @@
     new-instance v0, Lcom/sec/android/cover/monitor/CoverNotificationMonitor$3;
 
     invoke-direct {v0, p0}, Lcom/sec/android/cover/monitor/CoverNotificationMonitor$3;-><init>(Lcom/sec/android/cover/monitor/CoverNotificationMonitor;)V
-
-    iput-object v0, p0, Lcom/sec/android/cover/monitor/CoverNotificationMonitor;->mTimeComparator:Ljava/util/Comparator;
-
-    new-instance v0, Lcom/sec/android/cover/monitor/CoverNotificationMonitor$4;
-
-    invoke-direct {v0, p0}, Lcom/sec/android/cover/monitor/CoverNotificationMonitor$4;-><init>(Lcom/sec/android/cover/monitor/CoverNotificationMonitor;)V
 
     iput-object v0, p0, Lcom/sec/android/cover/monitor/CoverNotificationMonitor;->mComparator:Ljava/util/Comparator;
 
@@ -361,41 +343,36 @@
 
     if-eqz v2, :cond_0
 
-    iget-object v3, p0, Lcom/sec/android/cover/monitor/CoverNotificationMonitor;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/sec/android/cover/CoverUtils;->isSimpleStatusBarEnabled(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/sec/android/cover/monitor/CoverNotificationMonitor;->mTimeComparator:Ljava/util/Comparator;
+    iget-object v3, p0, Lcom/sec/android/cover/monitor/CoverNotificationMonitor;->mComparator:Ljava/util/Comparator;
 
     invoke-static {v2, v3}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
     :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    :goto_0
     monitor-exit v4
 
     return-object v2
 
-    :cond_1
-    :try_start_1
-    iget-object v3, p0, Lcom/sec/android/cover/monitor/CoverNotificationMonitor;->mComparator:Ljava/util/Comparator;
+    :catch_0
+    move-exception v0
 
-    invoke-static {v2, v3}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
+    :try_start_1
+    sget-object v3, Lcom/sec/android/cover/monitor/CoverNotificationMonitor;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v5, "Error getting active notifications"
+
+    invoke-static {v3, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_1
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_0
+    monitor-exit v4
 
-    :catch_0
+    return-object v6
+
+    :catch_1
     move-exception v1
 
     :try_start_2
@@ -406,22 +383,6 @@
     invoke-static {v3, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    monitor-exit v4
-
-    return-object v6
-
-    :catch_1
-    move-exception v0
-
-    :try_start_3
-    sget-object v3, Lcom/sec/android/cover/monitor/CoverNotificationMonitor;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "Error getting active notifications"
-
-    invoke-static {v3, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     monitor-exit v4
 

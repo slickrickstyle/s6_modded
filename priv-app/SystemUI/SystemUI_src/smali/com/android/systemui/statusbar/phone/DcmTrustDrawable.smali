@@ -22,8 +22,6 @@
 
 .field private mAnimating:Z
 
-.field private mContext:Landroid/content/Context;
-
 .field private mCurAlpha:I
 
 .field private mCurAnimator:Landroid/animation/Animator;
@@ -32,13 +30,13 @@
 
 .field private final mFastOutSlowInInterpolator:Landroid/view/animation/Interpolator;
 
-.field private mInnerRadiusEnter:F
+.field private final mInnerRadiusEnter:F
 
-.field private mInnerRadiusExit:F
+.field private final mInnerRadiusExit:F
 
-.field private mInnerRadiusVisibleMax:F
+.field private final mInnerRadiusVisibleMax:F
 
-.field private mInnerRadiusVisibleMin:F
+.field private final mInnerRadiusVisibleMin:F
 
 .field private final mLinearOutSlowInInterpolator:Landroid/view/animation/Interpolator;
 
@@ -48,11 +46,11 @@
 
 .field private mState:I
 
-.field private mThickness:F
+.field private final mThickness:F
 
 .field private mTrustManaged:Z
 
-.field private mVisibleAnimator:Landroid/animation/Animator;
+.field private final mVisibleAnimator:Landroid/animation/Animator;
 
 
 # direct methods
@@ -102,8 +100,6 @@
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mRadiusUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -778,69 +774,5 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->invalidateSelf()V
 
     :cond_1
-    return-void
-.end method
-
-.method public updateLayout()V
-    .locals 3
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02f5
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mInnerRadiusVisibleMin:F
-
-    const v1, 0x7f0d02f6
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mInnerRadiusVisibleMax:F
-
-    const v1, 0x7f0d02ea
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mInnerRadiusExit:F
-
-    const v1, 0x7f0d02eb
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mInnerRadiusEnter:F
-
-    const v1, 0x7f0d02ec
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mThickness:F
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->makeVisibleAnimator()Landroid/animation/Animator;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mVisibleAnimator:Landroid/animation/Animator;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mPaint:Landroid/graphics/Paint;
-
-    iget v2, p0, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->mThickness:F
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
-
     return-void
 .end method

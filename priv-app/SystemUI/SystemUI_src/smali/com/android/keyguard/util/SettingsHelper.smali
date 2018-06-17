@@ -1514,26 +1514,6 @@
 
     invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object v7, p0, Lcom/android/keyguard/util/SettingsHelper;->mItemLists:Ljava/util/ArrayList;
-
-    new-instance v0, Lcom/android/keyguard/util/SettingsHelper$Item;
-
-    const-string/jumbo v2, "System"
-
-    const-string/jumbo v3, "white_lockscreen_navigationbar"
-
-    const-string/jumbo v4, "Int"
-
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    move-object v1, p0
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/keyguard/util/SettingsHelper$Item;-><init>(Lcom/android/keyguard/util/SettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
-
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
     return-void
 
     :cond_0
@@ -2880,38 +2860,6 @@
     goto :goto_0
 .end method
 
-.method public isWhiteKeyguardNavigationBar()Z
-    .locals 3
-
-    const/4 v1, 0x1
-
-    iget-object v0, p0, Lcom/android/keyguard/util/SettingsHelper;->mItemLists:Ljava/util/ArrayList;
-
-    const/16 v2, 0x39
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/keyguard/util/SettingsHelper$Item;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/util/SettingsHelper$Item;->getIntValue()I
-
-    move-result v0
-
-    if-ne v0, v1, :cond_0
-
-    move v0, v1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public isWhiteKeyguardStatusBar()Z
     .locals 3
 
@@ -3181,36 +3129,6 @@
     check-cast v0, Lcom/android/keyguard/util/SettingsHelper$Item;
 
     invoke-virtual {v0, p1}, Lcom/android/keyguard/util/SettingsHelper$Item;->setStringValue(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public setWhiteKeyguardNavigationBar(I)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/keyguard/util/SettingsHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "white_lockscreen_navigationbar"
-
-    const/4 v2, -0x2
-
-    invoke-static {v0, v1, p1, v2}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
-
-    iget-object v0, p0, Lcom/android/keyguard/util/SettingsHelper;->mItemLists:Ljava/util/ArrayList;
-
-    const/16 v1, 0x39
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/keyguard/util/SettingsHelper$Item;
-
-    invoke-virtual {v0, p1}, Lcom/android/keyguard/util/SettingsHelper$Item;->setIntValue(I)V
 
     return-void
 .end method

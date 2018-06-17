@@ -384,8 +384,6 @@
 .method protected handleWallpaperTypeChanged()V
     .locals 6
 
-    const/4 v5, 0x0
-
     const/4 v4, 0x0
 
     iget-boolean v3, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mDisabled:Z
@@ -396,30 +394,6 @@
 
     :cond_0
     invoke-super {p0}, Lcom/android/keyguard/wallpaper/WallpaperViewController;->handleWallpaperTypeChanged()V
-
-    iget-object v3, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v4}, Lcom/android/keyguard/util/SettingsHelper;->setWhiteKeyguardStatusBar(I)V
-
-    iget-object v3, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v4}, Lcom/android/keyguard/util/SettingsHelper;->setWhiteKeyguardWallpaper(I)V
-
-    iget-object v3, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v4}, Lcom/android/keyguard/util/SettingsHelper;->setWhiteKeyguardNavigationBar(I)V
 
     iget-boolean v3, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mIsDesktopMode:Z
 
@@ -526,7 +500,7 @@
     if-eqz v3, :cond_6
 
     :cond_5
-    iput-object v5, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mWallpaperView:Lcom/android/keyguard/wallpaper/SystemUIWallpaperBase;
+    iput-object v4, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mWallpaperView:Lcom/android/keyguard/wallpaper/SystemUIWallpaperBase;
 
     invoke-virtual {p0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->setBackground()V
 

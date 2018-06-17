@@ -11,6 +11,11 @@
     <string name="dock_minimized_notification_text">%sが最小化</string>
     <string name="dock_minimized_notification_dimiss_text">閉じる</string>
     <string name="dock_minimized_notification_content_text">起動するには、ここをタップしてください。</string>
+    <string name="clear_cover_wday_day">E</string>
+    <string name="clear_cover_month_day_no_year">MMMd日</string>
+    <string name="clear_cover_day_month_no_year">MMMd日</string>
+    <string name="sview_cover_wday_month_day_no_year">MMMMd日(E)</string>
+    <string name="sview_cover_wday_day_month_no_year">MMMMd日(E)</string>
     <string name="cancel">キャンセル</string>
     <string name="clearcover_1_missed_call">不在着信が1件あります。</string>
     <string name="clearcover_1_unread_message">1件の未読メッセージがあります。</string>
@@ -50,6 +55,7 @@
     <string name="monotype_dialog_button">ダウンロード</string>
     <string name="minimized_notification_talkback_description_open">%sからの通知を開くには、ダブルタップしてください。</string>
     <string name="minimized_notification_talkback_description_open_more">通知パネルを開くにはダブルタップします。</string>
+    <string name="volumepanel_notification">通知</string>
     <string name="save">保存</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$d時間%2$d分</string>
@@ -2208,10 +2214,4 @@ PUKが不明な場合は、カスタマーサービスセンターにお問い�
     <string name="kg_finger_print_bad_quality_error_message">ホームキーが汚れているか湿っている可能性があります。ホームキーの汚れと水分を取ってから、再度実行してください。</string>
     <string name="status_bar_date_formatter">"%2$s
 %1$s"</string>
-    <string name="clear_cover_wday_day">E</string>
-    <string name="clear_cover_month_day_no_year">MMMd日</string>
-    <string name="clear_cover_day_month_no_year">MMMd日</string>
-    <string name="sview_cover_wday_month_day_no_year">MMMMd日(E)</string>
-    <string name="sview_cover_wday_day_month_no_year">MMMMd日(E)</string>
-    <string name="volumepanel_notification">通知</string>
 </resources>

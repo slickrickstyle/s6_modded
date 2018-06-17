@@ -87,6 +87,10 @@
 .method public onClick(Landroid/view/View;)V
     .locals 14
 
+    const/4 v13, 0x1
+
+    const/4 v12, 0x0
+
     instance-of v0, p1, Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
     if-nez v0, :cond_0
@@ -173,29 +177,25 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->setNotiClickedOnShadeLocked(Z)V
+    invoke-virtual {v0, v13}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->setNotiClickedOnShadeLocked(Z)V
 
     :cond_4
     invoke-virtual {v7}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    move-result-object v11
+    move-result-object v10
 
-    iget-object v0, v11, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
+    iget-object v0, v10, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
-    iget-object v4, v11, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
+    iget-object v4, v10, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
     :goto_0
     invoke-virtual {v7}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 
     move-result-object v5
 
-    const/4 v0, 0x1
-
-    invoke-virtual {v6, v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setJustClicked(Z)V
+    invoke-virtual {v6, v13}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setJustClicked(Z)V
 
     new-instance v0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$1;
 
@@ -215,7 +215,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
@@ -225,11 +225,11 @@
 
     move-result-object v1
 
-    iget-object v12, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
+    iget-object v11, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    iget v12, v12, Lcom/android/systemui/statusbar/BaseStatusBar;->mCurrentUserId:I
+    iget v11, v11, Lcom/android/systemui/statusbar/BaseStatusBar;->mCurrentUserId:I
 
-    invoke-static {v0, v1, v12}, Lcom/android/systemui/statusbar/policy/PreviewInflater;->wouldLaunchResolverActivity(Landroid/content/Context;Landroid/content/Intent;I)Z
+    invoke-static {v0, v1, v11}, Lcom/android/systemui/statusbar/policy/PreviewInflater;->wouldLaunchResolverActivity(Landroid/content/Context;Landroid/content/Intent;I)Z
 
     move-result v9
 
@@ -250,52 +250,9 @@
 
     move-result v2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "DelFlag"
-
-    const/4 v12, 0x0
-
-    const/4 v13, 0x0
-
-    invoke-static {v0, v1, v12, v13}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v10
-
-    const/4 v0, 0x1
-
-    if-ne v10, v0, :cond_7
-
-    const/16 v0, 0x96
-
-    if-lt v3, v0, :cond_7
-
-    const/16 v0, 0xa0
-
-    if-gt v3, v0, :cond_7
-
-    return-void
-
-    :cond_5
-    iget-object v4, v11, Landroid/app/Notification;->fullScreenIntent:Landroid/app/PendingIntent;
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v9, 0x0
-
-    goto :goto_1
-
-    :cond_7
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NOTIFICATION_ICONS_ONLY:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_5
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
@@ -303,16 +260,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_5
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_5
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
     iput-object v6, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mClickedNotificationPreview:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    :cond_8
-    iget-object v12, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
+    :cond_5
+    iget-object v11, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
     new-instance v0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;
 
@@ -320,13 +277,19 @@
 
     invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;-><init>(Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;ZILandroid/app/PendingIntent;Ljava/lang/String;Lcom/android/systemui/statusbar/ExpandableNotificationRow;Landroid/service/notification/StatusBarNotification;ZZ)V
 
-    const/4 v1, 0x0
-
-    const/4 v13, 0x1
-
-    invoke-virtual {v12, v0, v1, v9, v13}, Lcom/android/systemui/statusbar/BaseStatusBar;->dismissKeyguardThenExecute(Lcom/android/keyguard/KeyguardHostView$OnDismissAction;Ljava/lang/Runnable;ZZ)V
+    invoke-virtual {v11, v0, v12, v9, v13}, Lcom/android/systemui/statusbar/BaseStatusBar;->dismissKeyguardThenExecute(Lcom/android/keyguard/KeyguardHostView$OnDismissAction;Ljava/lang/Runnable;ZZ)V
 
     return-void
+
+    :cond_6
+    iget-object v4, v10, Landroid/app/Notification;->fullScreenIntent:Landroid/app/PendingIntent;
+
+    goto :goto_0
+
+    :cond_7
+    const/4 v9, 0x0
+
+    goto :goto_1
 .end method
 
 .method public register(Lcom/android/systemui/statusbar/ExpandableNotificationRow;Landroid/service/notification/StatusBarNotification;)V

@@ -24,7 +24,7 @@
 
 .field private mScreenOn:Z
 
-.field private mTrustDrawable:Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;
+.field private final mTrustDrawable:Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;
 
 .field private final mUnlockMethodCache:Lcom/android/systemui/statusbar/phone/UnlockMethodCache;
 
@@ -437,14 +437,4 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_0
-.end method
-
-.method public updateLayout()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mTrustDrawable:Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->updateLayout()V
-
-    return-void
 .end method

@@ -11,6 +11,17 @@
     <string name="dock_minimized_notification_text">%s 已最小化</string>
     <string name="dock_minimized_notification_dimiss_text">关闭</string>
     <string name="dock_minimized_notification_content_text">请点击此处打开。</string>
+    <string name="clear_cover_wday_day">EEE</string>
+    <string name="clear_cover_month_day_no_year">MMM d日</string>
+    <string name="clear_cover_day_month_no_year">d日 MMM</string>
+    <string name="sview_cover_wday_month_day_no_year">MMMM d日, E</string>
+    <string name="sview_cover_wday_day_month_no_year">E, d日 MMMM</string>
+    <string name="full_wday_month_day_no_year">EEEE, MMMM d日</string>
+    <string name="full_wday_day_month_no_year">EEEE, d日 MMMM</string>
+    <string name="sview_cover_dual_wday_month_day_no_year">E, MMM d日</string>
+    <string name="sview_cover_dual_wday_day_month_no_year">E, d日 MMM</string>
+    <string name="mini_cover_month_day_no_year">MMMM d日</string>
+    <string name="mini_cover_day_month_no_year">d日 MMMM</string>
     <string name="cancel">取消</string>
     <string name="clearcover_1_missed_call">您有1个未接来电。</string>
     <string name="clearcover_1_unread_message">您有 1 条未读消息。</string>
@@ -50,6 +61,7 @@
     <string name="monotype_dialog_button">下载</string>
     <string name="minimized_notification_talkback_description_open">双击可打开来自 %s 的通知。</string>
     <string name="minimized_notification_talkback_description_open_more">双击以打开通知面板。</string>
+    <string name="volumepanel_notification">通知</string>
     <string name="save">保存</string>
     <string name="ok">确定</string>
     <string name="battery_history_hours_no_seconds">%1$d小时 %2$d分</string>
@@ -2195,16 +2207,4 @@ If your tablet is reset, you may need to enter the Samsung account information (
     <string name="kg_finger_print_bad_quality_error_message">主屏幕键可能潮湿或沾有污渍。请擦干并清理主屏幕键，然后重试。</string>
     <string name="status_bar_date_formatter">"%2$s
 %1$s"</string>
-    <string name="clear_cover_wday_day">EEE</string>
-    <string name="clear_cover_month_day_no_year">MMM d日</string>
-    <string name="clear_cover_day_month_no_year">d日 MMM</string>
-    <string name="sview_cover_wday_month_day_no_year">MMMM d日, E</string>
-    <string name="sview_cover_wday_day_month_no_year">E, d日 MMMM</string>
-    <string name="volumepanel_notification">通知</string>
-    <string name="full_wday_month_day_no_year">EEEE, MMMM d日</string>
-    <string name="full_wday_day_month_no_year">EEEE, d日 MMMM</string>
-    <string name="sview_cover_dual_wday_month_day_no_year">E, MMM d日</string>
-    <string name="sview_cover_dual_wday_day_month_no_year">E, d日 MMM</string>
-    <string name="mini_cover_month_day_no_year">MMMM d日</string>
-    <string name="mini_cover_day_month_no_year">d日 MMMM</string>
 </resources>

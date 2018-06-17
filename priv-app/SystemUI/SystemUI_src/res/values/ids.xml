@@ -1106,4 +1106,11 @@
     <item type="id" name="gear_panel_bg_view">false</item>
     <item type="id" name="handler_view">false</item>
     <item type="id" name="qs_brightness_container">false</item>
+    <item type="id" name="custom_clock_hour" />
+    <item type="id" name="custom_clock_min" />
+    <item type="id" name="keyguard_sec_clock_single_background">false</item>
+    <item type="id" name="keyguard_sec_clock_single_clock_date_wrapper" />
+    <item type="id" name="keyguard_single_clock_date">false</item>
+    <item type="id" name="keyguard_single_clock_seconds">false</item>
+    <item type="id" name="keyguard_single_clock_time">false</item>
 </resources>

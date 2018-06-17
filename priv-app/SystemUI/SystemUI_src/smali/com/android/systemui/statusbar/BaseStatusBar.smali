@@ -126,8 +126,6 @@
 
 .field protected mEmptyShadeView:Lcom/android/systemui/statusbar/EmptyShadeView;
 
-.field private mFlipfont:I
-
 .field private mFontScale:F
 
 .field protected mGearVrDocked:Z
@@ -465,8 +463,6 @@
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mKeysKeptForRemoteInput:Landroid/util/ArraySet;
-
-    iput v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mFlipfont:I
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mUseHeadsUp:Z
 
@@ -4681,64 +4677,6 @@
     return v0
 .end method
 
-.method public isCameraAllowedByAdmin()Z
-    .locals 5
-
-    const/4 v4, 0x0
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
-
-    iget v3, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mCurrentUserId:I
-
-    invoke-virtual {v2, v4, v3}, Landroid/app/admin/DevicePolicyManager;->getCameraDisabled(Landroid/content/ComponentName;I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    return v1
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BaseStatusBar;->isKeyguardShowing()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BaseStatusBar;->isKeyguardSecure()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
-
-    iget v3, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mCurrentUserId:I
-
-    invoke-virtual {v2, v4, v3}, Landroid/app/admin/DevicePolicyManager;->getKeyguardDisabledFeatures(Landroid/content/ComponentName;I)I
-
-    move-result v2
-
-    and-int/lit8 v2, v2, 0x2
-
-    if-nez v2, :cond_1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_2
-    return v0
-.end method
-
 .method public isCollapsing()Z
     .locals 1
 
@@ -4865,33 +4803,6 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isSecure()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isKeyguardShowing()Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "StatusBar"
-
-    const-string/jumbo v1, "isKeyguardShowing() called before startKeyguard(), returning true"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isShowing()Z
 
     move-result v0
 
@@ -5522,81 +5433,67 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 6
+    .locals 5
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v4}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v5
+    move-result-object v4
 
-    iget-object v4, v5, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+    iget-object v3, v4, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    invoke-static {v4}, Landroid/text/TextUtils;->getLayoutDirectionFromLocale(Ljava/util/Locale;)I
+    invoke-static {v3}, Landroid/text/TextUtils;->getLayoutDirectionFromLocale(Ljava/util/Locale;)I
 
-    move-result v3
+    move-result v2
 
-    iget v2, p1, Landroid/content/res/Configuration;->fontScale:F
-
-    iget v1, p1, Landroid/content/res/Configuration;->FlipFont:I
+    iget v1, p1, Landroid/content/res/Configuration;->fontScale:F
 
     iget v0, p1, Landroid/content/res/Configuration;->densityDpi:I
 
-    iget v5, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mDensity:I
+    iget v4, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mDensity:I
 
-    if-ne v0, v5, :cond_0
+    if-ne v0, v4, :cond_0
 
-    iget v5, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mFontScale:F
+    iget v4, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mFontScale:F
 
-    cmpl-float v5, v5, v2
+    cmpl-float v4, v4, v1
 
-    if-eqz v5, :cond_4
+    if-eqz v4, :cond_1
 
     :cond_0
-    :goto_0
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/BaseStatusBar;->onDensityOrFontScaleChanged()V
 
     iput v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mDensity:I
 
-    iput v2, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mFontScale:F
-
-    iput v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mFlipfont:I
+    iput v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mFontScale:F
 
     :cond_1
-    iget-object v5, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mLocale:Ljava/util/Locale;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mLocale:Ljava/util/Locale;
 
-    invoke-virtual {v4, v5}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_2
+    if-eqz v4, :cond_2
 
-    iget v5, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mLayoutDirection:I
+    iget v4, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mLayoutDirection:I
 
-    if-eq v3, v5, :cond_3
+    if-eq v2, v4, :cond_3
 
     :cond_2
-    iput-object v4, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mLocale:Ljava/util/Locale;
+    iput-object v3, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mLocale:Ljava/util/Locale;
 
-    iput v3, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mLayoutDirection:I
+    iput v2, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mLayoutDirection:I
 
-    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/BaseStatusBar;->refreshLayout(I)V
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/BaseStatusBar;->refreshLayout(I)V
 
     :cond_3
     return-void
-
-    :cond_4
-    if-lez v1, :cond_1
-
-    iget v5, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mFlipfont:I
-
-    if-eq v1, v5, :cond_1
-
-    goto :goto_0
 .end method
 
 .method public onCoverAppCovered(Z)I
@@ -7452,14 +7349,6 @@
 
     iput v2, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mDensity:I
 
-    move-object/from16 v0, v18
-
-    iget v2, v0, Landroid/content/res/Configuration;->FlipFont:I
-
-    move-object/from16 v0, p0
-
-    iput v2, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mFlipfont:I
-
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
@@ -8703,69 +8592,6 @@
     move v1, v2
 
     goto :goto_0
-.end method
-
-.method protected updateNotificationMoreCue()V
-    .locals 3
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BaseStatusBar;->isNotificationIconsOnlyOn()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BaseStatusBar;->isCoveredState()Z
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mKeyguardIconOverflowContainer:Lcom/android/systemui/statusbar/NotificationOverflowContainer;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mKeyguardIconOverflowContainer:Lcom/android/systemui/statusbar/NotificationOverflowContainer;
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/NotificationOverflowContainer;->setIsCoverState(Z)V
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mMoreCue:Lcom/android/systemui/statusbar/NotificationMoreCue;
-
-    if-eqz v1, :cond_2
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mMoreCue:Lcom/android/systemui/statusbar/NotificationMoreCue;
-
-    if-eqz v0, :cond_3
-
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mIsWhiteCoverWallpaper:Z
-
-    :goto_0
-    invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/NotificationMoreCue;->updateMoreCueTintColor(Z)V
-
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mIsNeedToMoreCueAnim:Z
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mMoreCue:Lcom/android/systemui/statusbar/NotificationMoreCue;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/NotificationMoreCue;->releaseMoreCueAnimation()V
-
-    :cond_2
-    :goto_1
-    return-void
-
-    :cond_3
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mIsWhiteKeyguardWallpaper:Z
-
-    goto :goto_0
-
-    :cond_4
-    iget-object v1, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mMoreCue:Lcom/android/systemui/statusbar/NotificationMoreCue;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/NotificationMoreCue;->cancelMoreCueAnimation()V
-
-    goto :goto_1
 .end method
 
 .method protected abstract updateNotificationRanking(Landroid/service/notification/NotificationListenerService$RankingMap;)V
@@ -10125,8 +9951,6 @@
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/systemui/statusbar/BaseStatusBar;->mIsNeedToMoreCueAnim:Z
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/BaseStatusBar;->updateNotificationMoreCue()V
 
     :cond_32
     sget-boolean v27, Lcom/android/systemui/SystemUIRune;->SUPPORT_NOTIFICATION_ICONS_ONLY:Z

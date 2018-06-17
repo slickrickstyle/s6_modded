@@ -11,6 +11,13 @@
     <string name="dock_minimized_notification_text">Application %s réduite</string>
     <string name="dock_minimized_notification_dimiss_text">Fermer</string>
     <string name="dock_minimized_notification_content_text">Appuyez ici pour ouvrir.</string>
+    <string name="clear_cover_wday_day">E</string>
+    <string name="clear_cover_month_day_no_year">MMM d</string>
+    <string name="clear_cover_day_month_no_year">d MMM</string>
+    <string name="sview_cover_wday_month_day_no_year">E MMMM d</string>
+    <string name="sview_cover_wday_day_month_no_year">E d MMMM</string>
+    <string name="sview_cover_dual_wday_month_day_no_year">E MMM d</string>
+    <string name="sview_cover_dual_wday_day_month_no_year">E d MMM</string>
     <string name="cancel">Annuler</string>
     <string name="clearcover_1_missed_call">Vous avez 1 appel manqué.</string>
     <string name="clearcover_1_unread_message">Vous avez 1 message non lu.</string>
@@ -50,6 +57,7 @@
     <string name="monotype_dialog_button">Télécharger</string>
     <string name="minimized_notification_talkback_description_open">"Appuyez deux fois pour ouvrir la notification de l'application %s."</string>
     <string name="minimized_notification_talkback_description_open_more">Appuyez deux fois pour ouvrir le volet des raccourcis.</string>
+    <string name="volumepanel_notification">Notification</string>
     <string name="save">Enregistrer</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
@@ -2197,12 +2205,4 @@ Réessayez dans 1 seconde"</string>
     <string name="kg_wallpaper_applied_toast">"Le fond d'écran a été appliqué à l'écran de verrouillage."</string>
     <string name="kg_too_many_failed_countdown_by_fingerprint">%d tentatives incorrectes de vérification des empreintes. Réessayez dans 30 secondes.</string>
     <string name="kg_finger_print_bad_quality_error_message">La touche Accueil est peut-être sale ou humide. Nettoyez-la et séchez-la, puis réessayez.</string>
-    <string name="clear_cover_wday_day">E</string>
-    <string name="clear_cover_month_day_no_year">MMM d</string>
-    <string name="clear_cover_day_month_no_year">d MMM</string>
-    <string name="sview_cover_wday_month_day_no_year">E MMMM d</string>
-    <string name="sview_cover_wday_day_month_no_year">E d MMMM</string>
-    <string name="volumepanel_notification">Notification</string>
-    <string name="sview_cover_dual_wday_month_day_no_year">E MMM d</string>
-    <string name="sview_cover_dual_wday_day_month_no_year">E d MMM</string>
 </resources>

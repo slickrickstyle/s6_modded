@@ -11,6 +11,9 @@
     <string name="dock_minimized_notification_text">%s foi minimizado</string>
     <string name="dock_minimized_notification_dimiss_text">Fechar</string>
     <string name="dock_minimized_notification_content_text">Toque aqui para abrir.</string>
+    <string name="clear_cover_wday_day">E</string>
+    <string name="clear_cover_month_day_no_year">MMM d</string>
+    <string name="clear_cover_day_month_no_year">"d 'de' MMM"</string>
     <string name="cancel">Cancelar</string>
     <string name="clearcover_1_missed_call">Você possui 1 chamada perdida.</string>
     <string name="clearcover_1_unread_message">Você tem 1 mensagem não lida.</string>
@@ -50,6 +53,7 @@
     <string name="monotype_dialog_button">Baixar</string>
     <string name="minimized_notification_talkback_description_open">Toque duas vezes para abrir a notificação de %s.</string>
     <string name="minimized_notification_talkback_description_open_more">Toque duas vezes para abrir o painel de notificações.</string>
+    <string name="volumepanel_notification">Notificação</string>
     <string name="save">Salvar</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
@@ -2194,8 +2198,4 @@ Tente novamente em 1 segundo"</string>
     <string name="kg_wallpaper_applied_toast">Papel de parede aplicado à tela de bloqueio.</string>
     <string name="kg_too_many_failed_countdown_by_fingerprint">Foram feitas %d tentativas incorretas de validar as impressões digitais. Tente novamente em 30 segundos.</string>
     <string name="kg_finger_print_bad_quality_error_message">A Tecla Início pode estar suja ou úmida. Limpe e seque a Tecla Início e tente novamente.</string>
-    <string name="clear_cover_wday_day">E</string>
-    <string name="clear_cover_month_day_no_year">MMM d</string>
-    <string name="clear_cover_day_month_no_year">"d 'de' MMM"</string>
-    <string name="volumepanel_notification">Notificação</string>
 </resources>

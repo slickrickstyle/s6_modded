@@ -11,6 +11,9 @@
     <string name="dock_minimized_notification_text">%s minimizada</string>
     <string name="dock_minimized_notification_dimiss_text">Cerrar</string>
     <string name="dock_minimized_notification_content_text">Pulse aquí para abrir.</string>
+    <string name="clear_cover_wday_day">E</string>
+    <string name="clear_cover_month_day_no_year">MMM d</string>
+    <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="cancel">Cancelar</string>
     <string name="clearcover_1_missed_call">Tiene 1 llamada perdida.</string>
     <string name="clearcover_1_unread_message">Tiene 1 mensaje sin leer.</string>
@@ -50,6 +53,7 @@
     <string name="monotype_dialog_button">Descargar</string>
     <string name="minimized_notification_talkback_description_open">Pulse dos veces para abrir la notificación de %s.</string>
     <string name="minimized_notification_talkback_description_open_more">Pulse dos veces para abrir el panel de notificaciones.</string>
+    <string name="volumepanel_notification">Notificación</string>
     <string name="save">Guardar</string>
     <string name="ok">Aceptar</string>
     <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
@@ -2195,8 +2199,4 @@ Inténtelo de nuevo dentro de 1 segundo"</string>
     <string name="kg_wallpaper_applied_toast">Se aplicó el fondo de pantalla a la pantalla de bloqueo.</string>
     <string name="kg_too_many_failed_countdown_by_fingerprint">%d intentos incorrectos de verificar las huellas digitales. Inténtelo de nuevo dentro de 30 segundos.</string>
     <string name="kg_finger_print_bad_quality_error_message">Es posible que la tecla Inicio esté sucia o húmeda. Limpie y séquela, e inténtelo de nuevo.</string>
-    <string name="clear_cover_wday_day">E</string>
-    <string name="clear_cover_month_day_no_year">MMM d</string>
-    <string name="clear_cover_day_month_no_year">d MMM</string>
-    <string name="volumepanel_notification">Notificación</string>
 </resources>

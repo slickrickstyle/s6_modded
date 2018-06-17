@@ -11,6 +11,11 @@
     <string name="dock_minimized_notification_text">%s verkleinert</string>
     <string name="dock_minimized_notification_dimiss_text">Schließen</string>
     <string name="dock_minimized_notification_content_text">Zum Öffnen hier tippen.</string>
+    <string name="clear_cover_wday_day">E</string>
+    <string name="clear_cover_month_day_no_year">MMM d</string>
+    <string name="clear_cover_day_month_no_year">d MMM</string>
+    <string name="sview_cover_wday_month_day_no_year">E, MMMM d.</string>
+    <string name="sview_cover_wday_day_month_no_year">E, d. MMMM</string>
     <string name="cancel">Abbrechen</string>
     <string name="clearcover_1_missed_call">Sie haben 1 entgangenen Anruf</string>
     <string name="clearcover_1_unread_message">Sie haben 1 ungel. Nachr.</string>
@@ -50,6 +55,7 @@
     <string name="monotype_dialog_button">Herunterladen</string>
     <string name="minimized_notification_talkback_description_open">Zweimal Tippen, um Benachrichtigung von %s zu öffnen.</string>
     <string name="minimized_notification_talkback_description_open_more">Zweimal tippen, um das Benachrichtigungsfeld zu öffnen.</string>
+    <string name="volumepanel_notification">Benachrichtigung</string>
     <string name="save">Speichern</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$d h %2$d m</string>
@@ -2197,10 +2203,4 @@ Erneuter Versuch in 1 Sekunde"</string>
     <string name="kg_wallpaper_applied_toast">Hintergrundbild für Sperrbildschirm übernommen.</string>
     <string name="kg_too_many_failed_countdown_by_fingerprint">Es wurde %d-mal vergeblich versucht, Ihre Fingerabdrücke zu bestätigen. Versuchen Sie es in 30 Sekunden erneut.</string>
     <string name="kg_finger_print_bad_quality_error_message">Die Home-Taste ist möglicherweise verschmutzt oder feucht. Reinigen und trocknen Sie die Home-Taste und versuchen Sie es erneut.</string>
-    <string name="clear_cover_wday_day">E</string>
-    <string name="clear_cover_month_day_no_year">MMM d</string>
-    <string name="clear_cover_day_month_no_year">d MMM</string>
-    <string name="sview_cover_wday_month_day_no_year">E, MMMM d.</string>
-    <string name="sview_cover_wday_day_month_no_year">E, d. MMMM</string>
-    <string name="volumepanel_notification">Benachrichtigung</string>
 </resources>

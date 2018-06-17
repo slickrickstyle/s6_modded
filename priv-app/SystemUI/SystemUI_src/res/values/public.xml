@@ -3031,6 +3031,7 @@
     <public type="layout" name="zen_mode_panel" id="0x7f040199" />
     <public type="layout" name="keyguard_eca" id="0x7f04019a" />
     <public type="layout" name="gear_info_item_layout" id="0x7f04019b" />
+    <public type="layout" name="keyguard_single_clock_view_stock" id="0x7f04019c" />
     <public type="layout" name="recents_on_tv" id="0x7f040132" />
     <public type="layout" name="recents_tv_card_info_field" id="0x7f04013a" />
     <public type="layout" name="recents_tv_empty" id="0x7f04013b" />
@@ -9486,6 +9487,13 @@
     <public type="id" name="gear_panel_bg_view" id="0x7f130484" />
     <public type="id" name="handler_view" id="0x7f130485" />
     <public type="id" name="qs_brightness_container" id="0x7f130486" />
+    <public type="id" name="custom_clock_hour" id="0x7f130487" />
+    <public type="id" name="custom_clock_min" id="0x7f130488" />
+    <public type="id" name="keyguard_sec_clock_single_background" id="0x7f130489" />
+    <public type="id" name="keyguard_sec_clock_single_clock_date_wrapper" id="0x7f13048a" />
+    <public type="id" name="keyguard_single_clock_date" id="0x7f13048b" />
+    <public type="id" name="keyguard_single_clock_seconds" id="0x7f13048c" />
+    <public type="id" name="keyguard_single_clock_time" id="0x7f13048d" />
     <public type="plurals" name="status_bar_accessibility_recent_apps" id="0x7f140000" />
     <public type="plurals" name="notification_group_overflow_description" id="0x7f140001" />
     <public type="plurals" name="kg_password_wrong_pin_code" id="0x7f140002" />

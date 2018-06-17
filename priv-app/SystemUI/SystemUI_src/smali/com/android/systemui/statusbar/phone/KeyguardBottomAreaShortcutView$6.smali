@@ -45,5 +45,13 @@
 
     invoke-virtual {v0}, Lcom/android/keyguard/util/ShortcutManager;->onDensityOrFontScaleChanged()V
 
+        iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaShortcutView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaShortcutView;->-get5(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaShortcutView;)Lcom/android/keyguard/util/ShortcutManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/util/ShortcutManager;->updateShortcuts()V
+
     return-void
 .end method

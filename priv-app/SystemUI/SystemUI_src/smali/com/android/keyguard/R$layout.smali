@@ -44,6 +44,8 @@
 
 .field public static final keyguard_single_clock_view:I = 0x7f040079
 
+.field public static final keyguard_single_clock_view_stock:I = 0x7f04019c
+
 .field public static final keyguard_single_image_clock_view:I = 0x7f04007a
 
 .field public static final keyguard_single_vertical_clock_view:I = 0x7f04007b

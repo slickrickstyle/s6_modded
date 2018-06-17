@@ -16,6 +16,10 @@
 
 .field public static final config_default_color_code:I = 0x7f0f06f0
 
+.field public static final date_format_for_display:I = 0x7f0f000b
+
+.field public static final date_format_for_tts:I = 0x7f0f000c
+
 .field public static final iris_guide_str_enable_toggle:I = 0x7f0f089e
 
 .field public static final iris_guide_str_for_text_preview:I = 0x7f0f089f

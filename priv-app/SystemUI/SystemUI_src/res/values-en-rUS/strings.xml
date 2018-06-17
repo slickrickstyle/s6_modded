@@ -11,6 +11,9 @@
     <string name="dock_minimized_notification_text">%s minimized</string>
     <string name="dock_minimized_notification_dimiss_text">Close</string>
     <string name="dock_minimized_notification_content_text">Tap here to open.</string>
+    <string name="clear_cover_wday_day">E</string>
+    <string name="clear_cover_month_day_no_year">MMM d</string>
+    <string name="clear_cover_day_month_no_year">d MMM</string>
     <string name="cancel">Cancel</string>
     <string name="clearcover_1_missed_call">You have 1 missed call.</string>
     <string name="clearcover_1_unread_message">You have 1 unread message.</string>
@@ -49,6 +52,7 @@
     <string name="monotype_dialog_button">Download</string>
     <string name="minimized_notification_talkback_description_open">Double tap to open notification from %s.</string>
     <string name="minimized_notification_talkback_description_open_more">Double tap to open notification panel.</string>
+    <string name="volumepanel_notification">Notification</string>
     <string name="ok">OK</string>
     <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
     <string name="battery_history_minutes_no_seconds">%dm</string>
@@ -1214,8 +1218,4 @@ Try again in 1 second"</string>
     <string name="kg_wallpaper_applied_toast">Wallpaper applied to lock screen.</string>
     <string name="kg_too_many_failed_countdown_by_fingerprint">%d incorrect attempts to verify fingerprints. Try again in 30 seconds.</string>
     <string name="kg_finger_print_bad_quality_error_message">Home key may be dirty or damp. Clean and dry Home key, then try again.</string>
-    <string name="clear_cover_wday_day">E</string>
-    <string name="clear_cover_month_day_no_year">MMM d</string>
-    <string name="clear_cover_day_month_no_year">d MMM</string>
-    <string name="volumepanel_notification">Notification</string>
 </resources>

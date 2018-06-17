@@ -172,6 +172,8 @@
 
 .field public static final keyguard_roaming_time_view:I = 0x7f13018b
 
+.field public static final keyguard_sec_clock_single_background:I = 0x7f130489
+
 .field public static final keyguard_sec_sim_perso_view:I = 0x7f1301d1
 
 .field public static final keyguard_sec_sim_puk_view_tmo:I = 0x7f1301d7
@@ -193,6 +195,12 @@
 .field public static final keyguard_sim_pin_view:I = 0x7f1301d3
 
 .field public static final keyguard_sim_puk_view:I = 0x7f1301d5
+
+.field public static final keyguard_single_clock_date:I = 0x7f13048b
+
+.field public static final keyguard_single_clock_seconds:I = 0x7f13048c
+
+.field public static final keyguard_single_clock_time:I = 0x7f13048d
 
 .field public static final keyguard_single_date_view:I = 0x7f1301e2
 
@@ -239,6 +247,10 @@
 .field public static final lock_captured_view:I = 0x7f13017a
 
 .field public static final login:I = 0x7f130150
+
+.field public static final mHoursTime:I = 0x7f130487
+
+.field public static final mMinutesTime:I = 0x7f130488
 
 .field public static final ok:I = 0x7f130152
 

@@ -200,7 +200,7 @@
 
     iget-object v4, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mRoamingAmpmView:Lcom/android/keyguard/KeyguardTextClock;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     move v1, v2
 
@@ -209,71 +209,22 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mHomecityAmpmView:Lcom/android/keyguard/KeyguardTextClock;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     :goto_1
     invoke-virtual {v1, v2}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
-
-    if-nez v1, :cond_0
-
-    iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mRoamingTimeView:Lcom/android/keyguard/KeyguardTextClock;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    if-eqz v0, :cond_3
-
-    sget v1, Lcom/android/keyguard/R$dimen;->keyguard_dual_time_view_text_size:I
-
-    :goto_2
-    invoke-virtual {v4, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    invoke-virtual {v2, v3, v1}, Lcom/android/keyguard/KeyguardTextClock;->setTextSize(IF)V
-
-    iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mHomecityTimeView:Lcom/android/keyguard/KeyguardTextClock;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    if-eqz v0, :cond_4
-
-    sget v1, Lcom/android/keyguard/R$dimen;->keyguard_dual_time_view_text_size:I
-
-    :goto_3
-    invoke-virtual {v4, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    invoke-virtual {v2, v3, v1}, Lcom/android/keyguard/KeyguardTextClock;->setTextSize(IF)V
-
-    :cond_0
     return-void
 
-    :cond_1
+    :cond_0
     move v1, v3
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     move v2, v3
 
     goto :goto_1
-
-    :cond_3
-    sget v1, Lcom/android/keyguard/R$dimen;->keyguard_dual_time_view_ampm_text_size:I
-
-    goto :goto_2
-
-    :cond_4
-    sget v1, Lcom/android/keyguard/R$dimen;->keyguard_dual_time_view_ampm_text_size:I
-
-    goto :goto_3
 .end method
 
 .method public getClockCacheKey()Ljava/lang/String;
@@ -546,7 +497,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mRoamingLocaleView:Lcom/android/keyguard/KeyguardTextView;
 
@@ -566,7 +517,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
     const-string/jumbo v1, "Asia/Seoul"
 
@@ -574,7 +525,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mHomecityLocaleView:Lcom/android/keyguard/KeyguardTextView;
 
@@ -611,23 +562,16 @@
 
     invoke-direct {p0, v1}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->setHomeIcon(F)V
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
-
-    if-nez v1, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->changeHourFormat()V
-
-    :cond_3
     return-void
 
-    :cond_4
+    :cond_3
     sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->HIDE_ROAMING_TEXT_ON_DUAL_CLOCK:Z
 
     if-nez v1, :cond_2
 
     sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mRoamingLocaleView:Lcom/android/keyguard/KeyguardTextView;
 
@@ -643,7 +587,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mRoamingLocaleView:Lcom/android/keyguard/KeyguardTextView;
 
     iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mContext:Landroid/content/Context;
@@ -658,7 +602,7 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mHomecityLocaleView:Lcom/android/keyguard/KeyguardTextView;
 
     iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardDualClockView;->mContext:Landroid/content/Context;

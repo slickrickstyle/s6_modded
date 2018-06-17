@@ -68,6 +68,10 @@
 
 .field public static final KeyguardSecurityViewFlipper_Layout_layout_maxWidth:I = 0x0
 
+.field public static final KeyguardTextClock:[I
+
+.field public static final KeyguardTextClock_isAmPm:I = 0x0
+
 .field public static final LeanbackGuidedStepTheme:[I
 
 .field public static final LeanbackOnboardingTheme:[I
@@ -464,6 +468,12 @@
     move-result-object v0
 
     sput-object v0, Lcom/android/keyguard/R$styleable;->KeyButtonView:[I
+    
+    const v1, 0x7f0101d2
+    
+    aput v1, v0, v5
+    
+    sput-object v0, Lcom/android/keyguard/R$styleable;->KeyguardTextClock:[I
 
     const v0, 0x7f0101fe
 
@@ -1074,8 +1084,6 @@
     sput-object v0, Lcom/android/keyguard/R$styleable;->lbVerticalGridView:[I
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4

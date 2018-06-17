@@ -12,6 +12,17 @@
     <string name="dock_minimized_notification_dimiss_text">종료</string>
     <string name="dock_minimized_notification_content_text">실행하려면 여기를 누르세요.</string>
     <string name="date_format_for_display">EEEEMMMMd</string>
+    <string name="clear_cover_wday_day">E요일</string>
+    <string name="clear_cover_month_day_no_year">MMM d일</string>
+    <string name="clear_cover_day_month_no_year">MMM d일</string>
+    <string name="sview_cover_wday_month_day_no_year">MMMM d일 E요일</string>
+    <string name="sview_cover_wday_day_month_no_year">MMMM d일 E요일</string>
+    <string name="full_wday_month_day_no_year">MMMM d일 E요일</string>
+    <string name="full_wday_day_month_no_year">MMMM d일 E요일</string>
+    <string name="sview_cover_dual_wday_month_day_no_year">MMMM d일 E요일</string>
+    <string name="sview_cover_dual_wday_day_month_no_year">MMMM d일 E요일</string>
+    <string name="mini_cover_month_day_no_year">MMMM d일</string>
+    <string name="mini_cover_day_month_no_year">MMMM d일</string>
     <string name="cancel">취소</string>
     <string name="clearcover_1_missed_call">부재중 전화 1개가 있습니다.</string>
     <string name="clearcover_1_unread_message">읽지 않은 메시지가 1개 있습니다.</string>
@@ -51,6 +62,7 @@
     <string name="monotype_dialog_button">다운로드</string>
     <string name="minimized_notification_talkback_description_open">%s 알림을 열려면 두 번 누르세요.</string>
     <string name="minimized_notification_talkback_description_open_more">알림창을 열려면 두 번 누르세요.</string>
+    <string name="volumepanel_notification">알림</string>
     <string name="save">저장</string>
     <string name="ok">확인</string>
     <string name="battery_history_hours_no_seconds">%1$d시간%2$d분</string>
@@ -1694,6 +1706,7 @@ Samsung Apps에 연결하여 앱을 다운로드하세요."</string>
     <string name="more_container_talkback_desctiprion_notification_panel_open">알림창을 열려면 두 번 누르세요.</string>
     <string name="qs_detail_smart_capture_title">스마트 캡처</string>
     <string name="qs_detail_palm_capture_title">손으로 밀어서 캡처</string>
+    <string name="recents_help_dlg_split_page2">분할 화면보기를 사용하는 동안 홈 버튼을 탭하여 화면 상단에 표시된 응용 프로그램을 최소화 할 수 있습니다. 상태 표시 줄이 파란색으로 표시된 상태에서 화면에서 앱을 열면 앱이 화면 하단의 분할 된 화면보기로 열립니다.</string>
     <string name="car_lockscreen_disclaimer_title">안전 운전</string>
     <string name="car_lockscreen_disclaimer_text">도로 상황에 주의를 기울이고 관련 법규를 항상 준수하세요. 경로가 정확하지 않거나 불완전하거나 위험하거나 적합하지 않을 수 있으며 금지된 지역이나 여러 행정 구역을 통과할 수 있습니다. 비즈니스 정보 또한 부정확하거나 불완전할 수 있습니다. 데이터는 실시간이 아니며 위치의 정확도를 보증할 수 없습니다. 운전 중에 휴대기기를 조작하거나 Android Auto가 지원되지 않는 앱을 사용해서는 안 됩니다.</string>
     <string name="pip_close">PIP 닫기</string>
@@ -2215,17 +2228,4 @@ If your tablet is reset, you may need to enter the Samsung account information (
     <string name="kg_finger_print_bad_quality_error_message">홈 버튼에 먼지, 물 등의 이물질이 묻었을 수 있습니다. 홈 버튼을 닦은 후 다시 시도하세요.</string>
     <string name="status_bar_date_formatter">"%2$s
 %1$s"</string>
-    <string name="clear_cover_wday_day">E요일</string>
-    <string name="clear_cover_month_day_no_year">MMM d일</string>
-    <string name="clear_cover_day_month_no_year">MMM d일</string>
-    <string name="sview_cover_wday_month_day_no_year">MMMM d일 E요일</string>
-    <string name="sview_cover_wday_day_month_no_year">MMMM d일 E요일</string>
-    <string name="volumepanel_notification">알림</string>
-    <string name="full_wday_month_day_no_year">MMMM d일 E요일</string>
-    <string name="full_wday_day_month_no_year">MMMM d일 E요일</string>
-    <string name="sview_cover_dual_wday_month_day_no_year">MMMM d일 E요일</string>
-    <string name="sview_cover_dual_wday_day_month_no_year">MMMM d일 E요일</string>
-    <string name="mini_cover_month_day_no_year">MMMM d일</string>
-    <string name="mini_cover_day_month_no_year">MMMM d일</string>
-    <string name="recents_help_dlg_split_page2">분할 화면보기를 사용하는 동안 홈 버튼을 탭하여 화면 상단에 표시된 응용 프로그램을 최소화 할 수 있습니다. 상태 표시 줄이 파란색으로 표시된 상태에서 화면에서 앱을 열면 앱이 화면 하단의 분할 된 화면보기로 열립니다.</string>
 </resources>

@@ -302,13 +302,13 @@
 
     if-eqz v4, :cond_0
 
-    const-string/jumbo v4, "Toast"
+    const-string v4, "Toast"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "HANDLE SHOW: "
+    const-string v6, "HANDLE SHOW: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -318,7 +318,7 @@
 
     move-result-object v5
 
-    const-string/jumbo v6, " mView="
+    const-string v6, " mView="
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -330,7 +330,7 @@
 
     move-result-object v5
 
-    const-string/jumbo v6, " mNextView="
+    const-string v6, " mNextView="
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -353,7 +353,7 @@
 
     iget-object v5, p0, Landroid/widget/Toast$TN;->mNextView:Landroid/view/View;
 
-    if-eq v4, v5, :cond_9
+    if-eq v4, v5, :cond_8
 
     invoke-virtual {p0}, Landroid/widget/Toast$TN;->handleHide()V
 
@@ -424,6 +424,21 @@
 
     move-result v2
 
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "animation_toast"
+
+    const/4 v6, 0x0
+
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    packed-switch v4, :pswitch_data_0
+
+    :goto_0
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iput v2, v4, Landroid/view/WindowManager$LayoutParams;->gravity:I
@@ -478,30 +493,17 @@
 
     iput-object v3, v4, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    iget-object v6, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
-
-    iget v4, p0, Landroid/widget/Toast$TN;->mDuration:I
-
-    const/4 v5, 0x1
-
-    if-ne v4, v5, :cond_a
-
-    const-wide/16 v4, 0x3e8
-
-    :goto_0
-    iput-wide v4, v6, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
-
     sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
 
     if-eqz v4, :cond_4
 
-    const-string/jumbo v4, "Toast"
+    const-string v4, "Toast"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "HANDLE SHOW packageName: "
+    const-string v6, "HANDLE SHOW packageName: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -518,25 +520,43 @@
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
+
+    invoke-virtual {v4}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_6
+
     sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
 
     if-eqz v4, :cond_5
 
-    const-string/jumbo v4, "Toast"
+    const-string v4, "Toast"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Toast Duration: "
+    const-string v6, "REMOVE! "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    iget v6, p0, Landroid/widget/Toast$TN;->mDuration:I
+    iget-object v6, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, " in "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -547,71 +567,24 @@
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    iget-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
-
-    invoke-virtual {v4}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_7
-
-    sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
-
-    if-eqz v4, :cond_6
-
-    const-string/jumbo v4, "Toast"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "REMOVE! "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " in "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_6
     iget-object v4, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManager;
 
     iget-object v5, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-interface {v4, v5}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
 
-    :cond_7
+    :cond_6
     sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_7
 
-    const-string/jumbo v4, "Toast"
+    const-string v4, "Toast"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "ADD! "
+    const-string v6, "ADD! "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -623,7 +596,7 @@
 
     move-result-object v5
 
-    const-string/jumbo v6, " in "
+    const-string v6, " in "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -639,7 +612,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_8
+    :cond_7
     iget-object v4, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManager;
 
     iget-object v5, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
@@ -650,13 +623,172 @@
 
     invoke-direct {p0}, Landroid/widget/Toast$TN;->trySendAccessibilityEvent()V
 
-    :cond_9
+    :cond_8
     return-void
 
-    :cond_a
-    const-wide/16 v4, 0x1388
+    :pswitch_0
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const/4 v5, -0x1
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     goto/16 :goto_0
+
+    :pswitch_1
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030004  ## <public type="style" name="Animation.Toast"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_2
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x103051f  ### <public type="style" name="Animation.Toast.Fade"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_3
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030523  ## <public type="style" name="Animation.Toast.SlideLeftRight"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_4
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030522   ###  <public type="style" name="Animation.Toast.SlideRightLeft"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_5
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030520  ### <public type="style" name="Animation.Toast.SlideRight"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_6
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030521   ###  <public type="style" name="Animation.Toast.SlideLeft"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_7
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030524   ### <public type="style" name="Animation.Toast.Xylon"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_8
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030525  ### <public type="style" name="Animation.Toast.Toko"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_9
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030526  ### <public type="style" name="Animation.Toast.Tn"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_a
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030527  ### <public type="style" name="Animation.Toast.Honami"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_b
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030528  ### <public type="style" name="Animation.Toast.FastFade"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_c
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x1030529  ###  <public type="style" name="Animation.Toast.GrowFade"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_d
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x103052a  ### <public type="style" name="Animation.Toast.GrowFadeCenter"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_e
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x103052b  ### <public type="style" name="Animation.Toast.GrowFadeBottom"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_f
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x103052c  #### <public type="style" name="Animation.Toast.Translucent"
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
+    .end packed-switch
 .end method
 
 .method public hide()V

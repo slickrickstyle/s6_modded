@@ -369,13 +369,23 @@
 .end method
 
 .method private changeHourFormat()V
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
+
+    const-string v1, "stock_clock_toggle"
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     invoke-interface {v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;->changeHourFormat()V
 
@@ -394,7 +404,7 @@
 .end method
 
 .method private considerChangeClockView(Z)V
-    .locals 7
+    .locals 9
 
     const/4 v6, 0x0
 
@@ -558,6 +568,16 @@
 
     iget-object v5, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
 
+    const-string v7, "stock_clock_toggle"
+
+    const/4 v8, 0x0
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v7
+
+    if-eqz v7, :cond_6
+
     invoke-interface {v5}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;->getClockCacheKey()Ljava/lang/String;
 
     move-result-object v5
@@ -594,6 +614,7 @@
 
     if-nez v3, :cond_0
 
+    :cond_6
     iput-object v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mType:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
 
     iput-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockKey:Ljava/lang/String;
@@ -1013,7 +1034,7 @@
 
 # virtual methods
 .method protected attachContentsView(Landroid/animation/Animator$AnimatorListener;)V
-    .locals 2
+    .locals 4
 
     const/4 v1, 0x4
 
@@ -1051,7 +1072,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     :cond_1
     :goto_1
@@ -1062,20 +1083,42 @@
     :cond_2
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
 
+    const-string v2, "stock_clock_toggle"
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
     invoke-interface {v0, v1}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;->setClockVisibility(I)V
 
+    :cond_3
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
+
+    const-string v2, "stock_clock_toggle"
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_5
 
     invoke-interface {v0, v1}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;->setDateVisibility(I)V
 
+    :cond_5
     goto :goto_1
 .end method
 
 .method protected getContentsView(I)Landroid/view/View;
-    .locals 3
+    .locals 5
 
     const/4 v2, 0x0
 
@@ -1150,13 +1193,24 @@
 
     sget v1, Lcom/android/keyguard/R$layout;->keyguard_single_clock_view:I
 
+    const-string v3, "stock_clock_toggle"
+
+    const/4 v4, 0x0
+
+    invoke-static {v3, v4}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    sget v1, Lcom/android/keyguard/R$layout;->keyguard_single_clock_view_stock:I
+
+    :cond_0
     invoke-static {v0, v1, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
     return-object v0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1185,7 +1239,7 @@
 .end method
 
 .method protected initViews(Landroid/view/View;)V
-    .locals 2
+    .locals 4
 
     check-cast p1, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
 
@@ -1194,6 +1248,16 @@
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockKey:Ljava/lang/String;
+
+    const-string v2, "stock_clock_toggle"
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     invoke-interface {v0, v1}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;->setClockCacheKey(Ljava/lang/String;)V
 
@@ -1350,7 +1414,7 @@
 .end method
 
 .method public refreshTime()V
-    .locals 4
+    .locals 6
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
 
@@ -1369,6 +1433,16 @@
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
+
+    const-string v4, "stock_clock_toggle"
+
+    const/4 v5, 0x0
+
+    invoke-static {v4, v5}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-eqz v4, :cond_0
 
     invoke-interface {v2}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;->getClockCacheKey()Ljava/lang/String;
 
@@ -1397,6 +1471,16 @@
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    const-string v4, "stock_clock_toggle"
+
+    const/4 v5, 0x0
+
+    invoke-static {v4, v5}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$KeyguardTimePatterns;->-wrap0(Landroid/content/Context;)V
@@ -1428,13 +1512,23 @@
 .end method
 
 .method public setCoverState(Z)V
-    .locals 1
+    .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
+
+    const-string v2, "stock_clock_toggle"
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     invoke-interface {v0, p1}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;->setCoverState(Z)V
 
@@ -1453,13 +1547,23 @@
 .end method
 
 .method public updateChildViewsLook()V
-    .locals 1
+    .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockView:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;
+
+    const-string v2, "stock_clock_toggle"
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockBase;->updateChildViewsLook()V
 

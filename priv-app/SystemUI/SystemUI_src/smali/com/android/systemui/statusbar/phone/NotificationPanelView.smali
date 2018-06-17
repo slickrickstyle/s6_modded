@@ -47,8 +47,6 @@
 
 .field private mBlockTouches:Z
 
-.field private mBlurImageView:Landroid/view/View;
-
 .field private mBottomAreaSwitcher:Landroid/view/ViewStub;
 
 .field private mCaptureView:Lcom/android/systemui/keyguard/ViewCaptureUtil;
@@ -5317,106 +5315,67 @@
 .end method
 
 .method public canCameraGestureBeLaunched(Z)Z
-    .locals 6
-
-    const/4 v3, 0x1
+    .locals 4
 
     const/4 v2, 0x0
 
     const/4 v0, 0x0
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->isCameraAllowedByAdmin()Z
+    if-eqz v3, :cond_2
 
-    move-result v4
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
 
-    if-nez v4, :cond_0
-
-    const/4 v4, 0x3
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    const-string/jumbo v5, "63787722"
-
-    aput-object v5, v4, v2
-
-    const/4 v5, -0x1
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    aput-object v5, v4, v3
-
-    const-string/jumbo v3, ""
-
-    const/4 v5, 0x2
-
-    aput-object v3, v4, v5
-
-    const v3, 0x534e4554
-
-    invoke-static {v3, v4}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    return v2
-
-    :cond_0
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
-
-    if-eqz v4, :cond_3
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
-
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->resolveCameraIntent()Landroid/content/pm/ResolveInfo;
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->resolveCameraIntent()Landroid/content/pm/ResolveInfo;
 
     move-result-object v1
 
     :goto_0
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    iget-object v4, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v3, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    if-nez v4, :cond_4
+    if-nez v3, :cond_3
 
-    :cond_1
+    :cond_0
     :goto_1
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_4
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isForegroundApp(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_5
+    if-eqz v3, :cond_4
 
-    :cond_2
+    :cond_1
     :goto_2
     return v2
 
-    :cond_3
+    :cond_2
     move-object v1, v0
 
     goto :goto_0
 
-    :cond_4
-    iget-object v4, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    :cond_3
+    iget-object v3, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v4, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v3, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     goto :goto_1
 
-    :cond_5
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mAfforanceHelper:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;
+    :cond_4
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mAfforanceHelper:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->isSwipingInProgress()Z
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->isSwipingInProgress()Z
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_2
+    if-nez v3, :cond_1
 
-    move v2, v3
+    const/4 v2, 0x1
 
     goto :goto_2
 .end method
@@ -8060,14 +8019,6 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->resetKeyguardBottomAreaHelpers()V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->getInstance(Landroid/content/Context;)Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->updateLayout()V
-
     :cond_1
     return-void
 .end method
@@ -8565,8 +8516,6 @@
     :cond_2
     :goto_0
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->updateCarrierLabel(F)V
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->updateBlurImageView(F)V
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->updateStackHeight(F)V
 
@@ -10640,14 +10589,6 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mCarrierLabel:Landroid/view/View;
 
-    const v0, 0x7f13047e
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mBlurImageView:Landroid/view/View;
-
     return-void
 .end method
 
@@ -10913,7 +10854,7 @@
 
     move-result-object v2
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_6
 
     if-eqz p1, :cond_1
 
@@ -10939,7 +10880,7 @@
 
     invoke-direct {v0}, Landroid/animation/AnimatorSet;-><init>()V
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
     sget-object v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->ALPHA_IN:Landroid/view/animation/Interpolator;
 
@@ -10968,7 +10909,7 @@
 
     aput v3, v8, v4
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3
 
     move v3, v5
 
@@ -10997,7 +10938,7 @@
 
     aput v3, v8, v4
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_4
 
     move v3, v5
 
@@ -11013,14 +10954,6 @@
     aput-object v3, v6, v4
 
     invoke-virtual {v0, v6}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/KeyguardRune;->isDcmLauncher(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
 
     new-array v6, v5, [Landroid/animation/Animator;
 
@@ -11038,7 +10971,7 @@
 
     aput v3, v9, v4
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_5
 
     move v3, v5
 
@@ -11055,47 +10988,46 @@
 
     invoke-virtual {v0, v6}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    :cond_2
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
 
     :goto_4
     return-void
 
-    :cond_3
+    :cond_2
     sget-object v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->ALPHA_OUT:Landroid/view/animation/Interpolator;
 
     goto :goto_0
 
-    :cond_4
+    :cond_3
     move v3, v4
 
     goto :goto_1
 
-    :cond_5
+    :cond_4
     move v3, v4
 
     goto :goto_2
 
-    :cond_6
+    :cond_5
     move v3, v4
 
     goto :goto_3
 
-    :cond_7
+    :cond_6
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
 
     invoke-virtual {v5, p1}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->setBottomShortcutVisibility(Z)V
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardStatusView:Landroid/view/View;
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_7
 
     :goto_5
     invoke-virtual {v5, v4}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_4
 
-    :cond_8
+    :cond_7
     move v4, v3
 
     goto :goto_5
@@ -11530,145 +11462,6 @@
     invoke-super {p0}, Lcom/android/systemui/statusbar/phone/PanelView;->startUnlockHintAnimation()V
 
     return-void
-.end method
-
-.method public updateBlurImageView(F)V
-    .locals 8
-
-    const/high16 v4, 0x3f800000    # 1.0f
-
-    const-wide/high16 v6, 0x3ff0000000000000L    # 1.0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mBlurImageView:Landroid/view/View;
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->getMaxPanelHeight()I
-
-    move-result v2
-
-    int-to-float v2, v2
-
-    div-float v2, p1, v2
-
-    invoke-static {v4, v2}, Ljava/lang/Math;->min(FF)F
-
-    move-result v1
-
-    const v2, 0x3f99999a    # 1.2f
-
-    mul-float/2addr v2, v1
-
-    const v3, 0x3e4ccccd    # 0.2f
-
-    sub-float v1, v2, v3
-
-    const/4 v2, 0x0
-
-    cmpg-float v2, v1, v2
-
-    if-gtz v2, :cond_1
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mBlurImageView:Landroid/view/View;
-
-    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setAlpha(F)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->updateBlurImageViewVisibility()V
-
-    :cond_0
-    return-void
-
-    :cond_1
-    sub-float v2, v4, v1
-
-    float-to-double v2, v2
-
-    const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
-
-    invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v2
-
-    const-wide v4, 0x400921fa00000000L    # 3.141590118408203
-
-    mul-double/2addr v2, v4
-
-    invoke-static {v2, v3}, Ljava/lang/Math;->cos(D)D
-
-    move-result-wide v2
-
-    sub-double v2, v6, v2
-
-    const-wide/high16 v4, 0x3fe0000000000000L    # 0.5
-
-    mul-double/2addr v2, v4
-
-    sub-double v2, v6, v2
-
-    double-to-float v0, v2
-
-    goto :goto_0
-.end method
-
-.method public updateBlurImageViewVisibility()V
-    .locals 3
-
-    const-string v0, "blur_on"
-
-    const v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mBlurImageView:Landroid/view/View;
-
-    if-eqz v1, :cond_1
-
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBarState:I
-
-    const/4 v2, 0x1
-
-    if-eq v1, v2, :cond_0
-
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBarState:I
-
-    const/4 v2, 0x5
-
-    if-eq v1, v2, :cond_0
-
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBarState:I
-
-    const/16 v2, 0xa
-
-    if-eq v1, v2, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mBlurImageView:Landroid/view/View;
-
-    if-eqz v0, :cond_2
-
-    const/4 v1, 0x0
-
-    :goto_0
-    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :cond_1
-    return-void
-
-    :cond_2
-    const/16 v1, 0x8
-
-    goto :goto_0
 .end method
 
 .method public updateCMASText(Z)V

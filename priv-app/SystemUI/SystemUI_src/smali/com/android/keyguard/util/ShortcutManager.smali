@@ -453,20 +453,6 @@
     move-result-object v0
 
     :goto_0
-    iget-object v2, p0, Lcom/android/keyguard/util/ShortcutManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v2
-
-    iget v2, v2, Landroid/util/DisplayMetrics;->densityDpi:I
-
-    invoke-virtual {v0, v2}, Landroid/graphics/Bitmap;->setDensity(I)V
-
     new-instance v2, Landroid/graphics/drawable/BitmapDrawable;
 
     iget-object v3, p0, Lcom/android/keyguard/util/ShortcutManager;->mContext:Landroid/content/Context;
@@ -1481,12 +1467,12 @@
     move-result v0
 
     iput v0, p0, Lcom/android/keyguard/util/ShortcutManager;->mIconSize:I
-
-    const/4 v0, 0x1
+    
+        const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/util/ShortcutManager;->updateShortcutsIcon(I)V
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/util/ShortcutManager;->updateShortcutsIcon(I)V
 

@@ -1016,6 +1016,9 @@ Para obtener más información, ponte en contacto con tu administrador."</string
     <string name="accessibility_quick_settings_edit">Cambiar el orden de los ajustes.</string>
     <string name="accessibility_quick_settings_page">Página %1$d de %2$d</string>
     <string name="keyguard_missing_sim_message">No se ha insertado ninguna tarjeta SIM en el teléfono.</string>
+    <string name="screenshot_failed_to_save_unknown_text">Se ha detectado un problema al guardar la captura de pantalla.</string>
+    <string name="screenshot_failed_to_save_text">No se puede guardar la captura de pantalla porque no hay espacio de almacenamiento suficiente.</string>
+    <string name="screenshot_failed_to_capture_text">La aplicación o tu organización no permiten que se realicen capturas de pantalla.</string>
     <string name="car_lockscreen_disclaimer_title">Conduce de forma segura</string>
     <string name="car_lockscreen_disclaimer_text">Permanece atento a la conducción y respeta siempre las normas de tráfico. Las indicaciones pueden ser inexactas, incompletas, peligrosas o inadecuadas o dar lugar a maniobras prohibidas o al cruce de zonas regionales diferentes. La información sobre empresas también puede ser inexacta o estar incompleta. No se ofrecen datos en tiempo real ni se puede garantizar la exactitud de las ubicaciones. No utilices el dispositivo móvil ni aplicaciones que no estén destinadas a Android Auto mientras conduces.</string>
     <string name="pip_close">Cerrar PIP</string>
@@ -1120,7 +1123,4 @@ Inténtalo de nuevo en %2$d segundos."</string>
     <string name="kg_prompt_reason_device_admin">Un administrador ha bloqueado el dispositivo</string>
     <string name="kg_prompt_reason_user_request">El dispositivo se ha bloqueado manualmente</string>
     <string name="fingerprint_not_recognized">No reconocido</string>
-    <string name="screenshot_failed_to_save_unknown_text">Se ha detectado un problema al guardar la captura de pantalla.</string>
-    <string name="screenshot_failed_to_save_text">No se puede guardar la captura de pantalla porque no hay espacio de almacenamiento suficiente.</string>
-    <string name="screenshot_failed_to_capture_text">La aplicación o tu organización no permiten que se realicen capturas de pantalla.</string>
 </resources>
